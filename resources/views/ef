@@ -1,0 +1,925 @@
+array:2 [ // app/Http/Controllers/FrontendController.php:22
+  "success" => true
+  "data" => array:46 [
+    0 => array:14 [
+      "id" => "e9a2827f-f84d-4142-a292-455a535172ae"
+      "bank_id" => "f8f3a6dd-e55a-41e7-9779-cfd9afd35136"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.2
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T13:00:09.426238+00:00"
+      "updated_at" => "2026-06-10T14:19:54.835+00:00"
+      "banks" => array:3 [
+        "id" => "f8f3a6dd-e55a-41e7-9779-cfd9afd35136"
+        "name" => "Intesa Sanpaolo"
+        "logo_url" => "https://i.ibb.co/Kjkx5PpF/img.jpg"
+      ]
+    ]
+    1 => array:14 [
+      "id" => "47314aca-1b51-42d5-95c9-66381b754793"
+      "bank_id" => "b147caff-0863-4714-98e9-4d75baec49cb"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.3
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:58:31.810452+00:00"
+      "updated_at" => "2026-06-10T14:20:34.893+00:00"
+      "banks" => array:3 [
+        "id" => "b147caff-0863-4714-98e9-4d75baec49cb"
+        "name" => "Klarna Bank"
+        "logo_url" => "https://i.ibb.co/mV0tKVX9/klarna.png"
+      ]
+    ]
+    2 => array:14 [
+      "id" => "ded78125-ef16-4153-b28b-7023c6872187"
+      "bank_id" => "a1d9d745-eb35-4749-bece-22ad31782be4"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.3
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-19T14:21:23.560334+00:00"
+      "updated_at" => "2026-06-10T14:17:23.606+00:00"
+      "banks" => array:3 [
+        "id" => "a1d9d745-eb35-4749-bece-22ad31782be4"
+        "name" => "Opel Direktbank"
+        "logo_url" => "https://i.ibb.co/nqRrRLSh/indir-1.png"
+      ]
+    ]
+    3 => array:14 [
+      "id" => "54e9cc32-579c-45ec-83da-fa25cd8590c5"
+      "bank_id" => "a9e4d6f8-e94a-42d2-892a-b4458835c499"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.3
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T13:00:38.068+00:00"
+      "updated_at" => "2026-06-10T14:19:46.346+00:00"
+      "banks" => array:3 [
+        "id" => "a9e4d6f8-e94a-42d2-892a-b4458835c499"
+        "name" => "Deutsche Bank"
+        "logo_url" => "https://i.ibb.co/hF0MxZJy/db.png"
+      ]
+    ]
+    4 => array:14 [
+      "id" => "d79ce0e9-a778-443d-bce9-f566a85f2e65"
+      "bank_id" => "1a1dd150-d8e9-42d9-b70a-da3015d97c42"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.35
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:54:49.754089+00:00"
+      "updated_at" => "2026-06-10T14:21:17.058+00:00"
+      "banks" => array:3 [
+        "id" => "1a1dd150-d8e9-42d9-b70a-da3015d97c42"
+        "name" => "Postbank AG"
+        "logo_url" => "https://i.ibb.co/gZzY3M63/POSTBANK.png"
+      ]
+    ]
+    5 => array:14 [
+      "id" => "1a6577ea-6984-457b-a7fd-20af69107281"
+      "bank_id" => "7a9a6986-4b13-481d-879c-285a371e40b0"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.35
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:57:12.198479+00:00"
+      "updated_at" => "2026-06-10T14:20:46.259+00:00"
+      "banks" => array:3 [
+        "id" => "7a9a6986-4b13-481d-879c-285a371e40b0"
+        "name" => "Targo Bank"
+        "logo_url" => "https://i.ibb.co/pvMd4VLw/img-logo-targobank.jpg"
+      ]
+    ]
+    6 => array:14 [
+      "id" => "958ecada-2364-4569-8075-0dd06cdaff0f"
+      "bank_id" => "2ab9a813-a4e6-4391-96f1-8f967d598c2d"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.4
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:56:45.964275+00:00"
+      "updated_at" => "2026-06-10T14:20:57.168+00:00"
+      "banks" => array:3 [
+        "id" => "2ab9a813-a4e6-4391-96f1-8f967d598c2d"
+        "name" => "Raiffeisen Schweiz"
+        "logo_url" => "https://i.ibb.co/VYmzWqSV/raiffeisen.png"
+      ]
+    ]
+    7 => array:14 [
+      "id" => "067213bf-ce52-4b2a-a180-fc78e2ae79e6"
+      "bank_id" => "7d51caf4-3809-42c5-98ae-a79ab1ac4457"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.5
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-19T14:21:00.997941+00:00"
+      "updated_at" => "2026-06-10T14:17:34.136+00:00"
+      "banks" => array:3 [
+        "id" => "7d51caf4-3809-42c5-98ae-a79ab1ac4457"
+        "name" => "Volksbanken Raiffeisenbanken"
+        "logo_url" => "https://i.ibb.co/vC4Vcpcy/images.png"
+      ]
+    ]
+    8 => array:14 [
+      "id" => "5e7a4c33-6bf8-4af9-82dc-54ab54416497"
+      "bank_id" => "f4ee0882-742a-49e3-af45-b0dc40f96451"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.5
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T13:01:02.524685+00:00"
+      "updated_at" => "2026-06-10T14:19:35.32+00:00"
+      "banks" => array:3 [
+        "id" => "f4ee0882-742a-49e3-af45-b0dc40f96451"
+        "name" => "Crédit Agricole Bank"
+        "logo_url" => "https://i.ibb.co/xKzNnwQ9/images.png"
+      ]
+    ]
+    9 => array:14 [
+      "id" => "09546837-b50e-47ce-ad27-f9a148529247"
+      "bank_id" => "054b0b7e-4e2a-4f8b-ae21-21f61cc825e8"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.5
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:56:03.976998+00:00"
+      "updated_at" => "2026-06-10T14:21:09.342+00:00"
+      "banks" => array:3 [
+        "id" => "054b0b7e-4e2a-4f8b-ae21-21f61cc825e8"
+        "name" => "Banca Monte dei Paschi di Siena"
+        "logo_url" => "https://i.ibb.co/b5NBnX20/logo-mps-2010-0.jpg"
+      ]
+    ]
+    10 => array:14 [
+      "id" => "79397126-b60d-4ca6-8853-6231b8659f10"
+      "bank_id" => "2fb5b596-ee74-4dd9-ab02-253f537b080e"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.6
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T11:45:10.988996+00:00"
+      "updated_at" => "2026-06-10T14:22:01.488+00:00"
+      "banks" => array:3 [
+        "id" => "2fb5b596-ee74-4dd9-ab02-253f537b080e"
+        "name" => "UBS"
+        "logo_url" => "https://i.ibb.co/h14GsCd9/UBS-logo.jpg"
+      ]
+    ]
+    11 => array:14 [
+      "id" => "5f1c23f9-b9d5-4058-91d9-1eb55877a211"
+      "bank_id" => "851b6ddd-0fb0-4bf1-a3c3-4769b74904f0"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.6
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:53:09.347634+00:00"
+      "updated_at" => "2026-06-10T14:21:40.836+00:00"
+      "banks" => array:3 [
+        "id" => "851b6ddd-0fb0-4bf1-a3c3-4769b74904f0"
+        "name" => "Commerzbank A.G."
+        "logo_url" => "https://i.ibb.co/ZzBWfr8g/Commerzbank-2009-svg.png"
+      ]
+    ]
+    12 => array:14 [
+      "id" => "074d7c3d-67cd-4a4f-bd7b-471876a1f4d3"
+      "bank_id" => "a9e4d6f8-e94a-42d2-892a-b4458835c499"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 2.7
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:19:38.003633+00:00"
+      "updated_at" => "2026-06-10T14:25:40.685+00:00"
+      "banks" => array:3 [
+        "id" => "a9e4d6f8-e94a-42d2-892a-b4458835c499"
+        "name" => "Deutsche Bank"
+        "logo_url" => "https://i.ibb.co/hF0MxZJy/db.png"
+      ]
+    ]
+    13 => array:14 [
+      "id" => "84866404-2731-4b01-821e-8353fbe828e9"
+      "bank_id" => "119cc0d0-683e-4b47-937e-2ac22bdab9e1"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.7
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:59:38.152843+00:00"
+      "updated_at" => "2026-06-10T14:20:04.373+00:00"
+      "banks" => array:3 [
+        "id" => "119cc0d0-683e-4b47-937e-2ac22bdab9e1"
+        "name" => "Banque Populaire"
+        "logo_url" => "https://i.ibb.co/WpdwBFv8/banque-populaire.png"
+      ]
+    ]
+    14 => array:14 [
+      "id" => "89291db4-ab11-4a09-9225-68df78844849"
+      "bank_id" => "a81823bf-319b-4825-9517-17fa5a384815"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.7
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:59:09.682054+00:00"
+      "updated_at" => "2026-06-10T14:20:13.068+00:00"
+      "banks" => array:3 [
+        "id" => "a81823bf-319b-4825-9517-17fa5a384815"
+        "name" => "Santander Consumer Bank"
+        "logo_url" => "https://i.ibb.co/q8jxN7r/unnamed.png"
+      ]
+    ]
+    15 => array:14 [
+      "id" => "a6bca84f-3a69-4dae-9bf5-383fe86ff639"
+      "bank_id" => "2ab9a813-a4e6-4391-96f1-8f967d598c2d"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 2.75
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:13:47.039795+00:00"
+      "updated_at" => "2026-06-10T14:25:07.11+00:00"
+      "banks" => array:3 [
+        "id" => "2ab9a813-a4e6-4391-96f1-8f967d598c2d"
+        "name" => "Raiffeisen Schweiz"
+        "logo_url" => "https://i.ibb.co/VYmzWqSV/raiffeisen.png"
+      ]
+    ]
+    16 => array:14 [
+      "id" => "680f2614-488a-4480-bb5d-401ebcaeca33"
+      "bank_id" => "dfaca3e4-a9e1-445f-a0c4-7563889c404e"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.85
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:52:23.098262+00:00"
+      "updated_at" => "2026-06-10T14:21:49.809+00:00"
+      "banks" => array:3 [
+        "id" => "dfaca3e4-a9e1-445f-a0c4-7563889c404e"
+        "name" => "UniCredit"
+        "logo_url" => "https://i.ibb.co/nsSSvQ4F/logo.jpg"
+      ]
+    ]
+    17 => array:14 [
+      "id" => "07cefb48-6ff7-4e7d-a9ae-2de503ed3844"
+      "bank_id" => "7a9a6986-4b13-481d-879c-285a371e40b0"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 2.9
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 36
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:12:57.819005+00:00"
+      "updated_at" => "2026-06-10T14:24:39.406+00:00"
+      "banks" => array:3 [
+        "id" => "7a9a6986-4b13-481d-879c-285a371e40b0"
+        "name" => "Targo Bank"
+        "logo_url" => "https://i.ibb.co/pvMd4VLw/img-logo-targobank.jpg"
+      ]
+    ]
+    18 => array:14 [
+      "id" => "bf3f3d7e-172e-41ae-b975-ab3b5f5ebfc1"
+      "bank_id" => "e3ae343c-3188-4076-a25f-1ba4cf406f79"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.9
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:54:01.496609+00:00"
+      "updated_at" => "2026-06-10T14:21:29.184+00:00"
+      "banks" => array:3 [
+        "id" => "e3ae343c-3188-4076-a25f-1ba4cf406f79"
+        "name" => "Crédit Mutuel"
+        "logo_url" => "https://i.ibb.co/7xhq7b6h/indir-1.png"
+      ]
+    ]
+    19 => array:14 [
+      "id" => "442094b2-3889-4c74-8a7e-46bb088872db"
+      "bank_id" => "7d51caf4-3809-42c5-98ae-a79ab1ac4457"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 2.95
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-19T10:39:05.474076+00:00"
+      "updated_at" => "2026-06-10T14:18:02.069+00:00"
+      "banks" => array:3 [
+        "id" => "7d51caf4-3809-42c5-98ae-a79ab1ac4457"
+        "name" => "Volksbanken Raiffeisenbanken"
+        "logo_url" => "https://i.ibb.co/vC4Vcpcy/images.png"
+      ]
+    ]
+    20 => array:14 [
+      "id" => "6bea2865-961c-4c75-9e3d-40215f47a8b1"
+      "bank_id" => "5e0964b0-173f-419f-80a2-a0420b2272e4"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 2.95
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T13:02:08.934434+00:00"
+      "updated_at" => "2026-06-10T14:19:21.693+00:00"
+      "banks" => array:3 [
+        "id" => "5e0964b0-173f-419f-80a2-a0420b2272e4"
+        "name" => "Myntro Bank Schweden"
+        "logo_url" => "https://i.ibb.co/RTb9ZmY9/mynstro.png"
+      ]
+    ]
+    21 => array:14 [
+      "id" => "4e7efc8d-6aec-40f3-80ac-6bfda82fcfc4"
+      "bank_id" => "b147caff-0863-4714-98e9-4d75baec49cb"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 2.97
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 36
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:12:45.165113+00:00"
+      "updated_at" => "2026-06-10T14:24:12.413+00:00"
+      "banks" => array:3 [
+        "id" => "b147caff-0863-4714-98e9-4d75baec49cb"
+        "name" => "Klarna Bank"
+        "logo_url" => "https://i.ibb.co/mV0tKVX9/klarna.png"
+      ]
+    ]
+    22 => array:14 [
+      "id" => "baee231c-d24e-4c68-9350-e1f2dd35bb60"
+      "bank_id" => "f8f3a6dd-e55a-41e7-9779-cfd9afd35136"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.1
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:12:11.733722+00:00"
+      "updated_at" => "2026-06-10T14:23:17.96+00:00"
+      "banks" => array:3 [
+        "id" => "f8f3a6dd-e55a-41e7-9779-cfd9afd35136"
+        "name" => "Intesa Sanpaolo"
+        "logo_url" => "https://i.ibb.co/Kjkx5PpF/img.jpg"
+      ]
+    ]
+    23 => array:14 [
+      "id" => "14d00b2a-0bbc-4263-aa85-355fd693864f"
+      "bank_id" => "054b0b7e-4e2a-4f8b-ae21-21f61cc825e8"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.1
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 36
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:12:35.483966+00:00"
+      "updated_at" => "2026-06-10T14:23:55.016+00:00"
+      "banks" => array:3 [
+        "id" => "054b0b7e-4e2a-4f8b-ae21-21f61cc825e8"
+        "name" => "Banca Monte dei Paschi di Siena"
+        "logo_url" => "https://i.ibb.co/b5NBnX20/logo-mps-2010-0.jpg"
+      ]
+    ]
+    24 => array:14 [
+      "id" => "530a9f95-b0d4-4b30-9f9b-d10c522b4ab9"
+      "bank_id" => "ca317c3d-acb9-49fe-bc60-2b61b89317a5"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 3.1
+      "min_amount" => 1
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 300
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-07-09T09:13:55.09788+00:00"
+      "updated_at" => "2026-07-09T09:13:55.09788+00:00"
+      "banks" => array:3 [
+        "id" => "ca317c3d-acb9-49fe-bc60-2b61b89317a5"
+        "name" => "tagesgeld-1"
+        "logo_url" => ""
+      ]
+    ]
+    25 => array:14 [
+      "id" => "89587548-6e81-47e7-95b8-fd0f1d4dcf45"
+      "bank_id" => "dfaca3e4-a9e1-445f-a0c4-7563889c404e"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.15
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-11T09:14:58.253114+00:00"
+      "updated_at" => "2026-06-10T14:19:10.335+00:00"
+      "banks" => array:3 [
+        "id" => "dfaca3e4-a9e1-445f-a0c4-7563889c404e"
+        "name" => "UniCredit"
+        "logo_url" => "https://i.ibb.co/nsSSvQ4F/logo.jpg"
+      ]
+    ]
+    26 => array:14 [
+      "id" => "a5b5b045-589d-47e1-82ea-4a7bc93fdcbd"
+      "bank_id" => "2fb5b596-ee74-4dd9-ab02-253f537b080e"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.17
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-22T21:32:14.605214+00:00"
+      "updated_at" => "2026-06-10T14:22:21.811+00:00"
+      "banks" => array:3 [
+        "id" => "2fb5b596-ee74-4dd9-ab02-253f537b080e"
+        "name" => "UBS"
+        "logo_url" => "https://i.ibb.co/h14GsCd9/UBS-logo.jpg"
+      ]
+    ]
+    27 => array:14 [
+      "id" => "24a25d66-aa49-4717-bd44-3a327e351c3d"
+      "bank_id" => "ff4884f2-ab33-4608-a713-6d5b48556082"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.2
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-19T10:26:29.59224+00:00"
+      "updated_at" => "2026-06-10T14:18:49.513+00:00"
+      "banks" => array:3 [
+        "id" => "ff4884f2-ab33-4608-a713-6d5b48556082"
+        "name" => "J&T Direktbank"
+        "logo_url" => "https://i.ibb.co/39938Pvb/indir.png"
+      ]
+    ]
+    28 => array:14 [
+      "id" => "8fa6057c-980c-4652-a4a2-ec5bd07efce5"
+      "bank_id" => "a1d9d745-eb35-4749-bece-22ad31782be4"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.22
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-19T10:29:51.646275+00:00"
+      "updated_at" => "2026-06-10T14:18:34.52+00:00"
+      "banks" => array:3 [
+        "id" => "a1d9d745-eb35-4749-bece-22ad31782be4"
+        "name" => "Opel Direktbank"
+        "logo_url" => "https://i.ibb.co/nqRrRLSh/indir-1.png"
+      ]
+    ]
+    29 => array:14 [
+      "id" => "b32af6cf-3ec4-416c-bc70-694815b38074"
+      "bank_id" => "0f3ae7fa-f8d9-4a9c-892a-665a8dca7584"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 3.23
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-19T14:21:55.737325+00:00"
+      "updated_at" => "2026-06-10T14:17:46.426+00:00"
+      "banks" => array:3 [
+        "id" => "0f3ae7fa-f8d9-4a9c-892a-665a8dca7584"
+        "name" => "Société Générale"
+        "logo_url" => "https://i.ibb.co/1tgDPCBG/images.png"
+      ]
+    ]
+    30 => array:14 [
+      "id" => "3937fcaf-fdaf-484d-8421-42d4e125f813"
+      "bank_id" => "e3ae343c-3188-4076-a25f-1ba4cf406f79"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.25
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-25T10:50:22.581704+00:00"
+      "updated_at" => "2026-06-10T14:25:24.278+00:00"
+      "banks" => array:3 [
+        "id" => "e3ae343c-3188-4076-a25f-1ba4cf406f79"
+        "name" => "Crédit Mutuel"
+        "logo_url" => "https://i.ibb.co/7xhq7b6h/indir-1.png"
+      ]
+    ]
+    31 => array:14 [
+      "id" => "45bbfacc-de87-4528-8fbb-1d960c6ddc6a"
+      "bank_id" => "1a1dd150-d8e9-42d9-b70a-da3015d97c42"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.25
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:11:46.682775+00:00"
+      "updated_at" => "2026-06-10T14:22:52.407+00:00"
+      "banks" => array:3 [
+        "id" => "1a1dd150-d8e9-42d9-b70a-da3015d97c42"
+        "name" => "Postbank AG"
+        "logo_url" => "https://i.ibb.co/gZzY3M63/POSTBANK.png"
+      ]
+    ]
+    32 => array:14 [
+      "id" => "69ebb667-ec3f-4dac-94d3-a130b063a758"
+      "bank_id" => "5e0964b0-173f-419f-80a2-a0420b2272e4"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.3
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-15T14:10:29.120291+00:00"
+      "updated_at" => "2026-06-10T14:22:12.227+00:00"
+      "banks" => array:3 [
+        "id" => "5e0964b0-173f-419f-80a2-a0420b2272e4"
+        "name" => "Myntro Bank Schweden"
+        "logo_url" => "https://i.ibb.co/RTb9ZmY9/mynstro.png"
+      ]
+    ]
+    33 => array:14 [
+      "id" => "806155d3-b533-4aea-8ab6-89890194ec77"
+      "bank_id" => "a81823bf-319b-4825-9517-17fa5a384815"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.3
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:13:27.117138+00:00"
+      "updated_at" => "2026-06-10T14:24:49.648+00:00"
+      "banks" => array:3 [
+        "id" => "a81823bf-319b-4825-9517-17fa5a384815"
+        "name" => "Santander Consumer Bank"
+        "logo_url" => "https://i.ibb.co/q8jxN7r/unnamed.png"
+      ]
+    ]
+    34 => array:14 [
+      "id" => "764af528-6ccb-4249-a8e3-f5fad81fa617"
+      "bank_id" => "0f3ae7fa-f8d9-4a9c-892a-665a8dca7584"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.35
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 180
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-05-18T14:56:28.543775+00:00"
+      "updated_at" => "2026-06-10T14:19:01.079+00:00"
+      "banks" => array:3 [
+        "id" => "0f3ae7fa-f8d9-4a9c-892a-665a8dca7584"
+        "name" => "Société Générale"
+        "logo_url" => "https://i.ibb.co/1tgDPCBG/images.png"
+      ]
+    ]
+    35 => array:14 [
+      "id" => "5acbec9a-8c0b-4697-97bc-a9b94044b11d"
+      "bank_id" => "851b6ddd-0fb0-4bf1-a3c3-4769b74904f0"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.35
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:11:21.994356+00:00"
+      "updated_at" => "2026-06-10T14:22:30.533+00:00"
+      "banks" => array:3 [
+        "id" => "851b6ddd-0fb0-4bf1-a3c3-4769b74904f0"
+        "name" => "Commerzbank A.G."
+        "logo_url" => "https://i.ibb.co/ZzBWfr8g/Commerzbank-2009-svg.png"
+      ]
+    ]
+    36 => array:14 [
+      "id" => "99b64035-5696-449e-914b-97e2ebbd95f0"
+      "bank_id" => "fa73c533-f590-4389-9111-d2d3bba1fdb3"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.37
+      "min_amount" => 10000
+      "max_amount" => 100000000
+      "min_term" => 1
+      "max_term" => 360
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-06-22T09:11:34.914872+00:00"
+      "updated_at" => "2026-06-22T09:11:34.914872+00:00"
+      "banks" => array:3 [
+        "id" => "fa73c533-f590-4389-9111-d2d3bba1fdb3"
+        "name" => "Caisse d'Epargne"
+        "logo_url" => "https://i.ibb.co/BWM65G4/sad.png"
+      ]
+    ]
+    37 => array:14 [
+      "id" => "fa6e5498-a7bf-4e04-b426-412bfd5bfbfb"
+      "bank_id" => "f39aaff7-f900-403b-977c-709c7cd479d9"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 3.4
+      "min_amount" => 1
+      "max_amount" => 100000000
+      "min_term" => 1
+      "max_term" => 300
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-07-09T09:14:21.411897+00:00"
+      "updated_at" => "2026-07-09T09:14:21.411897+00:00"
+      "banks" => array:3 [
+        "id" => "f39aaff7-f900-403b-977c-709c7cd479d9"
+        "name" => "tagesgeld-2"
+        "logo_url" => ""
+      ]
+    ]
+    38 => array:14 [
+      "id" => "b07a935b-3ade-4e4a-8525-3355a203c110"
+      "bank_id" => "119cc0d0-683e-4b47-937e-2ac22bdab9e1"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.43
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:11:57.887214+00:00"
+      "updated_at" => "2026-06-10T14:23:05.368+00:00"
+      "banks" => array:3 [
+        "id" => "119cc0d0-683e-4b47-937e-2ac22bdab9e1"
+        "name" => "Banque Populaire"
+        "logo_url" => "https://i.ibb.co/WpdwBFv8/banque-populaire.png"
+      ]
+    ]
+    39 => array:14 [
+      "id" => "03ddf124-6db0-49e7-bf37-f3071e086c80"
+      "bank_id" => "def7a099-9a37-4767-aa7a-6885c9de8281"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 3.45
+      "min_amount" => 10000
+      "max_amount" => 1000000
+      "min_term" => 1
+      "max_term" => 60
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-04-16T12:58:09.315096+00:00"
+      "updated_at" => "2026-06-10T14:20:26.011+00:00"
+      "banks" => array:3 [
+        "id" => "def7a099-9a37-4767-aa7a-6885c9de8281"
+        "name" => "BNP PARIBAS S.A."
+        "logo_url" => "https://i.ibb.co/PvWQNvGP/BNP-Paribas-logo-logotype-emblem.png"
+      ]
+    ]
+    40 => array:14 [
+      "id" => "e0aa7987-4740-44e4-951c-c3e28e11c8fc"
+      "bank_id" => "f4ee0882-742a-49e3-af45-b0dc40f96451"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.63
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:12:22.786395+00:00"
+      "updated_at" => "2026-06-10T14:23:32.117+00:00"
+      "banks" => array:3 [
+        "id" => "f4ee0882-742a-49e3-af45-b0dc40f96451"
+        "name" => "Crédit Agricole Bank"
+        "logo_url" => "https://i.ibb.co/xKzNnwQ9/images.png"
+      ]
+    ]
+    41 => array:14 [
+      "id" => "c4416a8e-804d-4159-8193-3214a72d95f0"
+      "bank_id" => "d1f0ea7e-3d06-4c6e-b142-f8afac9e86f4"
+      "credit_type" => "Tagesgeld"
+      "interest_rate" => 3.65
+      "min_amount" => 1
+      "max_amount" => 100000000
+      "min_term" => 1
+      "max_term" => 300
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-07-09T09:14:53.265662+00:00"
+      "updated_at" => "2026-07-09T09:14:53.265662+00:00"
+      "banks" => array:3 [
+        "id" => "d1f0ea7e-3d06-4c6e-b142-f8afac9e86f4"
+        "name" => "tagesgeld-3"
+        "logo_url" => ""
+      ]
+    ]
+    42 => array:14 [
+      "id" => "0fd7bcdc-6ceb-41c2-ad80-54f6de4f08a4"
+      "bank_id" => "def7a099-9a37-4767-aa7a-6885c9de8281"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.75
+      "min_amount" => 10000
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 90
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2025-10-24T22:11:32.588473+00:00"
+      "updated_at" => "2026-06-10T14:22:39.671+00:00"
+      "banks" => array:3 [
+        "id" => "def7a099-9a37-4767-aa7a-6885c9de8281"
+        "name" => "BNP PARIBAS S.A."
+        "logo_url" => "https://i.ibb.co/PvWQNvGP/BNP-Paribas-logo-logotype-emblem.png"
+      ]
+    ]
+    43 => array:14 [
+      "id" => "25f97d6d-9d74-4544-870e-e6ddb05b4414"
+      "bank_id" => "942a8d81-2c3c-46d5-adda-ec6123493d73"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 3.95
+      "min_amount" => 1
+      "max_amount" => 1000000
+      "min_term" => 6
+      "max_term" => 300
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-07-01T18:46:51.777678+00:00"
+      "updated_at" => "2026-07-05T11:48:56.489+00:00"
+      "banks" => array:3 [
+        "id" => "942a8d81-2c3c-46d5-adda-ec6123493d73"
+        "name" => "festgeld-tier-1"
+        "logo_url" => null
+      ]
+    ]
+    44 => array:14 [
+      "id" => "d274de96-0908-453b-b9a6-1596ad5c0c29"
+      "bank_id" => "f524fb75-df51-4f11-ad8e-716c940df59a"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 4.15
+      "min_amount" => 1
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 300
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-07-01T18:49:14.587178+00:00"
+      "updated_at" => "2026-07-05T11:48:36.673+00:00"
+      "banks" => array:3 [
+        "id" => "f524fb75-df51-4f11-ad8e-716c940df59a"
+        "name" => "festgeld-tier-2"
+        "logo_url" => null
+      ]
+    ]
+    45 => array:14 [
+      "id" => "c6e6cb7f-9104-4d0f-af98-601daef07d22"
+      "bank_id" => "2cbfb337-9e54-4e03-80ca-62c1fb6eb3b3"
+      "credit_type" => "Festgeld"
+      "interest_rate" => 4.35
+      "min_amount" => 1
+      "max_amount" => 10000000
+      "min_term" => 1
+      "max_term" => 300
+      "description" => null
+      "requirements" => null
+      "is_active" => true
+      "created_at" => "2026-07-01T18:49:57.974591+00:00"
+      "updated_at" => "2026-07-05T11:48:24.082+00:00"
+      "banks" => array:3 [
+        "id" => "2cbfb337-9e54-4e03-80ca-62c1fb6eb3b3"
+        "name" => "festgeld-tier-3"
+        "logo_url" => null
+      ]
+    ]
+  ]
+]
