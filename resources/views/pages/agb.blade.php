@@ -4,8 +4,8 @@
 <style>
   .legal-hero-section {
     background:
-      radial-gradient(circle at top left, rgba(220, 38, 38, 0.35), transparent 35%),
-      linear-gradient(135deg, #7f1d1d 0%, #dc2626 100%) !important;
+      radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 35%),
+      linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%) !important;
     position: relative;
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -275,7 +275,7 @@
             <strong>Dennis Missfeldt</strong><br>
             Alstertor 15<br>
             20095 Hamburg<br>
-            E-Mail: <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a>
+            E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a>
           </div>
         </div>
 
@@ -423,13 +423,13 @@
             Alstertor 15<br>
             20095 Hamburg<br><br>
 
-            E-Mail: <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a><br>
+            E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a><br>
             Telefon: <a href="tel:+4915776884663">+49 (0) 157 76884663</a>
           </div>
         </div>
 
         <p class="legal-text">
-          E-Mail: <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a>
+          E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a>
         </p>
 
         <div class="legal-footer-note">

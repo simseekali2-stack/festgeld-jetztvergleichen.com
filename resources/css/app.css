@@ -9,48 +9,47 @@
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
 
-  /* Primary Orange Palette */
-  --color-primary-50: #fff7ed;
-  --color-primary-100: #ffedd5;
-  --color-primary-200: #fed7aa;
-  --color-primary-300: #fdba74;
-  --color-primary-400: #fb923c;
-  --color-primary-500: #f97316;
-  --color-primary-600: #ea580c;
-  --color-primary-700: #c2410c;
-  --color-primary-800: #9a3412;
-  --color-primary-900: #7c2d12;
-  --color-primary-950: #431407;
+  /* Primary Royal Blue Palette */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
 
-  /* Override Blue Palette with Orange Palette */
-  --color-blue-50: #fff7ed;
-  --color-blue-100: #ffedd5;
-  --color-blue-200: #fed7aa;
-  --color-blue-300: #fdba74;
-  --color-blue-400: #fb923c;
-  --color-blue-500: #f97316;
-  --color-blue-600: #ea580c;
-  --color-blue-700: #c2410c;
-  --color-blue-800: #9a3412;
-  --color-blue-900: #7c2d12;
-  --color-blue-950: #431407;
+  /* Real Blue Palette */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+  --color-blue-950: #172554;
 
-  /* Custom Backgrounds - Solid Orange / Warm Cream feel */
-  --background-image-hero-gradient: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
-  --background-image-primary-gradient: linear-gradient(to right, #f97316, #f97316);
+  /* Custom Backgrounds - Clean Blue Ambient */
+  --background-image-hero-gradient: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  --background-image-primary-gradient: linear-gradient(to right, #2563eb, #1d4ed8);
 
   /* Base colors */
-  --color-background: #fdfefe;
-  /* Very light warm slate for elite feel, pure white for cards */
+  --color-background: #f8fafc;
   --color-foreground: #0f172a;
 
   /* Shadows for depth */
-  --shadow-elite: 0 4px 20px -2px rgba(249, 115, 22, 0.08), 0 0 3px rgba(249, 115, 22, 0.02);
-  --shadow-elite-hover: 0 10px 30px -4px rgba(249, 115, 22, 0.15), 0 4px 6px -2px rgba(249, 115, 22, 0.08);
+  --shadow-elite: 0 4px 20px -2px rgba(37, 99, 235, 0.08), 0 0 3px rgba(37, 99, 235, 0.02);
+  --shadow-elite-hover: 0 10px 30px -4px rgba(37, 99, 235, 0.15), 0 4px 6px -2px rgba(37, 99, 235, 0.08);
 }
 
 :root {
-  --background: #fdfefe;
+  --background: #f8fafc;
   --foreground: #0f172a;
 }
 
@@ -122,7 +121,6 @@ input[type='range']:focus {
 /* Blog & Service Content Styling (Elite Layout) */
 .blog-content {
   color: #334155;
-  /* slate-700 */
   line-height: 1.8;
   font-size: 1.125rem;
 }
@@ -135,7 +133,6 @@ input[type='range']:focus {
   font-size: 1.875rem;
   font-weight: 900;
   color: #0f172a;
-  /* slate-900 */
   margin-top: 3rem;
   margin-bottom: 1.25rem;
   letter-spacing: -0.025em;
@@ -146,7 +143,6 @@ input[type='range']:focus {
   font-size: 1.5rem;
   font-weight: 800;
   color: #1e293b;
-  /* slate-800 */
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   letter-spacing: -0.025em;
@@ -180,8 +176,7 @@ input[type='range']:focus {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: #dc2626;
-  /* red-600 */
+  background-color: #2563eb;
   opacity: 0.8;
 }
 

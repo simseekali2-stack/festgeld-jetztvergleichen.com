@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @push('styles')
@@ -21,16 +20,16 @@
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
-    /* Left Panel: Deep Slate Blue Gradient with Red Glow */
+    /* Left Panel: Deep Slate Blue Gradient */
     .contact-offer-panel {
-      background: radial-gradient(circle at top left, #1f1113 0%, #0f172a 100%);
+      background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 100%);
       position: relative;
     }
 
     /* Micro-cards with dark glassmorphism styling */
     .premium-micro-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       padding: 1.15rem 1rem;
       transition: all 0.25s ease;
@@ -38,8 +37,8 @@
     }
 
     .premium-micro-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(220, 38, 38, 0.4);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(59, 130, 246, 0.4);
       transform: translateY(-2px);
     }
 
@@ -60,7 +59,7 @@
     }
 
     .contact-value-highlight {
-      color: #f97316; /* orange accent */
+      color: #38bdf8; /* Blue accent */
     }
 
     /* Form Fields Premium Styling */
@@ -80,9 +79,9 @@
     }
 
     .premium-input:focus {
-      border-color: #ea580c;
+      border-color: #2563eb;
       background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
       outline: none;
     }
 
@@ -97,18 +96,18 @@
     }
 
     .premium-input:focus ~ .premium-input-icon {
-      color: #ea580c;
+      color: #2563eb;
     }
 
     .premium-submit-btn {
-      background: #f97316;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
       color: #ffffff;
-      font-weight: 700;
+      font-weight: 800;
       padding: 1.1rem;
       border-radius: 14px;
       font-size: 1.125rem;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.3);
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.35);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -119,8 +118,8 @@
 
     .premium-submit-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 24px -5px rgba(249, 115, 22, 0.4);
-      background: #ea580c;
+      box-shadow: 0 14px 24px -5px rgba(37, 99, 235, 0.45);
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
     }
 
     .premium-submit-btn:active {
@@ -132,73 +131,146 @@
 @section('content')
 
   {{-- HERO SECTION --}}
-  <section id="hero" class="hero-dark relative pt-12 pb-20 overflow-hidden">
+  <section id="hero" class="hero-dark">
     <div class="hero-glow-top-right"></div>
     <div class="hero-glow-bottom-left"></div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/20 bg-orange-50 text-orange-700 text-xs font-extrabold uppercase tracking-wider mb-6 mx-auto shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-        <span>🔥 Live Zins-Ticker 2026</span>
-      </div>
-
-      <!-- Headline -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
-        Entdecken Sie Europas höchste<br>
-        <span class="text-orange-500">Festgeldzinsen</span> — jetzt vergleichen
-      </h1>
-
-      <!-- Subtext -->
-      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-        Schützen Sie Ihr Kapital mit den attraktivsten Festgeld-Konditionen Europas – unabhängig geprüft, kostenlos und ohne versteckte Gebühren.
-      </p>
-
-      <!-- Horizontal Calculator (Modular Bar) -->
-      <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl rounded-2xl p-2 lg:p-3 flex flex-col lg:flex-row items-center divide-y lg:divide-y-0 lg:divide-x divide-slate-200 gap-0 border-t-4 border-t-orange-500">
+      <div class="hero-grid">
         
-        <!-- Tab indicator or small label (Visual context) -->
-        <div class="w-full lg:w-[15%] text-left lg:text-center px-6 py-4 lg:py-0 shrink-0">
-          <div class="text-[10px] font-black tracking-widest text-orange-600 uppercase">Option</div>
-          <div class="text-sm font-extrabold text-slate-800 mt-0.5">Festgeld</div>
+        <!-- Left Column: Copy, Value Proposition & Benefits -->
+        <div class="hero-left-content">
+          
+          <!-- Badge -->
+          <div class="hero-badge-pill">
+            <span class="hero-badge-dot"></span>
+            <span>Live Festgeld-Zinsvergleich 2026</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-main-title">
+            Europas höchste <br class="hidden sm:block">
+            <span class="hero-accent">Festgeldzinsen</span> online vergleichen
+          </h1>
+
+          <!-- Subtext -->
+          <p class="hero-description">
+            Schützen Sie Ihr Kapital vor der Inflation mit den besten Festgeld-Konditionen Europas – bis zu <strong>3,65% p.a.</strong> garantierte Zinsen, 100% kostenlos und unabhängig geprüft.
+          </p>
+
+          <!-- 3 Benefit Cards -->
+          <div class="hero-benefits-grid">
+            <div class="hero-benefit-card">
+              <div class="hero-benefit-icon">🛡️</div>
+              <div class="hero-benefit-title">100.000 € Schutz</div>
+              <div class="hero-benefit-desc">EU-Einlagensicherung je Bank</div>
+            </div>
+
+            <div class="hero-benefit-card">
+              <div class="hero-benefit-icon">📈</div>
+              <div class="hero-benefit-title">Top Rendite</div>
+              <div class="hero-benefit-desc">Bis zu 3,65% p.a. Zinsen</div>
+            </div>
+
+            <div class="hero-benefit-card">
+              <div class="hero-benefit-icon">💶</div>
+              <div class="hero-benefit-title">100% Kostenlos</div>
+              <div class="hero-benefit-desc">Unverbindlich vergleichen</div>
+            </div>
+          </div>
+
+          <!-- Trust Bar -->
+          <div class="hero-trust-bar">
+            <div class="hero-trust-avatars">
+              <div class="hero-trust-avatar">DE</div>
+              <div class="hero-trust-avatar">AT</div>
+              <div class="hero-trust-avatar">CH</div>
+            </div>
+            <div class="hero-trust-text">
+              Über <strong>25.000+</strong> erfolgreiche Vergleiche in DACH
+            </div>
+          </div>
+
         </div>
 
-        <!-- Field 1: Amount -->
-        <div class="w-full lg:flex-1 text-left px-6 py-4 lg:py-0">
-          <label for="calc-amount" class="block text-[10px] font-black tracking-wider text-slate-400 uppercase mb-1">Anlagebetrag</label>
-          <div class="flex items-center">
-            <input type="number" id="calc-amount" value="25000" placeholder="25000" class="w-full bg-transparent border-0 outline-none text-slate-800 text-lg font-bold p-0 focus:ring-0">
-            <span class="text-slate-400 font-extrabold ml-2">€</span>
+        <!-- Right Column: Interactive Calculator Card -->
+        <div class="hero-calc-container">
+          <div class="hero-calc-card">
+            
+            <div class="hero-calc-header">
+              <div class="hero-calc-header-left">
+                <div class="hero-calc-icon-box">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <div class="hero-calc-title">Festgeld-Rechner</div>
+                  <div class="hero-calc-subtitle">Berechnen Sie Ihre Nettorendite</div>
+                </div>
+              </div>
+              <span class="hero-calc-badge">Live 2026</span>
+            </div>
+
+            <!-- Amount Input -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label for="calc-amount" class="text-[11px] font-black uppercase tracking-wider text-slate-500">Anlagebetrag (€)</label>
+                <div class="flex items-center gap-1">
+                  <button type="button" class="preset-btn" data-val="10000">10k</button>
+                  <button type="button" class="preset-btn active" data-val="25000">25k</button>
+                  <button type="button" class="preset-btn" data-val="50000">50k</button>
+                  <button type="button" class="preset-btn" data-val="100000">100k</button>
+                </div>
+              </div>
+
+              <div class="hero-input-box">
+                <input type="number" id="calc-amount" value="25000" min="1000" step="1000" placeholder="25000" class="hero-input-field">
+                <span class="hero-input-unit">€</span>
+              </div>
+            </div>
+
+            <!-- Duration Selection -->
+            <div>
+              <label for="calc-duration" class="block text-[11px] font-black uppercase tracking-wider text-slate-500 mb-1">Laufzeit auswählen</label>
+              <input type="hidden" id="calc-duration" value="12">
+              
+              <div class="term-pills-row">
+                <button type="button" class="term-pill" data-term="6">6 Mon.</button>
+                <button type="button" class="term-pill active" data-term="12">12 Mon.</button>
+                <button type="button" class="term-pill" data-term="24">24 Mon.</button>
+                <button type="button" class="term-pill" data-term="36">36 Mon.</button>
+              </div>
+            </div>
+
+            <!-- Estimated Yield Preview -->
+            <div class="hero-preview-card">
+              <div class="hero-preview-top">
+                <span>Geschätzter Zinsertrag:</span>
+                <span class="hero-preview-rate-tag">bis zu 3,65% p.a.</span>
+              </div>
+              <div class="hero-preview-bottom">
+                <span id="hero-yield-display" class="hero-preview-yield">+912,50 €</span>
+                <span class="hero-preview-sub">Gewinn vor Steuern</span>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <button type="button" id="compare-btn" class="hero-calc-btn">
+              <span>Angebote jetzt vergleichen</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+
+            <div class="hero-calc-footer-note">
+              <span>✓ 100% Kostenlos</span>
+              <span>•</span>
+              <span>✓ Ohne Registrierung</span>
+              <span>•</span>
+              <span>✓ Unverbindlich</span>
+            </div>
+
           </div>
         </div>
 
-        <!-- Field 2: Duration -->
-        <div class="w-full lg:flex-1 text-left px-6 py-4 lg:py-0">
-          <label for="calc-duration" class="block text-[10px] font-black tracking-wider text-slate-400 uppercase mb-1">Laufzeit</label>
-          <div class="flex items-center">
-            <input type="number" id="calc-duration" value="12" placeholder="12" class="w-full bg-transparent border-0 outline-none text-slate-800 text-lg font-bold p-0 focus:ring-0">
-            <span class="text-slate-400 font-bold ml-2 text-sm shrink-0">Monate</span>
-          </div>
-        </div>
-
-        <!-- Button -->
-        <div class="w-full lg:w-auto px-6 py-4 lg:py-0 shrink-0 text-center lg:text-right">
-          <button type="button" id="compare-btn" class="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 lg:py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-extrabold rounded-xl text-sm shadow-sm transition-all active:scale-[0.98] group">
-            <span>Angebote vergleichen</span>
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Quick note below calculator -->
-      <div class="mt-4 text-xs font-semibold text-slate-500 flex items-center justify-center gap-4 flex-wrap">
-        <span>✓ Kostenlos & unverbindlich</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-        <span>✓ Keine Registrierung erforderlich</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-        <span>✓ <a href="{{ url('/tagesgeld') }}" class="text-orange-600 hover:underline">Lieber Tagesgeld vergleichen?</a></span>
       </div>
 
     </div>
@@ -207,7 +279,7 @@
   {{-- AKTUELLE FESTGELD-ANGEBOTE - Tier Cards --}}
   <section id="list" class="angebote-section">
     <div class="angebote-header">
-      <h2 class="angebote-title">Aktuelle Angebote</h2>
+      <h2 class="angebote-title">Aktuelle Festgeld-Angebote</h2>
       <div class="angebote-underline"></div>
     </div>
 
@@ -218,9 +290,14 @@
           $zinsbetrag = number_format($tier['rate'] * $tier['amount'] / 100 * (12 / 12), 2, ',', '.');
           $rateStr    = number_format($tier['rate'], 2, ',', '.');
           $isFirst    = $loop->first;
+          
+          // Theme tier colors in blue style
+          $cardColor  = $key === 'gold' ? '#2563eb' : ($key === 'plat' ? '#1d4ed8' : '#0284c7');
+          $cardGlow   = $key === 'gold' ? 'rgba(37,99,235,0.25)' : 'rgba(2,132,199,0.25)';
+          $cardBorder = $key === 'gold' ? 'rgba(37,99,235,0.6)' : 'rgba(2,132,199,0.4)';
         @endphp
         <div class="tier-card {{ $isFirst ? 'tier-card--featured' : '' }}"
-             style="--tier-color:{{ $tier['color'] }}; --tier-glow:{{ $tier['glow'] }}; --tier-border:{{ $tier['border'] }};">
+             style="--tier-color:{{ $cardColor }}; --tier-glow:{{ $cardGlow }}; --tier-border:{{ $cardBorder }};">
 
           {{-- Range --}}
           <div class="tier-range">{{ $tier['range'] }}</div>
@@ -260,7 +337,7 @@
             data-max-term="12"
             data-tier="{{ $key }}"
             style="background:var(--tier-color); box-shadow: 0 4px 20px var(--tier-glow);">
-            Jetzt Kontakt aufnehmen
+            Jetzt Angebot anfordern
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
             </svg>
@@ -271,14 +348,12 @@
     </div>
   </section>
 
-
-
-  {{-- NEW SECTION 1: WHY TAGESGELDTICKER (BENEFITS) --}}
+  {{-- SECTION 1: WHY FESTGELD-JETZTVERGLEICHEN --}}
   <section class="py-20 bg-slate-50 border-t border-b border-slate-200/60">
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-          Warum TagesgeldTicker.com?
+          Warum festgeld-jetztvergleichen.com?
         </h2>
         <p class="text-slate-600 font-medium">
           Wir bringen Transparenz, Sicherheit und erstklassige Renditen in Ihre Geldanlage.
@@ -289,7 +364,7 @@
         
         <!-- Card 1 -->
         <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 border border-red-100 flex items-center justify-center mb-6">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-3">Maximale Sicherheit</h3>
@@ -300,7 +375,7 @@
 
         <!-- Card 2 -->
         <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 border border-red-100 flex items-center justify-center mb-6">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-3">Top-Konditionen</h3>
@@ -311,7 +386,7 @@
 
         <!-- Card 3 -->
         <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 border border-red-100 flex items-center justify-center mb-6">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-3">Unabhängiger Vergleich</h3>
@@ -322,7 +397,7 @@
 
         <!-- Card 4 -->
         <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 border border-red-100 flex items-center justify-center mb-6">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
           </div>
           <h3 class="text-lg font-bold text-slate-900 mb-3">Kostenloser Service</h3>
@@ -335,14 +410,14 @@
     </div>
   </section>
 
-  {{-- NEW SECTION 2: EU DEPOSIT INSURANCE (TRUST) --}}
+  {{-- SECTION 2: EU DEPOSIT INSURANCE (TRUST) --}}
   <section class="py-20 bg-white">
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         <!-- Left text block -->
         <div class="text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/20 bg-red-500/10 text-red-700 text-[11px] font-extrabold uppercase tracking-wider mb-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-700 text-[11px] font-extrabold uppercase tracking-wider mb-4">
             EU-Richtlinie
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-6">
@@ -357,19 +432,19 @@
 
           <ul class="space-y-4">
             <li class="flex items-center gap-3">
-              <span class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0">
+              <span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </span>
               <span class="text-slate-700 font-bold text-[15px]">100.000 € gesetzlicher Schutz je Bank</span>
             </li>
             <li class="flex items-center gap-3">
-              <span class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0">
+              <span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </span>
               <span class="text-slate-700 font-bold text-[15px]">Strenge Überwachung durch europäische Aufsichtsbehörden</span>
             </li>
             <li class="flex items-center gap-3">
-              <span class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0">
+              <span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </span>
               <span class="text-slate-700 font-bold text-[15px]">Keine Währungsrisiken dank Anlage in Euro (€)</span>
@@ -379,15 +454,15 @@
 
         <!-- Right visual trust box -->
         <div class="relative flex justify-center lg:justify-end">
-          <div class="bg-linear-to-br from-red-950 via-slate-900 to-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl max-w-md w-full relative overflow-hidden border border-red-900/30">
-            <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-red-600/20 blur-3xl"></div>
+          <div class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl max-w-md w-full relative overflow-hidden border border-blue-900/30">
+            <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-blue-600/20 blur-3xl"></div>
             
             <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/10">
-              <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
 
             <h3 class="text-2xl font-black mb-2 tracking-tight">Einlagensicherung</h3>
-            <p class="text-red-300 font-extrabold tracking-widest text-xs uppercase mb-6">100% Gesetzlich Garantiert</p>
+            <p class="text-blue-300 font-extrabold tracking-widest text-xs uppercase mb-6">100% Gesetzlich Garantiert</p>
             
             <div class="space-y-6 border-t border-white/10 pt-6">
               <div>
@@ -409,9 +484,9 @@
     </div>
   </section>
 
-  {{-- NEW SECTION 3: CALL TO ACTION BLOCK --}}
+  {{-- SECTION 3: CALL TO ACTION BLOCK --}}
   <section class="py-16 bg-slate-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.1)_0%,transparent_70%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)]"></div>
     <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
       <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
         Sichern Sie sich heute noch Top-Konditionen
@@ -420,7 +495,7 @@
         Berechnen Sie Ihre Nettorendite mit unserem Rechner oben und fordern Sie Ihr unverbindliches Zinsangebot kostenlos an.
       </p>
       
-      <a href="#hero" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-extrabold rounded-full text-[15px] shadow-lg shadow-red-900/40 transition-all hover:-translate-y-0.5 active:translate-y-0">
+      <a href="#hero" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 hover:from-blue-700 hover:to-indigo-800 text-white font-extrabold rounded-full text-[15px] shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-0.5 active:translate-y-0">
         <span>Jetzt Zinsen berechnen</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
       </a>
@@ -543,15 +618,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
   <script>
-
     document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".angebote-grid  ").forEach(section => {
-    [...section.children]
-      .reverse()
-      .forEach(element => section.appendChild(element));
-  });
-});
-</script>
+      document.querySelectorAll(".angebote-grid").forEach(section => {
+        [...section.children]
+          .reverse()
+          .forEach(element => section.appendChild(element));
+      });
+    });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -561,6 +635,7 @@
       const amountInput   = document.getElementById('calc-amount');
       const durationInput = document.getElementById('calc-duration');
       const compareBtn    = document.getElementById('compare-btn');
+      const yieldDisplay  = document.getElementById('hero-yield-display');
 
       function formatNumber(num, decimals) {
         decimals = decimals !== undefined ? decimals : 0;
@@ -570,15 +645,58 @@
         });
       }
 
+      /* Update Hero estimated yield preview */
+      function updateHeroYield() {
+        const months = parseInt(durationInput ? durationInput.value : 12) || 12;
+        const currentAmount = parseFloat(amountInput ? amountInput.value : 25000) || 25000;
+        // Rate reference approx 3.65% for calculation preview
+        const rate = 3.65;
+        const estimatedYield = currentAmount * rate / 100 * (months / 12);
+        if (yieldDisplay) {
+          yieldDisplay.textContent = '+' + formatNumber(estimatedYield, 2) + ' €';
+        }
+      }
+
+      /* ---- Preset Buttons for Amount ---- */
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const val = this.dataset.val;
+          if (amountInput) {
+            amountInput.value = val;
+            amount = parseInt(val);
+            updateHeroYield();
+            updateTierCards();
+          }
+        });
+      });
+
+      /* ---- Term Pill Selection ---- */
+      document.querySelectorAll('.term-pill').forEach(pill => {
+        pill.addEventListener('click', function() {
+          document.querySelectorAll('.term-pill').forEach(p => p.classList.remove('active'));
+          this.classList.add('active');
+          const term = this.dataset.term;
+          if (durationInput) {
+            durationInput.value = term;
+            duration = parseInt(term);
+            updateHeroYield();
+            updateTierCards();
+          }
+        });
+      });
+
       /* ---- Tier card amounts (Festgeld) ---- */
       function updateTierCards() {
         const tierCards = document.querySelectorAll('.tier-card');
         const months = parseInt(durationInput ? durationInput.value : 12) || 12;
+        const currentAmount = parseInt(amountInput ? amountInput.value : 25000) || 25000;
         
         let activeTier = 'bronze';
-        if (amount >= 75000 && amount < 150000) {
+        if (currentAmount >= 75000 && currentAmount < 150000) {
           activeTier = 'gold';
-        } else if (amount >= 150000) {
+        } else if (currentAmount >= 150000) {
           activeTier = 'plat';
         }
 
@@ -601,7 +719,7 @@
           if (tierKey === 'plat') cardAmount = 150000;
           
           if (isFeatured) {
-            cardAmount = amount;
+            cardAmount = currentAmount;
           }
 
           const rate = parseFloat(btn.dataset.rate) || 0;
@@ -620,31 +738,29 @@
         });
       }
 
-      compareBtn.addEventListener('click', function () {
-        amount   = Math.max(0, parseInt(amountInput.value) || 25000);
-        if (durationInput) {
-          duration = Math.min(120, Math.max(1, parseInt(durationInput.value) || 12));
-        }
-        updateTierCards();
-        const listSection = document.getElementById('list');
-        if (listSection) listSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+      if (compareBtn) {
+        compareBtn.addEventListener('click', function () {
+          amount = Math.max(0, parseInt(amountInput.value) || 25000);
+          if (durationInput) {
+            duration = Math.min(120, Math.max(1, parseInt(durationInput.value) || 12));
+          }
+          updateTierCards();
+          const listSection = document.getElementById('list');
+          if (listSection) listSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
 
       /* Live update as user types */
       if (amountInput) {
         amountInput.addEventListener('input', function() {
           amount = Math.max(0, parseInt(this.value) || 0);
-          updateTierCards();
-        });
-      }
-      if (durationInput) {
-        durationInput.addEventListener('input', function() {
-          duration = Math.min(120, Math.max(1, parseInt(this.value) || 12));
+          updateHeroYield();
           updateTierCards();
         });
       }
 
       /* Initial render */
+      updateHeroYield();
       updateTierCards();
 
 
@@ -787,7 +903,7 @@
         submitBtn.textContent = 'Anfrage senden';
       });
 
-
+      updateHeroYield();
       updateTierCards();
     });
   </script>

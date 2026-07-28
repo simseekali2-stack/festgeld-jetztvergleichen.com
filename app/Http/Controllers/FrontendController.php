@@ -159,7 +159,7 @@ class FrontendController extends Controller
             return (float) ($b['interest_rate'] ?? 0) <=> (float) ($a['interest_rate'] ?? 0);
         });
 
-        $bronzeColor = '#f97316'; // Orange for TagesgeldTicker.com
+        $bronzeColor = '#2563eb'; // Blue for festgeld-jetztvergleichen.com
 
         // Setup the default/fallback tiers configuration for Tagesgeld
         $tiers = [

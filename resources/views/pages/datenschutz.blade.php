@@ -269,7 +269,7 @@
 </style>
 @endpush
 
-@section('title', $title ?? 'Datenschutzerklärung | TagesgeldTicker.com')
+@section('title', $title ?? 'Datenschutzerklärung | festgeld-jetztvergleichen.com')
 
 @section('content')
 <div class="impressum-page">
@@ -281,7 +281,7 @@
         @if(config('settings.logo'))
           <img src="{{ asset(config('settings.logo')) }}" alt="Logo" class="impressum-logo">
         @else
-          <strong style="color:#dc2626;font-size:1.35rem;">TagesgeldTicker.com</strong>
+          <strong style="color:#2563eb;font-size:1.35rem;">festgeld-jetztvergleichen.com</strong>
         @endif
       </a>
     </div>
@@ -334,7 +334,7 @@
               <div><strong>Berufsbezeichnung:</strong> Diplom-Volkswirt, selbstständiger Versicherungsmakler und Finanzanlagenvermittler</div>
               <div><strong>Geschäftsanschrift:</strong> Alstertor 15, 20095 Hamburg</div>
               <div><strong>Mobil:</strong> <a href="tel:+4915776884663">+49 (0) 157 76884663</a></div>
-              <div><strong>E-Mail:</strong> <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a></div>
+              <div><strong>E-Mail:</strong> <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a></div>
               <div><strong>Erlaubnis nach § 34d GewO:</strong> D-CW3N-JH3HE-87 (Versicherungsmakler)</div>
               <div><strong>Erlaubnis nach § 34f GewO:</strong> D-F-131-J2R7-27 (Finanzanlagenvermittler)</div>
             </div>
@@ -400,7 +400,7 @@
             Alstertor 15<br>
             20095 Hamburg<br>
             Deutschland<br><br>
-            E-Mail: <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a><br>
+            E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a><br>
             Mobil: <a href="tel:+4915776884663">+49 (0) 157 76884663</a>
           </div>
 
@@ -600,7 +600,7 @@
             Alstertor 15<br>
             20095 Hamburg<br>
             Deutschland<br>
-            E-Mail: <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a>
+            E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a>
           </div>
 
           <p>
@@ -668,7 +668,7 @@
   <footer class="impressum-footer">
     <div class="impressum-container impressum-footer-inner">
       <p class="impressum-footer-copy">
-        © {{ date('Y') }} tagesgeldticker.com · Alle Rechte vorbehalten.
+        © {{ date('Y') }} festgeld-jetztvergleichen.com · Alle Rechte vorbehalten.
       </p>
 
       <p class="impressum-footer-note">

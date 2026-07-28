@@ -270,12 +270,12 @@
     </div>
   </section>
 
-  {{-- NEW SECTION 1: WHY TAGESGELDTICKER (BENEFITS) --}}
+  {{-- NEW SECTION 1: WHY FESTGELD-JETZTVERGLEICHEN (BENEFITS) --}}
   <section class="py-20 bg-slate-50 border-t border-b border-slate-200/60">
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-          Warum TagesgeldTicker.com?
+          Warum festgeld-jetztvergleichen.com?
         </h2>
         <p class="text-slate-600 font-medium">
           Wir bringen Transparenz, Sicherheit und erstklassige Renditen in Ihre Geldanlage.

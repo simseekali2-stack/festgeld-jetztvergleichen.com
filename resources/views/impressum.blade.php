@@ -206,7 +206,7 @@
 </style>
 @endpush
 
-@section('title', 'Impressum | tagesgeldticker.com')
+@section('title', 'Impressum | festgeld-jetztvergleichen.com')
 
 @section('content')
 <div class="impressum-page">
@@ -214,8 +214,8 @@
 
   <header class="impressum-header">
     <div class="impressum-container impressum-header-inner">
-      <a href="{{ url('/') }}" aria-label="TagesgeldTicker.com Startseite">
-        <img src="/logo.svg" alt="TagesgeldTicker.com" class="impressum-logo" style="height: 3.5rem; width: auto; object-fit: contain;">
+      <a href="{{ url('/') }}" aria-label="festgeld-jetztvergleichen.com Startseite">
+        <img src="/logo.svg" alt="festgeld-jetztvergleichen.com" class="impressum-logo" style="height: 3.5rem; width: auto; object-fit: contain;">
       </a>
     </div>
   </header>
@@ -247,7 +247,7 @@
               20095 Hamburg
             </div>
             <div class="registry-row"><strong>Mobil:</strong> <a href="tel:+4915776884663">+49 (0) 157 76884663</a></div>
-            <div class="registry-row"><strong>E-Mail:</strong> <a href="mailto:info@tagesgeldticker.com">info@tagesgeldticker.com</a></div>
+            <div class="registry-row"><strong>E-Mail:</strong> <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a></div>
             <div class="registry-row"><strong>Steuernummer:</strong> 48/162/00526 (Finanzamt Hamburg-Mitte)</div>
             <div class="registry-row"><strong>Umsatzsteuer-ID:</strong> DE 222437159</div>
           </div>
@@ -382,7 +382,7 @@
   <footer class="impressum-footer">
     <div class="impressum-container impressum-footer-inner">
       <p class="impressum-footer-copy">
-        © {{ date('Y') }} tagesgeldticker.com · Alle Rechte vorbehalten.
+        © {{ date('Y') }} festgeld-jetztvergleichen.com · Alle Rechte vorbehalten.
       </p>
       <p class="impressum-footer-note">
         Der Betreiber ist selbstständiger Versicherungsmakler mit einer Erlaubnis nach § 34d Abs. 1 GewO und selbstständiger Finanzanlagenvermittler mit einer Erlaubnis nach § 34f Abs. 1 GewO.
