@@ -243,11 +243,11 @@
           
           <div class="registry-card">
             <div class="registry-title">Kontakt &amp; Anschrift</div>
-            <div class="registry-row"><strong>Name:</strong> Dennis Missfeldt</div>
-            <div class="registry-row"><strong>Geschäftsführung:</strong> Diplom-Volkswirt Dennis Missfeldt</div>
+            <div class="registry-row"><strong>Name:</strong> Heidrun Ursel Friederich</div>
+            <div class="registry-row"><strong>Geschäftsführung:</strong> Heidrun Ursel Friederich</div>
             <div class="registry-row"><strong>Anschrift:</strong><br>
-              Alstertor 15<br>
-              20095 Hamburg
+              Distelweg 8<br>
+              22339 Hamburg
             </div>
             <div class="registry-row"><strong>Mobil:</strong> <a href="tel:+4915776884663">+49 (0) 157 76884663</a></div>
             <div class="registry-row"><strong>E-Mail:</strong> <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a></div>
@@ -266,10 +266,10 @@
         <div class="impressum-text">
           <div class="registry-card">
             <div class="registry-row"><strong>Verantwortlich für den Inhalt:</strong></div>
-            <div class="registry-row">Dennis Missfeldt</div>
+            <div class="registry-row">Heidrun Ursel Friederich</div>
             <div class="registry-row"><strong>Anschrift:</strong><br>
-              Alstertor 15<br>
-              20095 Hamburg
+              Distelweg 8<br>
+              22339 Hamburg
             </div>
           </div>
         </div>
@@ -285,48 +285,23 @@
         <div class="impressum-text">
           <p>Hier finden Sie die Details zu den erteilten gewerberechtlichen Erlaubnissen und Registrierungen im Vermittlerregister:</p>
 
-          <div class="impressum-grid">
-            
-            <!-- § 34d GewO Permission Card -->
-            <div class="registry-card">
-              <div class="registry-title" style="color: #991b1b; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
-                Erlaubnis nach § 34d GewO
-              </div>
-              <div class="registry-row"><strong>Berufsbezeichnung:</strong> Versicherungsmakler nach § 34d Abs. 1 Gewerbeordnung; Bundesrepublik Deutschland</div>
-              <div class="registry-row"><strong>Registrierungsnummer:</strong> D-CW3N-JH3HE-87</div>
-              <div class="registry-row"><strong>Zuständige Aufsichtsbehörde:</strong><br>
-                Industrie- und Handelskammer Hamburg<br>
-                Adolphsplatz 1<br>
-                20457 Hamburg<br>
-                <a href="https://www.hk24.de" target="_blank" rel="noopener noreferrer">www.hk24.de</a>
-              </div>
-              <div class="registry-row"><strong>Mitgliedschaft:</strong> Mitglied der Industrie- und Handelskammer Hamburg</div>
-              <div class="registry-row"><strong>Staat der Verleihung:</strong> Bundesrepublik Deutschland</div>
-              <div class="registry-row" style="font-size: 0.85rem; color: #64748b; margin-top: 0.75rem;">
-                <strong>Berufsrechtliche Regelungen:</strong> § 34d Gewerbeordnung (GewO), §§ 59-68 Gesetz über den Versicherungsvertrag (VVG), Verordnung über die Versicherungsvermittlung und -beratung (VersVermV), abrufbar unter <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener noreferrer">www.gesetze-im-internet.de</a>
-              </div>
+          <div class="registry-card">
+            <div class="registry-title" style="color: #991b1b; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+              Erlaubnis nach § 34f GewO
             </div>
-
-            <!-- § 34f GewO Permission Card -->
-            <div class="registry-card">
-              <div class="registry-title" style="color: #991b1b; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
-                Erlaubnis nach § 34f GewO
-              </div>
-              <div class="registry-row"><strong>Berufsbezeichnung:</strong> Finanzanlagenvermittler nach § 34f Abs. 1 Gewerbeordnung; Bundesrepublik Deutschland</div>
-              <div class="registry-row"><strong>Registrierungsnummer:</strong> D-F-131-J2R7-27</div>
-              <div class="registry-row"><strong>Zuständige Aufsichtsbehörde:</strong><br>
-                Industrie- und Handelskammer Hamburg<br>
-                Adolphsplatz 1<br>
-                20457 Hamburg<br>
-                <a href="https://www.hk24.de" target="_blank" rel="noopener noreferrer">www.hk24.de</a>
-              </div>
-              <div class="registry-row"><strong>Mitgliedschaft:</strong> Mitglied der Industrie- und Handelskammer Hamburg</div>
-              <div class="registry-row"><strong>Staat der Verleihung:</strong> Bundesrepublik Deutschland</div>
-              <div class="registry-row" style="font-size: 0.85rem; color: #64748b; margin-top: 0.75rem;">
-                <strong>Berufsrechtliche Regelungen:</strong> § 34f Gewerbeordnung (GewO), Finanzanlagenvermittlungsverordnung (FinVermV), abrufbar unter <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener noreferrer">www.gesetze-im-internet.de</a>
-              </div>
+            <div class="registry-row"><strong>Berufsbezeichnung:</strong> Finanzanlagenvermittlerin nach § 34f Abs. 1 Gewerbeordnung; Bundesrepublik Deutschland</div>
+            <div class="registry-row"><strong>Registrierungsnummer:</strong> D-F-131-I2VW-59</div>
+            <div class="registry-row"><strong>Zuständige Aufsichtsbehörde:</strong><br>
+              Industrie- und Handelskammer Hamburg<br>
+              Adolphsplatz 1<br>
+              20457 Hamburg<br>
+              <a href="https://www.hk24.de" target="_blank" rel="noopener noreferrer">www.hk24.de</a>
             </div>
-
+            <div class="registry-row"><strong>Mitgliedschaft:</strong> Mitglied der Industrie- und Handelskammer Hamburg</div>
+            <div class="registry-row"><strong>Staat der Verleihung:</strong> Bundesrepublik Deutschland</div>
+            <div class="registry-row" style="font-size: 0.85rem; color: #64748b; margin-top: 0.75rem;">
+              <strong>Berufsrechtliche Regelungen:</strong> § 34f Gewerbeordnung (GewO), Finanzanlagenvermittlungsverordnung (FinVermV), abrufbar unter <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener noreferrer">www.gesetze-im-internet.de</a>
+            </div>
           </div>
 
           <p style="margin-top: 1rem;">
@@ -388,7 +363,7 @@
         © {{ date('Y') }} festgeld-jetztvergleichen.com · Alle Rechte vorbehalten.
       </p>
       <p class="impressum-footer-note">
-        Der Betreiber ist selbstständiger Versicherungsmakler mit einer Erlaubnis nach § 34d Abs. 1 GewO und selbstständiger Finanzanlagenvermittler mit einer Erlaubnis nach § 34f Abs. 1 GewO.
+        Die Betreiberin ist selbstständige Finanzanlagenvermittlerin mit einer Erlaubnis nach § 34f Abs. 1 GewO.
       </p>
     </div>
   </footer>

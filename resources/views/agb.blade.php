@@ -216,9 +216,9 @@
 
         <p class="legal-text">
           Die Website dient als Vergleichsportal für Festgeld-Angebote und als Informationsplattform.
-          Betreiber der Website ist Dennis Missfeldt, selbstständiger Finanzanlagenvermittler
-          nach § 34f GewO und Versicherungsmakler nach § 34d GewO. Die Vermittlung von konkreten
-          Finanzprodukten erfolgt im Rahmen der gesetzlichen Erlaubnisse des Betreibers oder dessen
+          Betreiberin der Website ist Heidrun Ursel Friederich, selbstständige Finanzanlagenvermittlerin
+          nach § 34f GewO. Die Vermittlung von konkreten
+          Finanzprodukten erfolgt im Rahmen der gesetzlichen Erlaubnisse der Betreiberin oder deren
           Kooperationspartner.
         </p>
 
@@ -242,7 +242,7 @@
           <li>Informationsdienstleistungen rund um Festgeld, Zinsen und Anlagezeiträume,</li>
           <li>die Darstellung allgemeiner Produkt- und Konditionsinformationen,</li>
           <li>die Entgegennahme von Kontaktanfragen interessierter Nutzer,</li>
-          <li>die Beratung und Vermittlung im Rahmen der gewerberechtlichen Erlaubnisse nach § 34d und § 34f GewO durch den Betreiber oder kooperierende Vertriebspartner.</li>
+          <li>die Beratung und Vermittlung im Rahmen der gewerberechtlichen Erlaubnisse nach § 34f GewO durch die Betreiberin oder kooperierende Vertriebspartner.</li>
         </ul>
 
         <p class="legal-text">
@@ -260,8 +260,8 @@
         <h3 class="legal-heading">Wichtiger Hinweis zu unserem Geschäftsmodell</h3>
         <p class="legal-text">
           Wir sind ein verifizierter Vermittlungs- und Informationsdienst. Sofern Nutzer über unser Portal
-          Kontaktanfragen stellen, können die eingehenden Anfragen direkt durch den Betreiber Dennis Missfeldt
-          oder an ihn angeschlossene, lizensierte Kooperationspartner bearbeitet werden.
+          Kontaktanfragen stellen, können die eingehenden Anfragen direkt durch die Betreiberin Heidrun Ursel Friederich
+          oder an sie angeschlossene, lizensierte Kooperationspartner bearbeitet werden.
           Dies geschieht ausschließlich, um dem Nutzer ein maßgeschneidertes Angebot für die gewünschte Geldanlage zu erstellen.
         </p>
 
@@ -272,9 +272,9 @@
 
         <div class="legal-reveal" style="border-style: solid; border-color: #ebdcb9; background-color: #faf8f5;">
           <div id="partner-daten">
-            <strong>Dennis Missfeldt</strong><br>
-            Alstertor 15<br>
-            20095 Hamburg<br>
+            <strong>Heidrun Ursel Friederich</strong><br>
+            Distelweg 8<br>
+            22339 Hamburg<br>
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a>
           </div>
         </div>
@@ -419,9 +419,9 @@
 
         <div class="legal-reveal" style="border-style: solid; border-color: #ebdcb9; background-color: #faf8f5;">
           <div id="anbieter-daten">
-            <strong>Dennis Missfeldt</strong><br>
-            Alstertor 15<br>
-            20095 Hamburg<br><br>
+            <strong>Heidrun Ursel Friederich</strong><br>
+            Distelweg 8<br>
+            22339 Hamburg<br><br>
 
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a><br>
             Telefon: <a href="tel:+4915776884663">+49 (0) 157 76884663</a>
@@ -437,7 +437,7 @@
             &copy; {{ date('Y') }} {{ parse_url(url('/'), PHP_URL_HOST) }} · Alle Rechte vorbehalten.
           </p>
           <p>
-            Der Betreiber ist selbstständiger Versicherungsmakler mit einer Erlaubnis nach § 34d Abs. 1 GewO und selbstständiger Finanzanlagenvermittler mit einer Erlaubnis nach § 34f Abs. 1 GewO.
+            Die Betreiberin ist selbstständige Finanzanlagenvermittlerin mit einer Erlaubnis nach § 34f Abs. 1 GewO.
           </p>
         </div>
 

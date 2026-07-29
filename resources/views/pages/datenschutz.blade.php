@@ -330,13 +330,12 @@
               <span>Verantwortlicher Betreiber</span>
             </div>
             <div style="display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
-              <div><strong>Name:</strong> Dennis Missfeldt</div>
-              <div><strong>Berufsbezeichnung:</strong> Diplom-Volkswirt, selbstständiger Versicherungsmakler und Finanzanlagenvermittler</div>
-              <div><strong>Geschäftsanschrift:</strong> Alstertor 15, 20095 Hamburg</div>
+              <div><strong>Name:</strong> Heidrun Ursel Friederich</div>
+              <div><strong>Berufsbezeichnung:</strong> Selbstständige Finanzanlagenvermittlerin</div>
+              <div><strong>Geschäftsanschrift:</strong> Distelweg 8, 22339 Hamburg</div>
               <div><strong>Mobil:</strong> <a href="tel:+4915776884663">+49 (0) 157 76884663</a></div>
               <div><strong>E-Mail:</strong> <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a></div>
-              <div><strong>Erlaubnis nach § 34d GewO:</strong> D-CW3N-JH3HE-87 (Versicherungsmakler)</div>
-              <div><strong>Erlaubnis nach § 34f GewO:</strong> D-F-131-J2R7-27 (Finanzanlagenvermittler)</div>
+              <div><strong>Erlaubnis nach § 34f GewO:</strong> D-F-131-I2VW-59 (Finanzanlagenvermittlerin)</div>
             </div>
           </div>
 
@@ -396,9 +395,9 @@
           </p>
 
           <div class="company-details-block" style="margin-top: 1rem; margin-bottom: 1.5rem; padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 0.375rem; background-color: #f8fafc; font-size: 0.95rem; line-height: 1.6; color: #334155;">
-            <strong>Dennis Missfeldt</strong><br>
-            Alstertor 15<br>
-            20095 Hamburg<br>
+            <strong>Heidrun Ursel Friederich</strong><br>
+            Distelweg 8<br>
+            22339 Hamburg<br>
             Deutschland<br><br>
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a><br>
             Mobil: <a href="tel:+4915776884663">+49 (0) 157 76884663</a>
@@ -596,9 +595,9 @@
           </p>
 
           <div class="company-details-block" style="margin-top: 1rem; margin-bottom: 1.5rem; padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 0.375rem; background-color: #f8fafc; font-size: 0.95rem; line-height: 1.6; color: #334155;">
-            <strong>Dennis Missfeldt</strong><br>
-            Alstertor 15<br>
-            20095 Hamburg<br>
+            <strong>Heidrun Ursel Friederich</strong><br>
+            Distelweg 8<br>
+            22339 Hamburg<br>
             Deutschland<br>
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a>
           </div>
@@ -672,7 +671,7 @@
       </p>
 
       <p class="impressum-footer-note">
-        Der Betreiber ist selbstständiger Versicherungsmakler mit einer Erlaubnis nach § 34d Abs. 1 GewO und selbstständiger Finanzanlagenvermittler mit einer Erlaubnis nach § 34f Abs. 1 GewO.
+        Die Betreiberin ist selbstständige Finanzanlagenvermittlerin mit einer Erlaubnis nach § 34f Abs. 1 GewO.
       </p>
     </div>
   </footer>

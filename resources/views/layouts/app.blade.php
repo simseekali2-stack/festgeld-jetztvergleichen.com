@@ -457,7 +457,7 @@ function gtag_report_conversion(url) {
                             <strong>Risikohinweis:</strong> Alle Angaben auf festgeld-jetztvergleichen.com sind beispielhaft und stellen keine Anlageberatung, Vermittlung oder Empfehlung dar. Tatsächliche Konditionen können je nach Anbieter, Anlagesumme und Marktlage abweichen. Vor jeder Anlageentscheidung empfehlen wir eine Beratung durch einen qualifizierten Finanzdienstleister.
                         </p>
                         <p class="text-slate-500 text-[11px]">
-                            Der Betreiber ist selbstständiger Versicherungsmakler mit einer Erlaubnis nach § 34d Abs. 1 GewO und selbstständiger Finanzanlagenvermittler mit einer Erlaubnis nach § 34f Abs. 1 GewO.
+                            Die Betreiberin ist selbstständige Finanzanlagenvermittlerin mit einer Erlaubnis nach § 34f Abs. 1 GewO.
                         </p>
                     </div>
 
