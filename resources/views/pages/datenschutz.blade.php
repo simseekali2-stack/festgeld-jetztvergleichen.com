@@ -330,10 +330,10 @@
               <span>Verantwortlicher Betreiber</span>
             </div>
             <div style="display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
-              <div><strong>Name:</strong> Heidrun Ursel Friederich</div>
+              <div><strong>Name:</strong> Heidrun Friederich</div>
               <div><strong>Berufsbezeichnung:</strong> Selbstständige Finanzanlagenvermittlerin</div>
               <div><strong>Geschäftsanschrift:</strong> Distelweg 8, 22339 Hamburg</div>
-              <div><strong>Mobil:</strong> <a href="tel:+4915776884663">+49 (0) 157 76884663</a></div>
+              <div><strong>Telefon:</strong> <a href="tel:+496924746620">+49 (0) 69 24746620</a></div>
               <div><strong>E-Mail:</strong> <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a></div>
               <div><strong>Erlaubnis nach § 34f GewO:</strong> D-F-131-I2VW-59 (Finanzanlagenvermittlerin)</div>
             </div>
@@ -395,12 +395,12 @@
           </p>
 
           <div class="company-details-block" style="margin-top: 1rem; margin-bottom: 1.5rem; padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 0.375rem; background-color: #f8fafc; font-size: 0.95rem; line-height: 1.6; color: #334155;">
-            <strong>Heidrun Ursel Friederich</strong><br>
+            <strong>Heidrun Friederich</strong><br>
             Distelweg 8<br>
             22339 Hamburg<br>
             Deutschland<br><br>
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a><br>
-            Mobil: <a href="tel:+4915776884663">+49 (0) 157 76884663</a>
+            Telefon: <a href="tel:+496924746620">+49 (0) 69 24746620</a>
           </div>
 
           <p>
@@ -595,7 +595,7 @@
           </p>
 
           <div class="company-details-block" style="margin-top: 1rem; margin-bottom: 1.5rem; padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 0.375rem; background-color: #f8fafc; font-size: 0.95rem; line-height: 1.6; color: #334155;">
-            <strong>Heidrun Ursel Friederich</strong><br>
+            <strong>Heidrun Friederich</strong><br>
             Distelweg 8<br>
             22339 Hamburg<br>
             Deutschland<br>

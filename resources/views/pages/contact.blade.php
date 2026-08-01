@@ -67,7 +67,7 @@
             </p>
             <iframe src="https://maps.google.com/maps?q=Distelweg+8,+22339+Hamburg&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p class="text-white mt-4">
-              Heidrun Ursel Friederich<br/>
+              Heidrun Friederich<br/>
               Distelweg 8<br/>
               22339 Hamburg<br/>
               Deutschland

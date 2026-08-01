@@ -240,13 +240,13 @@
 
           <div class="registry-card">
             <div class="registry-title">Kontakt &amp; Anschrift</div>
-            <div class="registry-row"><strong>Name:</strong> Heidrun Ursel Friederich</div>
-            <div class="registry-row"><strong>Geschäftsführung:</strong> Heidrun Ursel Friederich</div>
+            <div class="registry-row"><strong>Name:</strong> Heidrun Friederich</div>
+            <div class="registry-row"><strong>Geschäftsführung:</strong> Heidrun Friederich</div>
             <div class="registry-row"><strong>Anschrift:</strong><br>
               Distelweg 8<br>
               22339 Hamburg
             </div>
-            <div class="registry-row"><strong>Mobil:</strong> <a href="tel:+4915776884663">+49 (0) 157 76884663</a></div>
+            <div class="registry-row"><strong>Telefon:</strong> <a href="tel:+496924746620">+49 (0) 69 24746620</a></div>
             <div class="registry-row"><strong>E-Mail:</strong> <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a></div>
             <div class="registry-row"><strong>Steuernummer:</strong> 48/162/00526 (Finanzamt Hamburg-Mitte)</div>
             <div class="registry-row"><strong>Umsatzsteuer-ID:</strong> DE 222437159</div>
@@ -263,7 +263,7 @@
         <div class="impressum-text">
           <div class="registry-card">
             <div class="registry-row"><strong>Verantwortlich für den Inhalt:</strong></div>
-            <div class="registry-row">Heidrun Ursel Friederich</div>
+            <div class="registry-row">Heidrun Friederich</div>
             <div class="registry-row"><strong>Anschrift:</strong><br>
               Distelweg 8<br>
               22339 Hamburg

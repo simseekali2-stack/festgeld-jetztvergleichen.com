@@ -216,7 +216,7 @@
 
         <p class="legal-text">
           Die Website dient als Vergleichsportal für Festgeld-Angebote und als Informationsplattform.
-          Betreiberin der Website ist Heidrun Ursel Friederich, selbstständige Finanzanlagenvermittlerin
+          Betreiberin der Website ist Heidrun Friederich, selbstständige Finanzanlagenvermittlerin
           nach § 34f GewO. Die Vermittlung von konkreten
           Finanzprodukten erfolgt im Rahmen der gesetzlichen Erlaubnisse der Betreiberin oder deren
           Kooperationspartner.
@@ -260,7 +260,7 @@
         <h3 class="legal-heading">Wichtiger Hinweis zu unserem Geschäftsmodell</h3>
         <p class="legal-text">
           Wir sind ein verifizierter Vermittlungs- und Informationsdienst. Sofern Nutzer über unser Portal
-          Kontaktanfragen stellen, können die eingehenden Anfragen direkt durch die Betreiberin Heidrun Ursel Friederich
+          Kontaktanfragen stellen, können die eingehenden Anfragen direkt durch die Betreiberin Heidrun Friederich
           oder an sie angeschlossene, lizensierte Kooperationspartner bearbeitet werden.
           Dies geschieht ausschließlich, um dem Nutzer ein maßgeschneidertes Angebot für die gewünschte Geldanlage zu erstellen.
         </p>
@@ -272,7 +272,7 @@
 
         <div class="legal-reveal" style="border-style: solid; border-color: #ebdcb9; background-color: #faf8f5;">
           <div id="partner-daten">
-            <strong>Heidrun Ursel Friederich</strong><br>
+            <strong>Heidrun Friederich</strong><br>
             Distelweg 8<br>
             22339 Hamburg<br>
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a>
@@ -419,12 +419,12 @@
 
         <div class="legal-reveal" style="border-style: solid; border-color: #ebdcb9; background-color: #faf8f5;">
           <div id="anbieter-daten">
-            <strong>Heidrun Ursel Friederich</strong><br>
+            <strong>Heidrun Friederich</strong><br>
             Distelweg 8<br>
             22339 Hamburg<br><br>
 
             E-Mail: <a href="mailto:info@festgeld-jetztvergleichen.com">info@festgeld-jetztvergleichen.com</a><br>
-            Telefon: <a href="tel:+4915776884663">+49 (0) 157 76884663</a>
+            Telefon: <a href="tel:+496924746620">+49 (0) 69 24746620</a>
           </div>
         </div>
 
