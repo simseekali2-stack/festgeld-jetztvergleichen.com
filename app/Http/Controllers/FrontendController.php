@@ -58,7 +58,7 @@ class FrontendController extends Controller
             'bronze' => [
                 'key' => 'bronze',
                 'label' => 'Festgeld',
-                'range' => '10.000 € – 75.000 €',
+                'range' => '25.000 - 74.999 €',
                 'rate' => 3.20,
                 'amount' => 25000,
                 'color' => '#cd7f32',
@@ -71,7 +71,7 @@ class FrontendController extends Controller
             'gold' => [
                 'key' => 'gold',
                 'label' => 'Festgeld',
-                'range' => '75.000 € – 150.000 €',
+                'range' => '75.000 - 149.999 €',
                 'rate' => 3.50,
                 'amount' => 75000,
                 'color' => '#d4a017',
@@ -84,9 +84,10 @@ class FrontendController extends Controller
             'plat' => [
                 'key' => 'plat',
                 'label' => 'Festgeld',
-                'range' => '150.000 € +',
+                'range' => 'ab 150.000 € +',
                 'rate' => 4.65,
                 'amount' => 150000,
+                'rate_prefix' => 'ab ',
                 'color' => '#a8b8c8',
                 'glow' => 'rgba(168,184,200,0.15)',
                 'border' => 'rgba(168,184,200,0.25)',
@@ -166,7 +167,7 @@ class FrontendController extends Controller
             'bronze' => [
                 'key' => 'bronze',
                 'label' => 'Tagesgeld',
-                'range' => '10.000 € – 75.000 €',
+                'range' => '25.000 - 74.999 €',
                 'rate' => 2.80,
                 'amount' => 25000,
                 'color' => $bronzeColor,
@@ -179,7 +180,7 @@ class FrontendController extends Controller
             'gold' => [
                 'key' => 'gold',
                 'label' => 'Tagesgeld',
-                'range' => '75.000 € – 150.000 €',
+                'range' => '75.000 - 149.999 €',
                 'rate' => 3.10,
                 'amount' => 75000,
                 'color' => '#d4a017',
@@ -192,9 +193,10 @@ class FrontendController extends Controller
             'plat' => [
                 'key' => 'plat',
                 'label' => 'Tagesgeld',
-                'range' => '150.000 € +',
+                'range' => 'ab 150.000 € +',
                 'rate' => 3.30,
                 'amount' => 150000,
+                'rate_prefix' => 'ab ',
                 'color' => '#a8b8c8',
                 'glow' => 'rgba(168,184,200,0.15)',
                 'border' => 'rgba(168,184,200,0.25)',

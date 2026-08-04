@@ -226,7 +226,7 @@
 
           {{-- Rate --}}
           <div class="tier-rate" style="color:var(--tier-color);">
-            {{ $rateStr }}<span class="tier-rate-pct">%</span>
+            @if(!empty($tier['rate_prefix']))<span class="tier-rate-prefix">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="tier-rate-pct">%</span>
           </div>
           <div class="tier-rate-label">ZINSEN p.a.</div>
 
@@ -267,6 +267,19 @@
         </div>
       @endforeach
 
+    </div>
+
+    {{-- Feature Badges under interest rate boxes --}}
+    <div class="angebote-features">
+      <div class="angebote-feature-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <span>Einlagensicherung bis 1.000.000€</span>
+      </div>
+      <div class="angebote-feature-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <span>Kapitalertragssteuerfrei</span>
+      </div>
+      
     </div>
   </section>
 

@@ -107,7 +107,6 @@ function gtag_report_conversion(url) {
         rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="/css/hero.css">
     @stack('styles')
 
     @unless(request()->is('admin*'))
