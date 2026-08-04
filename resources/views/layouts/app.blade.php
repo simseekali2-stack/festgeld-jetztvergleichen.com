@@ -182,14 +182,6 @@ function gtag_report_conversion(url) {
 
                     <!-- Right: Contact & CTA -->
                     <div class="flex items-center justify-end gap-3 shrink-0">
-                        <a href="tel:+496924746620"
-                            class="hidden md:flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-sm font-extrabold transition-colors mr-2">
-                            <svg class="w-4 h-4 animate-pulse text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            +49 (0) 69 24746620
-                        </a>
                         <a href="/#list"
                             class="hidden sm:inline-flex items-center justify-center px-5 h-[40px] rounded-full text-white bg-blue-600 hover:bg-blue-700 font-extrabold text-[13px] transition-all shadow-md shadow-blue-600/20 active:scale-95">
                             Zins-Vergleich
@@ -318,21 +310,7 @@ function gtag_report_conversion(url) {
                         <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </a>
 
-                    <!-- Phone -->
-                    <div class="mt-6 rounded-2xl border border-slate-100 bg-slate-50/90 p-4">
-                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                            Persönliche Beratung
-                        </p>
-                        <a
-                            href="tel:+496924746620"
-                            class="mt-2 flex items-center gap-2 text-base font-bold text-slate-900"
-                        >
-                            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm">
-                                <svg class="h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            </span>
-                            <span>+49 (0) 69 24746620</span>
-                        </a>
-                    </div>
+
 
                     <!-- Legal mini -->
                     <div class="mt-6 flex flex-wrap gap-x-4 gap-y-2 border-t border-slate-100 pt-4 text-[11px] font-semibold text-slate-500">

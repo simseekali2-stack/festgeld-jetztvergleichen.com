@@ -85,7 +85,7 @@ class FrontendController extends Controller
                 'key' => 'plat',
                 'label' => 'Festgeld',
                 'range' => '150.000 € +',
-                'rate' => 3.65,
+                'rate' => 4.65,
                 'amount' => 150000,
                 'color' => '#a8b8c8',
                 'glow' => 'rgba(168,184,200,0.15)',

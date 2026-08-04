@@ -156,7 +156,7 @@
 
           <!-- Subtext -->
           <p class="hero-description">
-            Schützen Sie Ihr Kapital vor der Inflation mit den besten Festgeld-Konditionen Europas – bis zu <strong>3,65% p.a.</strong> garantierte Zinsen, 100% kostenlos und unabhängig geprüft.
+            Schützen Sie Ihr Kapital vor der Inflation mit den besten Festgeld-Konditionen Europas – bis zu <strong>4,65% p.a.</strong> garantierte Zinsen, 100% kostenlos und unabhängig geprüft.
           </p>
 
           <!-- 3 Benefit Cards -->
@@ -170,7 +170,7 @@
             <div class="hero-benefit-card">
               <div class="hero-benefit-icon">📈</div>
               <div class="hero-benefit-title">Top Rendite</div>
-              <div class="hero-benefit-desc">Bis zu 3,65% p.a. Zinsen</div>
+              <div class="hero-benefit-desc">Bis zu 4,65% p.a. Zinsen</div>
             </div>
 
             <div class="hero-benefit-card">
@@ -246,10 +246,10 @@
             <div class="hero-preview-card">
               <div class="hero-preview-top">
                 <span>Geschätzter Zinsertrag:</span>
-                <span class="hero-preview-rate-tag">bis zu 3,65% p.a.</span>
+                <span class="hero-preview-rate-tag">bis zu 4,65% p.a.</span>
               </div>
               <div class="hero-preview-bottom">
-                <span id="hero-yield-display" class="hero-preview-yield">+912,50 €</span>
+                <span id="hero-yield-display" class="hero-preview-yield">+1.162,50 €</span>
                 <span class="hero-preview-sub">Gewinn vor Steuern</span>
               </div>
             </div>
@@ -645,15 +645,27 @@
         });
       }
 
+      function getMaxRate() {
+        let maxRate = 0;
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+          const r = parseFloat(btn.dataset.rate) || 0;
+          if (r > maxRate) maxRate = r;
+        });
+        return maxRate > 0 ? maxRate : 4.65;
+      }
+
       /* Update Hero estimated yield preview */
       function updateHeroYield() {
         const months = parseInt(durationInput ? durationInput.value : 12) || 12;
         const currentAmount = parseFloat(amountInput ? amountInput.value : 25000) || 25000;
-        // Rate reference approx 3.65% for calculation preview
-        const rate = 3.65;
+        const rate = getMaxRate();
         const estimatedYield = currentAmount * rate / 100 * (months / 12);
         if (yieldDisplay) {
           yieldDisplay.textContent = '+' + formatNumber(estimatedYield, 2) + ' €';
+        }
+        const rateTag = document.querySelector('.hero-preview-rate-tag');
+        if (rateTag) {
+          rateTag.textContent = 'bis zu ' + formatNumber(rate, 2) + '% p.a.';
         }
       }
 
