@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@push('styles')
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/css/intlTelInput.css">
+  <style>
+    .iti { width: 100% !important; display: block !important; }
+  </style>
+@endpush
+
 @section('content')
 
   {{-- PAGE HERO --}}
@@ -143,6 +150,7 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
 <script>
 // Record timestamp when form becomes visible so the API can reject bots
 window._contactFormTimestamp = Date.now();
@@ -150,6 +158,17 @@ window._contactFormTimestamp = Date.now();
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
+
+  var phoneInput = document.getElementById('form-phone');
+  var iti = null;
+  if (phoneInput && window.intlTelInput) {
+    iti = window.intlTelInput(phoneInput, {
+      initialCountry: 'de',
+      countryOrder: ['de', 'ch', 'at', 'it', 'gr', 'fr'],
+      separateDialCode: true,
+      utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js',
+    });
+  }
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -165,11 +184,13 @@ document.addEventListener('DOMContentLoaded', function () {
     submitText.classList.add('hidden');
     messageBox.classList.add('hidden');
 
+    var fullPhone = iti ? iti.getNumber() : document.getElementById('form-phone').value;
+
     var payload = {
       full_name:   (document.getElementById('form-first-name').value.trim() + ' ' +
                     document.getElementById('form-last-name').value.trim()).trim(),
       email:       document.getElementById('form-email').value,
-      phone:       document.getElementById('form-phone').value,
+      phone:       fullPhone,
       message:     document.getElementById('form-message-body').value,
       website:     document.getElementById('form-website').value, // honeypot — stays empty
       _timestamp:  window._contactFormTimestamp || Date.now(),
@@ -183,7 +204,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (res.ok && result.success) {
         messageBox.classList.add('bg-green-100', 'text-green-800');
         messageBox.textContent = result.message || 'Erfolgreich gesendet!';
+        if (typeof gtag_report_conversion === 'function') {
+          gtag_report_conversion();
+        }
         form.reset();
+        if (iti) { iti.destroy(); iti = null; }
       } else {
         messageBox.classList.add('bg-red-100', 'text-red-800');
         messageBox.textContent = result.message || 'Ein Fehler ist aufgetreten.';

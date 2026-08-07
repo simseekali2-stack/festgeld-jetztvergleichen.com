@@ -5,7 +5,8 @@
   <style>
     .iti { width: 100% !important; display: block !important; }
     .iti__flag-container { z-index: 10; }
-    .iti--container { z-index: 10000; }
+    .iti--container { z-index: 10050 !important; }
+    .iti__country-list { z-index: 10050 !important; max-height: 200px !important; }
     
     /* Modern Premium Modal Animations & Backdrop */
     #applicationModal {
@@ -499,6 +500,7 @@
           <input type="hidden" id="form-bank-id">
           <input type="hidden" id="form-credit-id">
           <input type="hidden" id="form-requested-amount">
+          <input type="hidden" id="form-requested-term">
           <input type="hidden" id="form-additional-notes">
 
           <div class="space-y-4">
@@ -535,7 +537,7 @@
           </div>
 
           <div id="formMessage" class="hidden p-3 rounded-lg text-xs sm:text-sm font-bold mt-4"></div>
-          <button type="submit" onclick="gtag_report_conversion()" class="premium-submit-btn w-full mt-6 group">
+          <button type="submit" class="premium-submit-btn w-full mt-6 group">
             <span>Jetzt absenden</span>
             <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -677,12 +679,13 @@
           document.getElementById('form-bank-id').value          = btn.dataset.bankId || '';
           document.getElementById('form-credit-id').value        = btn.dataset.id     || '';
           document.getElementById('form-requested-amount').value = cardAmount;
+          document.getElementById('form-requested-term').value   = 1;
           document.getElementById('form-additional-notes').value =
-            'Ausgewaehltes Angebot: ' + bankName +
+            'Ausgewähltes Angebot: ' + bankName +
             ' | Zinssatz p.a.: ' + rateLabel +
             ' | Zinsbetrag p.a.: ' + interestAmount +
             ' | Anlagebetrag: ' + ('\u20AC' + formatNumber(cardAmount, 2)) +
-            ' | Verfuegbarkeit: Taeglich verfuegbar';
+            ' | Verfügbarkeit: Täglich verfügbar';
 
           summaryBankLogo.src = bankLogo;
           summaryBankLogo.alt = bankName + ' Logo';
@@ -762,6 +765,9 @@
           if (res.ok && result.success) {
             msgBox.classList.add('bg-green-100', 'text-green-800');
             msgBox.textContent = result.message || 'Erfolgreich gesendet!';
+            if (typeof gtag_report_conversion === 'function') {
+              gtag_report_conversion();
+            }
             setTimeout(function () {
               closeModal();
               applicationForm.reset();

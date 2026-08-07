@@ -5,7 +5,8 @@
   <style>
     .iti { width: 100% !important; display: block !important; }
     .iti__flag-container { z-index: 10; }
-    .iti--container { z-index: 10000; }
+    .iti--container { z-index: 10050 !important; }
+    .iti__country-list { z-index: 10050 !important; max-height: 200px !important; }
     
     /* Modern Premium Modal Animations & Backdrop */
     #applicationModal {
@@ -703,6 +704,7 @@
           <input type="hidden" id="form-credit-id">
           <input type="hidden" id="form-requested-amount">
           <input type="hidden" id="form-requested-term">
+          <input type="hidden" id="form-additional-notes">
 
           <div class="space-y-4">
             <div>
@@ -738,7 +740,7 @@
           </div>
 
           <div id="formMessage" class="hidden p-3 rounded-lg text-xs sm:text-sm font-bold mt-4"></div>
-          <button type="submit" onclick="gtag_report_conversion()" class="premium-submit-btn w-full mt-6 group">
+          <button type="submit" class="premium-submit-btn w-full mt-6 group">
             <span>Jetzt absenden</span>
             <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -759,36 +761,158 @@
       const modal = document.getElementById('applicationModal');
       const closeModalBtn = document.getElementById('closeModal');
       const applicationForm = document.getElementById('applicationForm');
+      let iti = null;
+
+      function formatNumber(num, decimals) {
+        decimals = decimals !== undefined ? decimals : 2;
+        return Number(num).toLocaleString('de-DE', {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        });
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+        const msgBox = document.getElementById('formMessage');
+        if (msgBox) msgBox.classList.add('hidden');
+      }
 
       // Modal open handlers
       document.querySelectorAll('.open-modal-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-          const rate = this.dataset.rate || '3.50';
-          const name = this.dataset.bankName || 'Festgeld';
-          const term = (this.dataset.minTerm || '12') + ' Monate';
-          
-          document.getElementById('summary-rate').textContent = rate + '%';
-          document.getElementById('summary-term').textContent = term;
-          document.getElementById('summary-bank-name').textContent = name;
-          
+          const bankName = this.dataset.bankName || 'Festgeld';
+          const rateValue = parseFloat(this.dataset.rate) || 3.50;
+          const rateLabel = formatNumber(rateValue, 2) + '%';
+          const termVal = this.dataset.minTerm || '12';
+          const termLabel = termVal + ' Monate';
+          const cardAmount = parseFloat(this.dataset.minAmount) || 25000;
+          const zinsVal = rateValue * cardAmount / 100 * (parseInt(termVal) / 12);
+          const interestAmount = '€' + formatNumber(zinsVal, 2);
+
+          document.getElementById('form-bank-id').value = this.dataset.bankId || '';
+          document.getElementById('form-credit-id').value = this.dataset.id || '';
+          document.getElementById('form-requested-amount').value = cardAmount;
+          document.getElementById('form-requested-term').value = parseInt(termVal) || 12;
+          document.getElementById('form-additional-notes').value =
+            'Ausgewähltes Angebot: ' + bankName +
+            ' | Zinssatz p.a.: ' + rateLabel +
+            ' | Laufzeit: ' + termLabel +
+            ' | Anlagebetrag: €' + formatNumber(cardAmount, 0) +
+            ' | Geschätzter Zinsertrag: ' + interestAmount;
+
+          document.getElementById('summary-rate').textContent = rateLabel;
+          document.getElementById('summary-term').textContent = termLabel;
+          document.getElementById('summary-bank-name').textContent = bankName;
+
           modal.classList.remove('hidden');
           modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+
+          if (!iti) {
+            const phoneInput = document.getElementById('phone-input');
+            if (phoneInput && window.intlTelInput) {
+              iti = window.intlTelInput(phoneInput, {
+                initialCountry: 'de',
+                countryOrder: ['de', 'ch', 'at', 'it', 'gr', 'fr'],
+                separateDialCode: true,
+                dropdownContainer: document.body,
+                utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js',
+              });
+            }
+          }
         });
       });
 
       if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', function() {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
-        });
+        closeModalBtn.addEventListener('click', closeModal);
       }
 
       window.addEventListener('click', function(e) {
         if (e.target === modal) {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
+          closeModal();
         }
       });
+
+      if (applicationForm) {
+        applicationForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+
+          const submitBtn = applicationForm.querySelector('button[type="submit"]');
+          const msgBox    = document.getElementById('formMessage');
+          const fullName  = document.getElementById('form-full-name').value.trim();
+          const nameParts = fullName.split(/\s+/).filter(Boolean);
+          const firstName = nameParts[0] || '';
+          const lastName  = nameParts.slice(1).join(' ') || (nameParts[0] || '');
+
+          if (submitBtn) {
+            submitBtn.disabled    = true;
+            submitBtn.textContent = 'Wird gesendet…';
+          }
+          if (msgBox) msgBox.classList.add('hidden');
+
+          const phoneEl = document.getElementById('phone-input');
+          const fullPhone = iti ? iti.getNumber() : (phoneEl ? phoneEl.value : '');
+
+          const payload = {
+            first_name:       firstName,
+            last_name:        lastName,
+            email:            document.getElementById('form-email').value,
+            phone:            fullPhone,
+            bank_id:          document.getElementById('form-bank-id').value,
+            credit_option_id: document.getElementById('form-credit-id').value,
+            requested_amount: parseFloat(document.getElementById('form-requested-amount').value) || 25000,
+            requested_term:   parseInt(document.getElementById('form-requested-term').value) || 12,
+            additional_notes: document.getElementById('form-additional-notes').value,
+          };
+
+          try {
+            const res    = await fetch('/api/submit', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            const result = await res.json();
+
+            if (msgBox) {
+              msgBox.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+            }
+
+            if (res.ok && result.success) {
+              if (msgBox) {
+                msgBox.classList.add('bg-green-100', 'text-green-800');
+                msgBox.textContent = result.message || 'Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.';
+              }
+              if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
+              }
+              setTimeout(function () {
+                closeModal();
+                applicationForm.reset();
+                if (iti) { iti.destroy(); iti = null; }
+              }, 2000);
+            } else {
+              if (msgBox) {
+                msgBox.classList.add('bg-red-100', 'text-red-800');
+                msgBox.textContent = result.message || 'Fehler beim Senden. Bitte versuchen Sie es erneut.';
+              }
+            }
+          } catch (err) {
+            if (msgBox) {
+              msgBox.classList.remove('hidden');
+              msgBox.classList.add('bg-red-100', 'text-red-800');
+              msgBox.textContent = 'Ein technischer Fehler ist aufgetreten.';
+            }
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled    = false;
+            submitBtn.innerHTML   = '<span>Jetzt absenden</span><svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>';
+          }
+        });
+      }
     });
   </script>
 @endpush
