@@ -62,19 +62,18 @@ class FrontendController extends Controller
                 }
 
                 $bLogo = $offer['banks']['logo_url'] ?? '';
-                $rawRate = (float) ($offer['interest_rate'] ?? 3.25);
-                
-                // Cap interest rate to realistic market bounds (max 3.85%, min 3.10%)
-                $cappedRate = round(min(3.85, max(3.10, $rawRate)), 2);
+                $rawRate = (float) ($offer['interest_rate'] ?? 0);
+                $rate = $rawRate > 0 ? round($rawRate, 2) : 3.25;
 
-                $amount = 25000 + (($idx % 3) * 50000);
+                $minAmount = (float) ($offer['min_amount'] ?? 0);
+                $amount = $minAmount > 0 ? (int) $minAmount : (25000 + (($idx % 3) * 50000));
                 $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
 
                 $bankOffers[] = [
                     'key' => 'bank_' . ($offer['id'] ?? $idx),
                     'label' => 'Festgeld',
                     'range' => $rangeLabel,
-                    'rate' => $cappedRate,
+                    'rate' => $rate,
                     'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
                     'amount' => $amount,
                     'bank_name' => $bName,
@@ -175,17 +174,18 @@ class FrontendController extends Controller
                 }
 
                 $bLogo = $offer['banks']['logo_url'] ?? '';
-                $rawRate = (float) ($offer['interest_rate'] ?? 3.10);
-                $cappedRate = round(min(3.85, max(2.50, $rawRate)), 2);
+                $rawRate = (float) ($offer['interest_rate'] ?? 0);
+                $rate = $rawRate > 0 ? round($rawRate, 2) : 3.10;
 
-                $amount = 25000 + (($idx % 3) * 50000);
+                $minAmount = (float) ($offer['min_amount'] ?? 0);
+                $amount = $minAmount > 0 ? (int) $minAmount : (25000 + (($idx % 3) * 50000));
                 $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
 
                 $bankOffers[] = [
                     'key' => 'bank_' . ($offer['id'] ?? $idx),
                     'label' => 'Tagesgeld',
                     'range' => $rangeLabel,
-                    'rate' => $cappedRate,
+                    'rate' => $rate,
                     'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
                     'amount' => $amount,
                     'bank_name' => $bName,
