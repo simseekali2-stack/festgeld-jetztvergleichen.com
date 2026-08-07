@@ -350,39 +350,64 @@
         @php
           $zinsbetrag = number_format($tier['rate'] * $tier['amount'] / 100, 2, ',', '.');
           $rateStr    = number_format($tier['rate'], 2, ',', '.');
+          $bankName   = $tier['bank_name'] ?? ($tier['label'] ?? 'Partnerbank EU');
+          $country    = $tier['country'] ?? '🇪🇺 EU-Mitgliedstaat';
           $isFirst    = $loop->first;
         @endphp
         <div class="tier-card {{ $isFirst ? 'tier-card--featured' : '' }}"
-             style="--tier-color:{{ $tier['color'] }}; --tier-glow:{{ $tier['glow'] }}; --tier-border:{{ $tier['border'] }};">
+             style="--tier-color:{{ $tier['color'] ?? '#f97316' }}; --tier-glow:{{ $tier['glow'] ?? 'rgba(249,115,22,0.25)' }}; --tier-border:{{ $tier['border'] ?? 'rgba(249,115,22,0.6)' }};">
 
-
-          {{-- Rate --}}
-          <div class="tier-rate" style="color:var(--tier-color);">
-            @if(!empty($tier['rate_prefix']))<span class="tier-rate-prefix">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="tier-rate-pct">%</span>
-          </div>
-          <div class="tier-rate-label">ZINSEN p.a.</div>
-
-          {{-- Details --}}
-          <div class="tier-details">
-            <div class="tier-detail-row">
-              <span class="tier-detail-key">Verfügbarkeit:</span>
-              <span class="tier-detail-val">Täglich</span>
+          <div>
+            <!-- Bank logo / name & protection badge -->
+            <div class="flex items-center justify-between mb-4 gap-2">
+              <div class="flex items-center gap-2.5">
+                @if(!empty($tier['bank_logo']))
+                  <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
+                    <img src="{{ $tier['bank_logo'] }}" alt="{{ $bankName }}" class="max-w-full max-h-full object-contain">
+                  </div>
+                @else
+                  <span class="w-9 h-9 rounded-lg bg-slate-100 text-[#18283b] font-black text-base flex items-center justify-center border border-slate-200 shrink-0">
+                    🏦
+                  </span>
+                @endif
+                <div>
+                  <div class="text-xs font-black text-slate-900 leading-tight">{{ $bankName }}</div>
+                  <div class="text-[10px] font-bold text-slate-400 mt-0.5">{{ $country }}</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded shrink-0">
+                100.000€ Schutz
+              </span>
             </div>
-            <div class="tier-detail-row">
-              <span class="tier-detail-key">Anlagebetrag:</span>
-              <span class="tier-detail-val">&euro;{{ number_format($tier['amount'], 2, ',', '.') }}</span>
+
+            {{-- Rate --}}
+            <div class="tier-rate" style="color:var(--tier-color);">
+              @if(!empty($tier['rate_prefix']))<span class="tier-rate-prefix">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="tier-rate-pct">%</span>
             </div>
-            <div class="tier-detail-row">
-              <span class="tier-detail-key">Zinsertrag:</span>
-              <span class="tier-detail-val" style="color:var(--tier-color);">&euro;{{ $zinsbetrag }}</span>
+            <div class="tier-rate-label">ZINSEN p.a. (Täglich verfügbar)</div>
+
+            {{-- Details --}}
+            <div class="tier-details">
+              <div class="tier-detail-row">
+                <span class="tier-detail-key">Verfügbarkeit:</span>
+                <span class="tier-detail-val">Täglich verfügbar</span>
+              </div>
+              <div class="tier-detail-row">
+                <span class="tier-detail-key">Anlagebetrag:</span>
+                <span class="tier-detail-val">&euro;{{ number_format($tier['amount'], 2, ',', '.') }}</span>
+              </div>
+              <div class="tier-detail-row">
+                <span class="tier-detail-key">Zinsertrag p.a.:</span>
+                <span class="tier-detail-val" style="color:var(--tier-color);">&euro;{{ $zinsbetrag }}</span>
+              </div>
             </div>
           </div>
 
           {{-- CTA --}}
-          <button type="button" class="tier-btn open-modal-btn"
+          <button type="button" class="tier-btn open-modal-btn mt-4"
             data-id="{{ $tier['id'] ?? '' }}"
             data-bank-id="{{ $tier['bank_id'] ?? '' }}"
-            data-bank-name="{{ $tier['label'] }}"
+            data-bank-name="{{ $bankName }}"
             data-bank-logo="{{ $tier['bank_logo'] ?? '' }}"
             data-rate="{{ $tier['rate'] }}"
             data-min-amount="{{ $tier['amount'] }}"
@@ -391,7 +416,7 @@
             data-max-term="0"
             data-tier="{{ $key }}"
             style="background:var(--tier-color); box-shadow: 0 4px 20px var(--tier-glow);">
-            Jetzt Kontakt aufnehmen
+            <span>Jetzt Kontakt aufnehmen</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
             </svg>
@@ -587,13 +612,13 @@
         <!-- Left Panel: Offer Summary (Premium Dark Blue) -->
         <div class="contact-offer-panel p-6 sm:p-10 flex flex-col justify-between gap-6">
           <div>
-            <div style="display:none;" class="flex items-center gap-4 mb-6 sm:mb-8 pr-10">
+            <div class="flex items-center gap-4 mb-6 sm:mb-8 pr-10">
               <div class="bg-white rounded-xl p-2 border border-white/10 shadow-lg flex items-center justify-center w-[110px] h-[55px]">
                 <img id="summary-bank-logo" src="/logo.svg" alt="Bank Logo"
                   class="max-w-full max-h-full object-contain">
               </div>
               <div>
-                <div id="summary-bank-name" class="text-xl sm:text-2xl font-black text-white leading-tight">ING BANK</div>
+                <div id="summary-bank-name" class="text-xl sm:text-2xl font-black text-white leading-tight">Bank</div>
                 <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5" id="summary-bank-sub">Tagesgeld-Anlage</div>
               </div>
             </div>

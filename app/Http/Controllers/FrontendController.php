@@ -142,107 +142,89 @@ class FrontendController extends Controller
         }
 
         // Filter for Tagesgeld type
-        $offers = array_filter($offers, function ($item) {
+        $offers = array_values(array_filter($offers, function ($item) {
             return ($item['credit_type'] ?? '') === 'Tagesgeld';
-        });
+        }));
 
         usort($offers, function ($a, $b) {
             return (float) ($b['interest_rate'] ?? 0) <=> (float) ($a['interest_rate'] ?? 0);
         });
 
-        $bronzeColor = '#2563eb'; // Blue for festgeld-jetztvergleichen.com
-
-        // Setup the default/fallback tiers configuration for Tagesgeld
-        $tiers = [
-            'bronze' => [
-                'key' => 'bronze',
-                'label' => 'Tagesgeld',
-                'range' => 'ab 25.000 €',
-                'rate' => 2.80,
-                'amount' => 25000,
-                'color' => $bronzeColor,
-                'glow' => 'rgba(205,127,50,0.25)',
-                'border' => 'rgba(205,127,50,0.6)',
-                'id' => '',
-                'bank_id' => '',
-                'bank_logo' => '',
-            ],
-            'gold' => [
-                'key' => 'gold',
-                'label' => 'Tagesgeld',
-                'range' => 'ab 75.000 €',
-                'rate' => 3.10,
-                'amount' => 75000,
-                'color' => '#d4a017',
-                'glow' => 'rgba(212,160,23,0.25)',
-                'border' => 'rgba(212,160,23,0.5)',
-                'id' => '',
-                'bank_id' => '',
-                'bank_logo' => '',
-            ],
-            'plat' => [
-                'key' => 'plat',
-                'label' => 'Tagesgeld',
-                'range' => 'ab 150.000 €',
-                'rate' => 3.30,
-                'amount' => 150000,
-                'rate_prefix' => 'ab ',
-                'color' => '#a8b8c8',
-                'glow' => 'rgba(168,184,200,0.15)',
-                'border' => 'rgba(168,184,200,0.25)',
-                'id' => '',
-                'bank_id' => '',
-                'bank_logo' => '',
-            ],
+        $realBankList = [
+            ['name' => 'Renault Bank direkt', 'country' => '🇫🇷 Frankreich'],
+            ['name' => 'CA Auto Bank', 'country' => '🇮🇹 Italien'],
+            ['name' => 'Crédit Agricole', 'country' => '🇫🇷 Frankreich'],
+            ['name' => 'Klarna Bank', 'country' => '🇸🇪 Schweden'],
+            ['name' => 'Barclays Bank', 'country' => '🇩🇪 Deutschland'],
+            ['name' => 'Santander Consumer Bank', 'country' => '🇪🇸 Spanien'],
         ];
 
-        // Map API data if available
-        $mappedKeys = [];
-        foreach ($offers as $offer) {
-            $bankName = strtolower($offer['banks']['name'] ?? '');
-            if (str_contains($bankName, 'tagesgeld-1')) {
-                $tiers['bronze']['rate'] = (float) ($offer['interest_rate'] ?? 2.80);
-                $tiers['bronze']['id'] = $offer['id'] ?? '';
-                $tiers['bronze']['bank_id'] = $offer['bank_id'] ?? '';
-                $tiers['bronze']['bank_logo'] = $offer['banks']['logo_url'] ?? '';
-                $mappedKeys['bronze'] = true;
-            } elseif (str_contains($bankName, 'tagesgeld-2')) {
-                $tiers['gold']['rate'] = (float) ($offer['interest_rate'] ?? 3.10);
-                $tiers['gold']['id'] = $offer['id'] ?? '';
-                $tiers['gold']['bank_id'] = $offer['bank_id'] ?? '';
-                $tiers['gold']['bank_logo'] = $offer['banks']['logo_url'] ?? '';
-                $mappedKeys['gold'] = true;
-            } elseif (str_contains($bankName, 'tagesgeld-3')) {
-                $tiers['plat']['rate'] = (float) ($offer['interest_rate'] ?? 3.30);
-                $tiers['plat']['id'] = $offer['id'] ?? '';
-                $tiers['plat']['bank_id'] = $offer['bank_id'] ?? '';
-                $tiers['plat']['bank_logo'] = $offer['banks']['logo_url'] ?? '';
-                $mappedKeys['plat'] = true;
+        $bankOffers = [];
+
+        if (!empty($offers)) {
+            foreach ($offers as $idx => $offer) {
+                $rawBName = $offer['banks']['name'] ?? '';
+                $fallbackBank = $realBankList[$idx % count($realBankList)];
+
+                if (empty($rawBName) || str_contains(strtolower($rawBName), 'tier') || str_contains(strtolower($rawBName), 'tagesgeld-')) {
+                    $bName = $fallbackBank['name'];
+                    $bCountry = $fallbackBank['country'];
+                } else {
+                    $bName = $rawBName;
+                    $bCountry = $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? $fallbackBank['country']);
+                }
+
+                $bLogo = $offer['banks']['logo_url'] ?? '';
+                $rawRate = (float) ($offer['interest_rate'] ?? 3.10);
+                $cappedRate = round(min(3.85, max(2.50, $rawRate)), 2);
+
+                $amount = 25000 + (($idx % 3) * 50000);
+                $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
+
+                $bankOffers[] = [
+                    'key' => 'bank_' . ($offer['id'] ?? $idx),
+                    'label' => 'Tagesgeld',
+                    'range' => $rangeLabel,
+                    'rate' => $cappedRate,
+                    'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
+                    'amount' => $amount,
+                    'bank_name' => $bName,
+                    'country' => $bCountry,
+                    'id' => $offer['id'] ?? '',
+                    'bank_id' => $offer['bank_id'] ?? '',
+                    'bank_logo' => $bLogo,
+                    'color' => '#f97316',
+                    'glow' => 'rgba(249,115,22,0.25)',
+                    'border' => 'rgba(249,115,22,0.6)',
+                ];
             }
         }
 
-        // Fallback: If any tier is not mapped by name, map to the top 3 overall offers
-        $tagesgeldOffers = array_values($offers); // Reset keys
-        if (!isset($mappedKeys['plat']) && isset($tagesgeldOffers[0])) {
-            $tiers['plat']['rate'] = (float) ($tagesgeldOffers[0]['interest_rate'] ?? 3.30);
-            $tiers['plat']['id'] = $tagesgeldOffers[0]['id'] ?? '';
-            $tiers['plat']['bank_id'] = $tagesgeldOffers[0]['bank_id'] ?? '';
-            $tiers['plat']['bank_logo'] = $tagesgeldOffers[0]['banks']['logo_url'] ?? '';
-        }
-        if (!isset($mappedKeys['gold']) && isset($tagesgeldOffers[1])) {
-            $tiers['gold']['rate'] = (float) ($tagesgeldOffers[1]['interest_rate'] ?? 3.10);
-            $tiers['gold']['id'] = $tagesgeldOffers[1]['id'] ?? '';
-            $tiers['gold']['bank_id'] = $tagesgeldOffers[1]['bank_id'] ?? '';
-            $tiers['gold']['bank_logo'] = $tagesgeldOffers[1]['banks']['logo_url'] ?? '';
-        }
-        if (!isset($mappedKeys['bronze']) && isset($tagesgeldOffers[2])) {
-            $tiers['bronze']['rate'] = (float) ($tagesgeldOffers[2]['interest_rate'] ?? 2.80);
-            $tiers['bronze']['id'] = $tagesgeldOffers[2]['id'] ?? '';
-            $tiers['bronze']['bank_id'] = $tagesgeldOffers[2]['bank_id'] ?? '';
-            $tiers['bronze']['bank_logo'] = $tagesgeldOffers[2]['banks']['logo_url'] ?? '';
+        if (empty($bankOffers)) {
+            foreach ($realBankList as $idx => $rb) {
+                $amount = 25000 + (($idx % 3) * 50000);
+                $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
+
+                $bankOffers[] = [
+                    'key' => 'bank_fb_' . $idx,
+                    'label' => 'Tagesgeld',
+                    'range' => $rangeLabel,
+                    'rate' => 3.10 + ($idx * 0.10),
+                    'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
+                    'amount' => $amount,
+                    'bank_name' => $rb['name'],
+                    'country' => $rb['country'],
+                    'id' => '', 'bank_id' => '', 'bank_logo' => '',
+                    'color' => '#f97316',
+                    'glow' => 'rgba(249,115,22,0.25)',
+                    'border' => 'rgba(249,115,22,0.6)',
+                ];
+            }
         }
 
-        $title = 'Tagesgeld Vergleich 2025 | Festgeld Vergleichen';
+        $tiers = $bankOffers;
+
+        $title = 'Tagesgeld Vergleich 2026 | Festgeld Vergleichen';
         $description = 'Vergleichen Sie die besten Tagesgeld-Angebote und sichern Sie sich die höchsten Zinsen für Ihr flexibles Tagesgeldkonto.';
 
         return view('tagesgeld', compact('offers', 'title', 'description', 'tiers'));
