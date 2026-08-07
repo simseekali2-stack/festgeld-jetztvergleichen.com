@@ -9,20 +9,20 @@ use Illuminate\Support\Facades\Route;
 $adminPrefix = 'adm-' . date('j');
 
 Route::get('/impressum', function () {
-    $title = "Impressum | Festgeld Deutschland";
-    $description = "Impressum von Festgeld Deutschland. Gesetzliche Pflichtangaben und rechtliche Hinweise zu unserem Angebot.";
+    $title = "Impressum | festgeld-jetztvergleichen.com";
+    $description = "Impressum von festgeld-jetztvergleichen.com. Gesetzliche Pflichtangaben und rechtliche Hinweise zu unserem Angebot.";
     return view('pages.impressum', compact('title', 'description'));
 });
 
 Route::get('/agb', function () {
-    $title = "Allgemeine Geschäftsbedingungen (AGB) | Festgeld Deutschland";
-    $description = "Allgemeine Geschäftsbedingungen und Nutzungsbedingungen von Festgeld Deutschland.";
+    $title = "Allgemeine Geschäftsbedingungen (AGB) | festgeld-jetztvergleichen.com";
+    $description = "Allgemeine Geschäftsbedingungen und Nutzungsbedingungen von festgeld-jetztvergleichen.com.";
     return view('pages.agb', compact('title', 'description'));
 });
 
 Route::get('/datenschutz', function () {
-    $title = "Datenschutzerklärung | Festgeld Deutschland";
-    $description = "Datenschutzerklärung von Festgeld Deutschland.";
+    $title = "Datenschutzerklärung | festgeld-jetztvergleichen.com";
+    $description = "Datenschutzerklärung von festgeld-jetztvergleichen.com.";
     return view('pages.datenschutz', compact('title', 'description'));
 });
 

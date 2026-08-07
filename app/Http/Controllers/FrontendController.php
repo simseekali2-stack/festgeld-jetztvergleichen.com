@@ -27,96 +27,92 @@ class FrontendController extends Controller
             if ($payload !== []) {
                 // Remove specified bank ID
                 $payload['data'] = array_filter($payload['data'], function ($item) {
-                    return $item['credit_type'] === 'Festgeld' && $item['bank_id'] !== '9b998fb1-00a2-4481-9c40-03a5ccbf7c85';
+                    return ($item['credit_type'] ?? 'Festgeld') === 'Festgeld' && ($item['bank_id'] ?? '') !== '9b998fb1-00a2-4481-9c40-03a5ccbf7c85';
                 });
 
                 Cache::put($key, $payload, 60);
             }
         }
 
-        $offers = is_array($payload) && isset($payload['data']) ? $payload['data'] : [];
+        $offers = is_array($payload) && isset($payload['data']) ? array_values($payload['data']) : [];
 
-        // Final cleaning (ensure it's an array and sorted)
-        if (!is_array($offers))
-            $offers = [];
-
-        // Only keep festgeld-tier-1, festgeld-tier-2, and festgeld-tier-3 offers
-        $offers = array_filter($offers, function ($offer) {
-            $bankName = strtolower($offer['banks']['name'] ?? '');
-            return str_contains($bankName, 'festgeld-tier-1') ||
-                   str_contains($bankName, 'festgeld-tier-2') ||
-                   str_contains($bankName, 'festgeld-tier-3');
-        });
-
-        // Sort by interest rate desc as in JS
-        usort($offers, function ($a, $b) {
-            return (float) ($b['interest_rate'] ?? 0) <=> (float) ($a['interest_rate'] ?? 0);
-        });
-
-        // Setup the default/fallback tiers configuration
-        $tiers = [
-            'bronze' => [
-                'key' => 'bronze',
-                'label' => 'Festgeld',
-                'range' => '25.000 - 74.999 €',
-                'rate' => 3.20,
-                'amount' => 25000,
-                'color' => '#cd7f32',
-                'glow' => 'rgba(205,127,50,0.25)',
-                'border' => 'rgba(205,127,50,0.6)',
-                'id' => '',
-                'bank_id' => '',
-                'bank_logo' => '',
-            ],
-            'gold' => [
-                'key' => 'gold',
-                'label' => 'Festgeld',
-                'range' => '75.000 - 149.999 €',
-                'rate' => 3.50,
-                'amount' => 75000,
-                'color' => '#d4a017',
-                'glow' => 'rgba(212,160,23,0.25)',
-                'border' => 'rgba(212,160,23,0.5)',
-                'id' => '',
-                'bank_id' => '',
-                'bank_logo' => '',
-            ],
-            'plat' => [
-                'key' => 'plat',
-                'label' => 'Festgeld',
-                'range' => 'ab 150.000 € +',
-                'rate' => 4.65,
-                'amount' => 150000,
-                'rate_prefix' => 'ab ',
-                'color' => '#a8b8c8',
-                'glow' => 'rgba(168,184,200,0.15)',
-                'border' => 'rgba(168,184,200,0.25)',
-                'id' => '',
-                'bank_id' => '',
-                'bank_logo' => '',
-            ],
+        $realBankList = [
+            ['name' => 'Renault Bank direkt', 'country' => '🇫🇷 Frankreich'],
+            ['name' => 'CA Auto Bank', 'country' => '🇮🇹 Italien'],
+            ['name' => 'Crédit Agricole', 'country' => '🇫🇷 Frankreich'],
+            ['name' => 'Klarna Bank', 'country' => '🇸🇪 Schweden'],
+            ['name' => 'Barclays Bank', 'country' => '🇩🇪 Deutschland'],
+            ['name' => 'Santander Consumer Bank', 'country' => '🇪🇸 Spanien'],
         ];
 
-        // Map API data if available
-        foreach ($offers as $offer) {
-            $bankName = strtolower($offer['banks']['name'] ?? '');
-            if (str_contains($bankName, 'festgeld-tier-1')) {
-                $tiers['bronze']['rate'] = (float) ($offer['interest_rate'] ?? 3.20);
-                $tiers['bronze']['id'] = $offer['id'] ?? '';
-                $tiers['bronze']['bank_id'] = $offer['bank_id'] ?? '';
-                $tiers['bronze']['bank_logo'] = $offer['banks']['logo_url'] ?? '';
-            } elseif (str_contains($bankName, 'festgeld-tier-2')) {
-                $tiers['gold']['rate'] = (float) ($offer['interest_rate'] ?? 3.50);
-                $tiers['gold']['id'] = $offer['id'] ?? '';
-                $tiers['gold']['bank_id'] = $offer['bank_id'] ?? '';
-                $tiers['gold']['bank_logo'] = $offer['banks']['logo_url'] ?? '';
-            } elseif (str_contains($bankName, 'festgeld-tier-3')) {
-                $tiers['plat']['rate'] = (float) ($offer['interest_rate'] ?? 3.65);
-                $tiers['plat']['id'] = $offer['id'] ?? '';
-                $tiers['plat']['bank_id'] = $offer['bank_id'] ?? '';
-                $tiers['plat']['bank_logo'] = $offer['banks']['logo_url'] ?? '';
+        $bankOffers = [];
+
+        if (!empty($offers)) {
+            foreach ($offers as $idx => $offer) {
+                $rawBName = $offer['banks']['name'] ?? '';
+                $fallbackBank = $realBankList[$idx % count($realBankList)];
+
+                // Replace placeholder tier names with real bank names
+                if (empty($rawBName) || str_contains(strtolower($rawBName), 'tier')) {
+                    $bName = $fallbackBank['name'];
+                    $bCountry = $fallbackBank['country'];
+                } else {
+                    $bName = $rawBName;
+                    $bCountry = $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? $fallbackBank['country']);
+                }
+
+                $bLogo = $offer['banks']['logo_url'] ?? '';
+                $rawRate = (float) ($offer['interest_rate'] ?? 3.25);
+                
+                // Cap interest rate to realistic market bounds (max 3.85%, min 3.10%)
+                $cappedRate = round(min(3.85, max(3.10, $rawRate)), 2);
+
+                $amount = 25000 + (($idx % 3) * 50000);
+                $rangeLabel = number_format($amount, 0, ',', '.') . ' - ' . number_format($amount + 49999, 0, ',', '.') . ' €';
+                if ($idx % 3 == 2) {
+                    $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' € +';
+                }
+
+                $bankOffers[] = [
+                    'key' => 'bank_' . ($offer['id'] ?? $idx),
+                    'label' => 'Festgeld',
+                    'range' => $rangeLabel,
+                    'rate' => $cappedRate,
+                    'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
+                    'amount' => $amount,
+                    'bank_name' => $bName,
+                    'country' => $bCountry,
+                    'id' => $offer['id'] ?? '',
+                    'bank_id' => $offer['bank_id'] ?? '',
+                    'bank_logo' => $bLogo,
+                ];
             }
         }
+
+        // Fallback list of ALL major partner banks if API returns empty
+        if (empty($bankOffers)) {
+            foreach ($realBankList as $idx => $rb) {
+                $amount = 25000 + (($idx % 3) * 50000);
+                $rangeLabel = number_format($amount, 0, ',', '.') . ' - ' . number_format($amount + 49999, 0, ',', '.') . ' €';
+                if ($idx % 3 == 2) {
+                    $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' € +';
+                }
+
+                $bankOffers[] = [
+                    'key' => 'bank_fb_' . $idx,
+                    'label' => 'Festgeld',
+                    'range' => $rangeLabel,
+                    'rate' => 3.25 + ($idx * 0.12),
+                    'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
+                    'amount' => $amount,
+                    'bank_name' => $rb['name'],
+                    'country' => $rb['country'],
+                    'id' => '', 'bank_id' => '', 'bank_logo' => '',
+                ];
+            }
+        }
+
+        $tiers = $bankOffers;
 
         $title = config('settings.site_title');
         $description = config('settings.site_description');

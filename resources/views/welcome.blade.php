@@ -20,9 +20,9 @@
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
-    /* Left Panel: Deep Slate Blue Gradient */
+    /* Left Panel: Deep Navy Gradient */
     .contact-offer-panel {
-      background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 100%);
+      background: radial-gradient(circle at top left, #18283b 0%, #0f172a 100%);
       position: relative;
     }
 
@@ -38,7 +38,7 @@
 
     .premium-micro-card:hover {
       background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(59, 130, 246, 0.4);
+      border-color: rgba(233, 159, 76, 0.4);
       transform: translateY(-2px);
     }
 
@@ -59,7 +59,7 @@
     }
 
     .contact-value-highlight {
-      color: #38bdf8; /* Blue accent */
+      color: #e99f4c; /* Amber accent */
     }
 
     /* Form Fields Premium Styling */
@@ -79,9 +79,9 @@
     }
 
     .premium-input:focus {
-      border-color: #2563eb;
+      border-color: #e99f4c;
       background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+      box-shadow: 0 0 0 4px rgba(233, 159, 76, 0.15);
       outline: none;
     }
 
@@ -96,18 +96,18 @@
     }
 
     .premium-input:focus ~ .premium-input-icon {
-      color: #2563eb;
+      color: #e99f4c;
     }
 
     .premium-submit-btn {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #ffffff;
+      background: #e99f4c;
+      color: #18283b;
       font-weight: 800;
       padding: 1.1rem;
       border-radius: 14px;
       font-size: 1.125rem;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 10px 20px -5px rgba(233, 159, 76, 0.35);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -118,8 +118,9 @@
 
     .premium-submit-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 24px -5px rgba(37, 99, 235, 0.45);
-      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      box-shadow: 0 14px 24px -5px rgba(217, 119, 6, 0.45);
+      background: #d97706;
+      color: #ffffff;
     }
 
     .premium-submit-btn:active {
@@ -131,7 +132,7 @@
 @section('content')
 
   {{-- HERO SECTION --}}
-  <section id="hero" class="hero-dark">
+  <section id="hero" class="hero-dark relative bg-[#18283b] text-white pt-12 pb-16 lg:pt-16 lg:pb-20">
     <div class="hero-glow-top-right"></div>
     <div class="hero-glow-bottom-left"></div>
 
@@ -139,135 +140,68 @@
       
       <div class="hero-grid">
         
-        <!-- Left Column: Copy, Value Proposition & Benefits -->
+        <!-- Left Column: Copy & Value Proposition -->
         <div class="hero-left-content">
           
-          <!-- Badge -->
+          <!-- Pill Badge -->
           <div class="hero-badge-pill">
             <span class="hero-badge-dot"></span>
-            <span>Live Festgeld-Zinsvergleich 2026</span>
+            <span>Festgeld- & Tagesgeldvergleich 2026</span>
           </div>
 
           <!-- Headline -->
           <h1 class="hero-main-title">
-            Europas höchste <br class="hidden sm:block">
-            <span class="hero-accent">Festgeldzinsen</span> online vergleichen
+            Festgeld- & Tagesgeldangebote: <br class="hidden sm:block">
+            <span class="hero-accent">Die besten Zinsen</span> aus Deutschland und der EU sichern
           </h1>
 
           <!-- Subtext -->
           <p class="hero-description">
-            Schützen Sie Ihr Kapital vor der Inflation mit den besten Festgeld-Konditionen Europas – bis zu <strong>4,65% p.a.</strong> garantierte Zinsen, 100% kostenlos und unabhängig geprüft.
+            Vergleichen Sie geprüfte Festgeld- und Tagesgeldkonten renommierter deutscher und europäischer Banken. Profitieren Sie von attraktiven Zinskonditionen und der gesetzlichen Einlagensicherung bis 100.000 € je Kunde.
           </p>
 
-          <!-- 3 Benefit Cards -->
-          <div class="hero-benefits-grid">
-            <div class="hero-benefit-card">
-              <div class="hero-benefit-icon">🛡️</div>
-              <div class="hero-benefit-title">100.000 € Schutz</div>
-              <div class="hero-benefit-desc">EU-Einlagensicherung je Bank</div>
-            </div>
-
-            <div class="hero-benefit-card">
-              <div class="hero-benefit-icon">📈</div>
-              <div class="hero-benefit-title">Top Rendite</div>
-              <div class="hero-benefit-desc">Bis zu 4,65% p.a. Zinsen</div>
-            </div>
-
-            <div class="hero-benefit-card">
-              <div class="hero-benefit-icon">💶</div>
-              <div class="hero-benefit-title">100% Kostenlos</div>
-              <div class="hero-benefit-desc">Unverbindlich vergleichen</div>
-            </div>
+          <!-- CTA Button -->
+          <div class="flex flex-wrap items-center gap-4 mb-8">
+            <a href="#angebote" class="btn-amber">
+              <span>Jetzt Zinsen vergleichen</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <a href="#vorteile" class="px-6 py-3.5 rounded-lg border border-white/20 text-white font-bold hover:bg-white/10 transition-all text-sm">
+              Mehr erfahren
+            </a>
           </div>
 
-          <!-- Trust Bar -->
-          <div class="hero-trust-bar">
-            <div class="hero-trust-avatars">
-              <div class="hero-trust-avatar">DE</div>
-              <div class="hero-trust-avatar">AT</div>
-              <div class="hero-trust-avatar">CH</div>
+          <!-- Quick Trust Badges -->
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 w-full max-w-lg">
+            <div class="flex items-center gap-2">
+              <span class="text-[#e99f4c] font-black text-lg">✓</span>
+              <span class="text-xs text-slate-300 font-semibold leading-tight">100.000 € EU-Schutz</span>
             </div>
-            <div class="hero-trust-text">
-              Über <strong>25.000+</strong> erfolgreiche Vergleiche in DACH
+            <div class="flex items-center gap-2">
+              <span class="text-[#e99f4c] font-black text-lg">✓</span>
+              <span class="text-xs text-slate-300 font-semibold leading-tight">Transparente Tarife</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#e99f4c] font-black text-lg">✓</span>
+              <span class="text-xs text-slate-300 font-semibold leading-tight">100% Kostenfrei</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Right Column: Interactive Calculator Card -->
-        <div class="hero-calc-container">
-          <div class="hero-calc-card">
-            
-            <div class="hero-calc-header">
-              <div class="hero-calc-header-left">
-                <div class="hero-calc-icon-box">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                </div>
-                <div>
-                  <div class="hero-calc-title">Festgeld-Rechner</div>
-                  <div class="hero-calc-subtitle">Berechnen Sie Ihre Nettorendite</div>
-                </div>
+        <!-- Right Column: Hero Advisor Photo (Matching reference top right image) -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="hero-image-frame w-full max-w-md lg:max-w-lg">
+            <img src="/images/hero_advisor.png" alt="Finanzberaterin im Kundenservice" class="w-full h-full object-cover">
+            <div class="absolute bottom-4 left-4 right-4 bg-[#18283b]/90 backdrop-blur-md p-4 rounded-xl border border-white/15 text-white flex items-center justify-between shadow-xl">
+              <div>
+                <div class="text-xs font-bold text-[#e99f4c] uppercase tracking-wider">Persönlicher Service</div>
+                <div class="text-sm font-extrabold mt-0.5">Kostenfreie & Unverbindliche Beratung</div>
               </div>
-              <span class="hero-calc-badge">Live 2026</span>
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
             </div>
-
-            <!-- Amount Input -->
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <label for="calc-amount" class="text-[11px] font-black uppercase tracking-wider text-slate-500">Anlagebetrag (€)</label>
-                <div class="flex items-center gap-1">
-                  <button type="button" class="preset-btn" data-val="10000">10k</button>
-                  <button type="button" class="preset-btn active" data-val="25000">25k</button>
-                  <button type="button" class="preset-btn" data-val="50000">50k</button>
-                  <button type="button" class="preset-btn" data-val="100000">100k</button>
-                </div>
-              </div>
-
-              <div class="hero-input-box">
-                <input type="number" id="calc-amount" value="25000" min="1000" step="1000" placeholder="25000" class="hero-input-field">
-                <span class="hero-input-unit">€</span>
-              </div>
-            </div>
-
-            <!-- Duration Selection -->
-            <div>
-              <label for="calc-duration" class="block text-[11px] font-black uppercase tracking-wider text-slate-500 mb-1">Laufzeit auswählen</label>
-              <input type="hidden" id="calc-duration" value="12">
-              
-              <div class="term-pills-row">
-                <button type="button" class="term-pill" data-term="6">6 Mon.</button>
-                <button type="button" class="term-pill active" data-term="12">12 Mon.</button>
-                <button type="button" class="term-pill" data-term="24">24 Mon.</button>
-                <button type="button" class="term-pill" data-term="36">36 Mon.</button>
-              </div>
-            </div>
-
-            <!-- Estimated Yield Preview -->
-            <div class="hero-preview-card">
-              <div class="hero-preview-top">
-                <span>Geschätzter Zinsertrag:</span>
-                <span class="hero-preview-rate-tag">bis zu 4,65% p.a.</span>
-              </div>
-              <div class="hero-preview-bottom">
-                <span id="hero-yield-display" class="hero-preview-yield">+1.162,50 €</span>
-                <span class="hero-preview-sub">Gewinn vor Steuern</span>
-              </div>
-            </div>
-
-            <!-- Action Button -->
-            <button type="button" id="compare-btn" class="hero-calc-btn">
-              <span>Angebote jetzt vergleichen</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </button>
-
-            <div class="hero-calc-footer-note">
-              <span>✓ 100% Kostenlos</span>
-              <span>•</span>
-              <span>✓ Ohne Registrierung</span>
-              <span>•</span>
-              <span>✓ Unverbindlich</span>
-            </div>
-
           </div>
         </div>
 
@@ -276,253 +210,447 @@
     </div>
   </section>
 
-  {{-- AKTUELLE FESTGELD-ANGEBOTE - Tier Cards --}}
-  <section id="list" class="angebote-section">
-    <div class="angebote-header">
-      <h2 class="angebote-title">Aktuelle Festgeld-Angebote</h2>
-      <div class="angebote-underline"></div>
-    </div>
+  {{-- SECTION 2: AMBER INTRO BOX & BENEFITS --}}
+  <section id="vorteile" class="py-16 bg-slate-50 border-t border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left Amber Box (Matching left amber container in reference image) -->
+        <div class="lg:col-span-5 amber-intro-box flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-[#18283b] text-[#e99f4c] flex items-center justify-center font-black text-2xl mb-6 shadow-md">
+              ✓
+            </div>
+            <h2 class="amber-intro-title">
+              Unabhängiger Zinsvergleich – Ihre Vorteile auf einen Blick
+            </h2>
+            <p class="text-[#18283b]/80 font-medium leading-relaxed mb-6">
+              Wir vergleichen verlässliche Festgeld- und Tagesgeldkonten europäischer Kreditinstitute, damit Sie Ihr Vermögen sicher und rentabel anlegen können.
+            </p>
+          </div>
 
-    <div class="angebote-grid">
+          <div class="space-y-3 pt-6 border-t border-[#18283b]/15">
+            <div class="flex items-center gap-3 text-sm font-extrabold text-[#18283b]">
+              <span>🛡️</span>
+              <span>Gesetzliche Einlagensicherung bis 100.000 €</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm font-extrabold text-[#18283b]">
+              <span>📊</span>
+              <span>Transparente Aufstellung aller Konditionen</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm font-extrabold text-[#18283b]">
+              <span>🤝</span>
+              <span>100% Kostenfreier Beratungsservice</span>
+            </div>
+          </div>
+        </div>
 
-      @foreach($tiers as $key => $tier)
-        @php
-          $zinsbetrag = number_format($tier['rate'] * $tier['amount'] / 100 * (12 / 12), 2, ',', '.');
-          $rateStr    = number_format($tier['rate'], 2, ',', '.');
-          $isFirst    = $loop->first;
+        <!-- Right Content: Image & Bullet points -->
+        <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
           
-          // Theme tier colors in blue style
-          $cardColor  = $key === 'gold' ? '#2563eb' : ($key === 'plat' ? '#1d4ed8' : '#0284c7');
-          $cardGlow   = $key === 'gold' ? 'rgba(37,99,235,0.25)' : 'rgba(2,132,199,0.25)';
-          $cardBorder = $key === 'gold' ? 'rgba(37,99,235,0.6)' : 'rgba(2,132,199,0.4)';
-        @endphp
-        <div class="tier-card {{ $isFirst ? 'tier-card--featured' : '' }}"
-             style="--tier-color:{{ $cardColor }}; --tier-glow:{{ $cardGlow }}; --tier-border:{{ $cardBorder }};">
-
-          {{-- Range --}}
-          <div class="tier-range">{{ $tier['range'] }}</div>
-
-          {{-- Rate --}}
-          <div class="tier-rate" style="color:var(--tier-color);">
-            @if(!empty($tier['rate_prefix']))<span class="tier-rate-prefix">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="tier-rate-pct">%</span>
-          </div>
-          <div class="tier-rate-label">ZINSEN p.a.</div>
-
-          {{-- Details --}}
-          <div class="tier-details">
-            <div class="tier-detail-row">
-              <span class="tier-detail-key">Laufzeit:</span>
-              <span class="tier-detail-val val-term">12 Monate</span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-6">
+            <div class="rounded-xl overflow-hidden shadow-md h-52">
+              <img src="/images/advisor_presentation.png" alt="Finanzberatung Präsentation" class="w-full h-full object-cover">
             </div>
-            <div class="tier-detail-row">
-              <span class="tier-detail-key">Anlagebetrag:</span>
-              <span class="tier-detail-val val-amount">&euro;{{ number_format($tier['amount'], 2, ',', '.') }}</span>
-            </div>
-            <div class="tier-detail-row">
-              <span class="tier-detail-key">Zinsertrag:</span>
-              <span class="tier-detail-val val-yield" style="color:var(--tier-color);">&euro;{{ $zinsbetrag }}</span>
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">Transparenz & Sicherheit</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Der Markt für Zinsangebote bewegt sich ständig. Unser Team unterstützt Sie dabei, Angebote objektiv zu bewerten und die ideale Anlageform für Ihre Bedürfnisse zu finden.
+              </p>
             </div>
           </div>
 
-          {{-- CTA --}}
-          <button type="button" class="tier-btn open-modal-btn"
-            data-id="{{ $tier['id'] }}"
-            data-bank-id="{{ $tier['bank_id'] }}"
-            data-bank-name="{{ $tier['label'] }}"
-            data-bank-logo="{{ $tier['bank_logo'] }}"
-            data-rate="{{ $tier['rate'] }}"
-            data-min-amount="{{ $tier['amount'] }}"
-            data-max-amount=""
-            data-min-term="12"
-            data-max-term="12"
-            data-tier="{{ $key }}"
-            style="background:var(--tier-color); box-shadow: 0 4px 20px var(--tier-glow);">
-            Jetzt Angebot anfordern
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100 pt-6">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#fef3c7] text-[#d97706] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Transparente Konditionen</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Alle Kosten und Laufzeiten auf einen Blick übersichtlich dargestellt.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#fef3c7] text-[#d97706] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Gesetzlicher Schutz</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Absicherung durch europäische Einlagensicherungsfonds.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#fef3c7] text-[#d97706] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Ohne Gebühren</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Keine versteckten Entgelte für Vergleiche oder Beratung.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#fef3c7] text-[#d97706] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Express-Service</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Schnelle Bearbeitung Ihrer unverbindlichen Anfrage.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a href="#angebote" class="btn-amber text-sm py-2.5 px-5">
+              <span>Jetzt Angebot anfordern</span>
+            </a>
+          </div>
+
         </div>
-      @endforeach
 
-    </div>
+      </div>
 
-    {{-- Feature Badges under interest rate boxes --}}
-    <div class="angebote-features">
-      <div class="angebote-feature-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        <span>Einlagensicherung bis 1.000.000€</span>
-      </div>
-      <div class="angebote-feature-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        <span>Kapitalertragssteuerfrei</span>
-      </div>
- 
     </div>
   </section>
 
-  {{-- SECTION 1: WHY FESTGELD-JETZTVERGLEICHEN --}}
-  <section class="py-20 bg-slate-50 border-t border-b border-slate-200/60">
-    <div class="container mx-auto px-4 max-w-6xl">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-          Warum festgeld-jetztvergleichen.com?
+  {{-- SECTION 3: DARK NAVY QUERY BANNER WITH 3 CARDS --}}
+  <section class="navy-query-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
+          Welche Festgeldanlage passt zu Ihren individuellen Finanzzielen?
         </h2>
-        <p class="text-slate-600 font-medium">
-          Wir bringen Transparenz, Sicherheit und erstklassige Renditen in Ihre Geldanlage.
+        <p class="text-slate-300 text-sm sm:text-base font-medium">
+          Wählen Sie die passende Anlageform je nach gewünschter Laufzeit und Flexibilität.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Card 1 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <div class="navy-query-card">
+          <div class="w-12 h-12 rounded-xl bg-[#e99f4c]/20 text-[#e99f4c] flex items-center justify-center font-black text-xl mb-4 border border-[#e99f4c]/30">
+            💡
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-3">Maximale Sicherheit</h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            100% geschützt durch die gesetzliche europäische Einlagensicherung bis zu 100.000 € je Bank und Anleger.
+          <h3 class="text-lg font-bold text-white mb-2">Flexibles Tagesgeld</h3>
+          <p class="text-sm text-slate-300 leading-relaxed font-normal">
+            Verhalten Sie volle Verfügbarkeit über Ihr Geld bei täglicher Zinsgutschrift und variabler Verzinsung.
           </p>
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        <div class="navy-query-card">
+          <div class="w-12 h-12 rounded-xl bg-[#e99f4c]/20 text-[#e99f4c] flex items-center justify-center font-black text-xl mb-4 border border-[#e99f4c]/30">
+            🛡️
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-3">Top-Konditionen</h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            Erhalten Sie exklusiven Zugriff auf die höchsten Tages- und Festgeldzinsen aus ganz Europa – ohne Kosten.
+          <h3 class="text-lg font-bold text-white mb-2">Festgeld mit Top-Zinsen</h3>
+          <p class="text-sm text-slate-300 leading-relaxed font-normal">
+            Sichern Sie sich garantierte Zinsen über feste Laufzeiten von 6 bis 36 Monaten für klare Renditeplanung.
           </p>
         </div>
 
         <!-- Card 3 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        <div class="navy-query-card">
+          <div class="w-12 h-12 rounded-xl bg-[#e99f4c]/20 text-[#e99f4c] flex items-center justify-center font-black text-xl mb-4 border border-[#e99f4c]/30">
+            🔍
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-3">Unabhängiger Vergleich</h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            Wir vergleichen unabhängig und transparent, um das rentabelste und sicherste Angebot für Sie zu finden.
-          </p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-3">Kostenloser Service</h3>
-          <p class="text-sm text-slate-500 leading-relaxed font-medium">
-            Von der Zinsberechnung bis zur Kontoeröffnung stehen wir Ihnen mit persönlichem Service kostenfrei zur Seite.
+          <h3 class="text-lg font-bold text-white mb-2">Persönliche Beratung</h3>
+          <p class="text-sm text-slate-300 leading-relaxed font-normal">
+            Lassen Sie sich kostenfrei von unseren Anlageexperten unterstützen und maßgeschneiderte Konditionen ermitteln.
           </p>
         </div>
 
       </div>
+
     </div>
   </section>
 
-  {{-- SECTION 2: EU DEPOSIT INSURANCE (TRUST) --}}
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4 max-w-6xl">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  {{-- SECTION 4: 4-STEP PROCESS --}}
+  <section class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+          In 4 einfachen Schritten zu Ihrer Geldanlage
+        </h2>
+        <p class="text-slate-600 font-medium text-sm sm:text-base">
+          Der Weg zu Ihren besten Festgeld- und Tagesgeldkonditionen ist transparent und schnell erledigt.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- Left text block -->
-        <div class="text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-700 text-[11px] font-extrabold uppercase tracking-wider mb-4">
-            EU-Richtlinie
+        <!-- Left Column: Process Photo -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 h-[420px]">
+            <img src="/images/advisor_paperwork.png" alt="Finanzanalyse und Unterlagen" class="w-full h-full object-cover">
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-6">
-            Ihre Einlagen sind europaweit geschützt
-          </h2>
-          <p class="text-slate-600 leading-relaxed font-medium mb-6">
-            Sicherheit ist das Fundament jeder erfolgreichen Geldanlage. Alle Geldeinlagen bei unseren europäischen Partnerbanken unterliegen der gesetzlichen Einlagensicherung des jeweiligen Landes gemäß den Richtlinien der Europäischen Union.
-          </p>
-          <p class="text-slate-600 leading-relaxed font-medium mb-8">
-            Das bedeutet: Sollte eine Bank wider Erwarten in finanzielle Schwierigkeiten geraten, sind Ihre Ersparnisse bis zu 100.000 € pro Bank und Sparer durch den Staat zu 100 % abgesichert.
-          </p>
-
-          <ul class="space-y-4">
-            <li class="flex items-center gap-3">
-              <span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              </span>
-              <span class="text-slate-700 font-bold text-[15px]">100.000 € gesetzlicher Schutz je Bank</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              </span>
-              <span class="text-slate-700 font-bold text-[15px]">Strenge Überwachung durch europäische Aufsichtsbehörden</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              </span>
-              <span class="text-slate-700 font-bold text-[15px]">Keine Währungsrisiken dank Anlage in Euro (€)</span>
-            </li>
-          </ul>
         </div>
 
-        <!-- Right visual trust box -->
-        <div class="relative flex justify-center lg:justify-end">
-          <div class="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl max-w-md w-full relative overflow-hidden border border-blue-900/30">
-            <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-blue-600/20 blur-3xl"></div>
-            
-            <div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/10">
-              <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-
-            <h3 class="text-2xl font-black mb-2 tracking-tight">Einlagensicherung</h3>
-            <p class="text-blue-300 font-extrabold tracking-widest text-xs uppercase mb-6">100% Gesetzlich Garantiert</p>
-            
-            <div class="space-y-6 border-t border-white/10 pt-6">
-              <div>
-                <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Absicherungssumme</div>
-                <div class="text-3xl font-black mt-1 text-white">Bis 100.000 €</div>
-                <div class="text-xs text-slate-400 mt-1">pro Sparer und Bank voll geschützt</div>
-              </div>
-
-              <div>
-                <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Geltungsbereich</div>
-                <div class="text-lg font-extrabold mt-1 text-white">Alle EU-Mitgliedstaaten</div>
-                <div class="text-xs text-slate-400 mt-1">Sowie assoziierte europäische Länder</div>
-              </div>
+        <!-- Right Column: 4 Steps -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
+            <div class="step-number">01</div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">Kostenlosen Zinsvergleich nutzen</h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                Wählen Sie Ihren gewünschten Anlagebetrag und die passende Laufzeit aus unseren geprüften Festgeldtarifen.
+              </p>
             </div>
           </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
+            <div class="step-number">02</div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">Unverbindliches Angebot anfordern</h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                Fordern Sie Ihr persönliches Zinsangebot mit wenigen Klicks kostenfrei und unverbindlich an.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
+            <div class="step-number">03</div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">Bequem legitimieren</h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                Führen Sie die gesetzlich vorgeschriebene Identitätsprüfung schnell per VideoIdent oder PostIdent durch.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
+            <div class="step-number">04</div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900">Zinsen und Erträge sichern</h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                Nach Eröffnung Ihres Kontos wird Ihr Geld mit dem vereinbarten Zinssatz zuverlässig verzinst.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <a href="#angebote" class="btn-amber">
+              <span>Jetzt Schritt 1 starten</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
         </div>
 
       </div>
+
     </div>
   </section>
 
-  {{-- SECTION 3: CALL TO ACTION BLOCK --}}
-  <section class="py-16 bg-slate-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)]"></div>
-    <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-        Sichern Sie sich heute noch Top-Konditionen
-      </h2>
-      <p class="text-slate-400 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
-        Berechnen Sie Ihre Nettorendite mit unserem Rechner oben und fordern Sie Ihr unverbindliches Zinsangebot kostenlos an.
+  {{-- SECTION 5: TRUSTED PARTNER BANK LOGOS BAR --}}
+  <section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-8">
+        Vergleiche von renommierten Partnerbanken aus ganz Europa
       </p>
       
-      <a href="#hero" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 hover:from-blue-700 hover:to-indigo-800 text-white font-extrabold rounded-full text-[15px] shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-0.5 active:translate-y-0">
-        <span>Jetzt Zinsen berechnen</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-      </a>
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 opacity-80 grayscale hover:grayscale-0 transition-all">
+        <div class="font-black text-slate-700 text-xl tracking-tight">FINOM</div>
+        <div class="font-black text-slate-700 text-xl tracking-tight">N26</div>
+        <div class="font-black text-slate-700 text-xl tracking-tight">Solarisbank</div>
+        <div class="font-black text-slate-700 text-xl tracking-tight">Santander</div>
+        <div class="font-black text-slate-700 text-xl tracking-tight">Trade Republic</div>
+        <div class="font-black text-slate-700 text-xl tracking-tight">Klarna</div>
+        <div class="font-black text-slate-700 text-xl tracking-tight">Barclays</div>
+      </div>
     </div>
   </section>
 
-  {{-- CONTACT MODAL --}}
+  {{-- SECTION 6: FESTGELD OFFERS GRID --}}
+  <section id="angebote" class="angebote-section py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="angebote-header">
+        <h2 class="angebote-title">Riesige Auswahl an den besten Festgeldkonten für Ihre Finanzen</h2>
+        <p class="text-slate-600 font-medium max-w-2xl mx-auto mb-4 text-sm sm:text-base">
+          Vergleichen Sie tagesaktuelle Zinskonditionen europäischer Kreditinstitute und sichern Sie sich Ihre Erträge.
+        </p>
+        <div class="angebote-underline"></div>
+      </div>
+
+      <!-- Tiers / Bank Offers Grid -->
+      <div class="angebote-grid mb-12">
+        @foreach($tiers as $key => $tier)
+          @php
+            $zinsbetrag = number_format($tier['rate'] * $tier['amount'] / 100 * (12 / 12), 2, ',', '.');
+            $rateStr    = number_format($tier['rate'], 2, ',', '.');
+            $bankName   = $tier['bank_name'] ?? 'Partnerbank EU';
+            $country    = $tier['country'] ?? '🇪🇺 EU-Mitgliedstaat';
+          @endphp
+
+          <div class="offer-card border-t-4 border-t-[#e99f4c]">
+            <div>
+              <!-- Header: Bank logo / name & protection badge -->
+              <div class="flex items-center justify-between mb-4 gap-2">
+                <div class="flex items-center gap-2.5">
+                  @if(!empty($tier['bank_logo']))
+                    <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
+                      <img src="{{ $tier['bank_logo'] }}" alt="{{ $bankName }}" class="max-w-full max-h-full object-contain">
+                    </div>
+                  @else
+                    <span class="w-9 h-9 rounded-lg bg-slate-100 text-[#18283b] font-black text-base flex items-center justify-center border border-slate-200 shrink-0">
+                      🏦
+                    </span>
+                  @endif
+                  <div>
+                    <div class="text-xs font-black text-slate-900 leading-tight">{{ $bankName }}</div>
+                    <div class="text-[10px] font-bold text-slate-400 mt-0.5">{{ $country }}</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded shrink-0">
+                  🇩🇪 100.000€ Schutz
+                </span>
+              </div>
+
+              <!-- Investment Range -->
+              <div class="text-slate-900 font-extrabold text-sm mb-2 text-center bg-slate-50 py-1.5 px-3 rounded-lg border border-slate-100">
+                Anlage: {{ $tier['range'] }}
+              </div>
+              
+              <!-- Interest Rate Display with ab / bis zu Prefix -->
+              <div class="my-4 offer-rate-badge">
+                <div class="text-[#d97706] font-black text-3xl sm:text-4xl tracking-tight">
+                  @if(!empty($tier['rate_prefix']))<span class="text-lg font-bold opacity-80 mr-0.5">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="text-2xl font-extrabold">%</span>
+                </div>
+                <div class="text-[10px] uppercase font-black tracking-widest text-slate-500 mt-1">ZINSEN p.a. (Festzins)</div>
+              </div>
+
+              <!-- Key Features -->
+              <div class="space-y-2.5 border-t border-slate-100 pt-3 text-xs text-slate-600">
+                <div class="flex justify-between items-center">
+                  <span>Laufzeit:</span>
+                  <strong class="text-slate-900 font-bold">12 Monate</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span>Mindestanlage:</span>
+                  <strong class="text-slate-900 font-bold">&euro;{{ number_format($tier['amount'], 0, ',', '.') }}</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span>Geschätzter Zinsertrag:</span>
+                  <strong class="text-[#d97706] font-black text-sm">&euro;{{ $zinsbetrag }}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <button type="button" class="offer-btn open-modal-btn"
+                data-id="{{ $tier['id'] }}"
+                data-bank-id="{{ $tier['bank_id'] }}"
+                data-bank-name="{{ $bankName }}"
+                data-bank-logo="{{ $tier['bank_logo'] }}"
+                data-rate="{{ $tier['rate'] }}"
+                data-min-amount="{{ $tier['amount'] }}"
+                data-max-amount=""
+                data-min-term="12"
+                data-max-term="12"
+                data-tier="{{ $key }}">
+                Konto jetzt vergleichen & anfragen
+              </button>
+            </div>
+          </div>
+        @endforeach
+      </div>
+
+    </div>
+  </section>
+
+  {{-- SECTION 7: FAQ & INFORMATION WITH ADVISOR PHOTOS --}}
+  <section class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+          Wichtige Informationen zu Ihrer Festgeld-Anlage
+        </h2>
+        <p class="text-slate-600 font-medium text-sm sm:text-base">
+          Hier finden Sie Antworten auf die am häufigsten gestellten Fragen rund um Zinsen, Laufzeiten und Sicherheit.
+        </p>
+      </div>
+
+      <!-- Item 1: Meeting photo + Text -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-64 sm:h-80">
+          <img src="/images/advisor_meeting.png" alt="Finanzberatung Gespräch" class="w-full h-full object-cover">
+        </div>
+        <div class="lg:col-span-7 space-y-4">
+          <h3 class="text-xl font-bold text-slate-900">Was ist der Unterschied zwischen Festgeld und Tagesgeld?</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Beim <strong>Festgeld</strong> legen Sie einen festen Geldbetrag für eine vereinbarte Laufzeit (z. B. 12 oder 24 Monate) an. Der Zinssatz bleibt während der gesamten Laufzeit garantiert unverändert.
+          </p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Beim <strong>Tagesgeld</strong> ist Ihr Geld täglich verfügbar. Der Zinssatz ist jedoch variabel und kann sich an Marktzinsschwankungen anpassen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Item 2: Text + Consultation photo -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4 order-2 lg:order-1">
+          <h3 class="text-xl font-bold text-slate-900">Wie sicher ist mein Geld bei europäischen Partnerbanken?</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Alle Partnerbanken in unserem Zinsvergleich unterliegen der gesetzlichen Einlagensicherung der Europäischen Union. Gemäß EU-Richtlinie sind Guthaben bis zu <strong>100.000 Euro pro Kunde und Bank</strong> vollumfänglich gesetzlich geschützt.
+          </p>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Zusätzlich werden europäische Finanzinstitute von den jeweiligen nationalen Finanzaufsichtsbehörden streng kontrolliert.
+          </p>
+        </div>
+        <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-64 sm:h-80 order-1 lg:order-2">
+          <img src="/images/advisor_consultation.png" alt="Einlagensicherung Beratung" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {{-- SECTION 8: BLOG / GUIDE ARTICLES CARDS --}}
+  @if(isset($latestPosts) && count($latestPosts) > 0)
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+            Das Finanz-Wissen für Ihre Anlageentscheidungen
+          </h2>
+          <p class="text-slate-600 font-medium text-sm sm:text-base">
+            Aktuelle Ratgeber und Expertenbeiträge rund um Zinsentwicklung, Festgeld und Sparstrategien.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          @foreach($latestPosts as $post)
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div class="p-6">
+                <div class="text-xs font-extrabold text-[#d97706] uppercase tracking-wider mb-2">Ratgeber</div>
+                <h3 class="text-lg font-bold text-slate-900 mb-3 line-clamp-2">{{ $post->title }}</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3 mb-4">
+                  {{ $post->excerpt ?: strip_tags($post->content) }}
+                </p>
+              </div>
+              <div class="p-6 pt-0 border-t border-slate-100">
+                <a href="/blog/{{ $post->slug }}" class="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#18283b] hover:text-[#d97706] transition-colors">
+                  <span>Mehr erfahren</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          @endforeach
+        </div>
+
+      </div>
+    </section>
+  @endif
+
+  {{-- APPLICATION MODAL --}}
   <div id="applicationModal"
     class="hidden fixed inset-0 z-[111] overflow-y-auto p-4 items-start justify-center"
-    style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);"
+    style="background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(6px);"
     role="dialog"
     aria-modal="true" 
     aria-labelledby="contact-modal-title">
-    <div class="contact-modal-backdrop contact-modal-shell w-full max-w-5xl shadow-2xl relative my-auto sm:my-8 bg-white">
+    <div class="contact-modal-backdrop contact-modal-shell w-full max-w-4xl shadow-2xl relative my-auto sm:my-8 bg-white">
       <button type="button" id="closeModal" class="absolute right-4 top-4 z-10 text-slate-400 w-10 h-10 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-700 transition-all flex items-center justify-center bg-white shadow-md hover:scale-105" aria-label="Schließen">
         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -530,55 +658,51 @@
         </svg>
       </button>
       <form id="applicationForm" class="grid grid-cols-1 lg:grid-cols-2">
-        <!-- Left Panel: Offer Summary (Premium Dark Blue) -->
+        <!-- Left Panel: Offer Summary (Dark Navy) -->
         <div class="contact-offer-panel p-6 sm:p-10 flex flex-col justify-between gap-6">
           <div>
-            <div style="display: none;" class="flex items-center gap-4 mb-6 sm:mb-8 pr-10">
-              <div class="bg-white rounded-xl p-2 border border-white/10 shadow-lg flex items-center justify-center w-[110px] h-[55px]">
-                <img id="summary-bank-logo" src="/logo.svg" alt="Bank Logo"
-                  class="max-w-full max-h-full object-contain">
-              </div>
+            <div class="flex items-center gap-4 mb-6 sm:mb-8 pr-10">
               <div>
-                <div id="summary-bank-name" class="text-xl sm:text-2xl font-black text-white leading-tight">ING BANK</div>
-                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5" id="summary-bank-sub">Festgeld-Anlage</div>
+                <div id="summary-bank-name" class="text-xl sm:text-2xl font-black text-white leading-tight">festgeld-jetztvergleichen.com</div>
+                <div class="text-[10px] font-bold text-[#e99f4c] uppercase tracking-widest mt-0.5" id="summary-bank-sub">Unverbindlicher Zinsvergleich</div>
               </div>
             </div>
           
             <div class="grid grid-cols-2 gap-3 sm:gap-4">
               <div class="premium-micro-card">
                 <div class="contact-label">Zinssatz</div>
-                <div id="summary-rate" class="contact-value contact-value-highlight">0.00%</div>
+                <div id="summary-rate" class="contact-value contact-value-highlight">3.50%</div>
               </div>
               <div class="premium-micro-card">
                 <div class="contact-label">Laufzeit</div>
-                <div id="summary-term" class="contact-value">1 Jahr</div>
+                <div id="summary-term" class="contact-value">12 Monate</div>
               </div>
               <div class="premium-micro-card">
-                <div class="contact-label">Zinsbetrag</div>
-                <div id="summary-interest" class="contact-value">&euro;0,00</div>
+                <div class="contact-label">Absicherung</div>
+                <div class="contact-value">100.000 €</div>
               </div>
               <div class="premium-micro-card">
-                <div class="contact-label">Gesamtzahlung</div>
-                <div id="summary-total" class="contact-value">&euro;0,00</div>
+                <div class="contact-label">Kosten</div>
+                <div class="contact-value contact-value-highlight">0,00 €</div>
               </div>
             </div>
           </div>
           
-          <div class="text-[10px] sm:text-xs text-slate-400 leading-relaxed border-t border-white/5 pt-4 hidden sm:block">
-            * SSL secured. Ihre Daten werden verschlüsselt übertragen. Keine Weitergabe an unbefugte Dritte.
+          <div class="text-[10px] sm:text-xs text-slate-400 leading-relaxed border-t border-white/10 pt-4">
+            ✓ 100% Kostenfrei & Unverbindlich<br>
+            ✓ Verschlüsselte Datenübertragung
           </div>
         </div>
 
-        <!-- Right Panel: Form Inputs (Modern Light) -->
-        <div class="bg-white p-6 sm:p-10 lg:pr-12 flex flex-col justify-center">
-          <h2 id="contact-modal-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">Unverbindliche Anfrage</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mb-6">Bitte füllen Sie das Formular aus, um Ihr exklusives Angebot anzufordern.</p>
+        <!-- Right Panel: Form Inputs -->
+        <div class="bg-white p-6 sm:p-10 flex flex-col justify-center">
+          <h2 id="contact-modal-title" class="text-2xl font-extrabold text-slate-900 tracking-tight mb-2">Unverbindliche Anfrage</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mb-6">Tragen Sie Ihre Kontaktdaten ein, um ein individuelles Angebot zu erhalten.</p>
 
           <input type="hidden" id="form-bank-id">
           <input type="hidden" id="form-credit-id">
           <input type="hidden" id="form-requested-amount">
           <input type="hidden" id="form-requested-term">
-          <input type="hidden" id="form-additional-notes">
 
           <div class="space-y-4">
             <div>
@@ -596,7 +720,7 @@
             <div>
               <label class="block text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Telefonnummer</label>
               <div class="premium-input-container premium-phone-wrapper">
-                <input type="tel" id="phone-input" placeholder="Ihre Telefonnummer" class="premium-input">
+                <input type="tel" id="phone-input" required placeholder="Ihre Telefonnummer" class="premium-input">
               </div>
             </div>
 
@@ -631,305 +755,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".angebote-grid").forEach(section => {
-        [...section.children]
-          .reverse()
-          .forEach(element => section.appendChild(element));
-      });
-    });
-  </script>
-  <script>
     document.addEventListener('DOMContentLoaded', function () {
-
-      let amount   = 25000;
-      let duration = 12;
-
-      const amountInput   = document.getElementById('calc-amount');
-      const durationInput = document.getElementById('calc-duration');
-      const compareBtn    = document.getElementById('compare-btn');
-      const yieldDisplay  = document.getElementById('hero-yield-display');
-
-      function formatNumber(num, decimals) {
-        decimals = decimals !== undefined ? decimals : 0;
-        return Number(num).toLocaleString('de-DE', {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals,
-        });
-      }
-
-      function getMaxRate() {
-        let maxRate = 0;
-        document.querySelectorAll('.open-modal-btn').forEach(btn => {
-          const r = parseFloat(btn.dataset.rate) || 0;
-          if (r > maxRate) maxRate = r;
-        });
-        return maxRate > 0 ? maxRate : 4.65;
-      }
-
-      /* Update Hero estimated yield preview */
-      function updateHeroYield() {
-        const months = parseInt(durationInput ? durationInput.value : 12) || 12;
-        const currentAmount = parseFloat(amountInput ? amountInput.value : 25000) || 25000;
-        const rate = getMaxRate();
-        const estimatedYield = currentAmount * rate / 100 * (months / 12);
-        if (yieldDisplay) {
-          yieldDisplay.textContent = '+' + formatNumber(estimatedYield, 2) + ' €';
-        }
-        const rateTag = document.querySelector('.hero-preview-rate-tag');
-        if (rateTag) {
-          rateTag.textContent = 'bis zu ' + formatNumber(rate, 2) + '% p.a.';
-        }
-      }
-
-      /* ---- Preset Buttons for Amount ---- */
-      document.querySelectorAll('.preset-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          const val = this.dataset.val;
-          if (amountInput) {
-            amountInput.value = val;
-            amount = parseInt(val);
-            updateHeroYield();
-            updateTierCards();
-          }
-        });
-      });
-
-      /* ---- Term Pill Selection ---- */
-      document.querySelectorAll('.term-pill').forEach(pill => {
-        pill.addEventListener('click', function() {
-          document.querySelectorAll('.term-pill').forEach(p => p.classList.remove('active'));
-          this.classList.add('active');
-          const term = this.dataset.term;
-          if (durationInput) {
-            durationInput.value = term;
-            duration = parseInt(term);
-            updateHeroYield();
-            updateTierCards();
-          }
-        });
-      });
-
-      /* ---- Tier card amounts (Festgeld) ---- */
-      function updateTierCards() {
-        const tierCards = document.querySelectorAll('.tier-card');
-        const months = parseInt(durationInput ? durationInput.value : 12) || 12;
-        const currentAmount = parseInt(amountInput ? amountInput.value : 25000) || 25000;
-        
-        let activeTier = 'bronze';
-        if (currentAmount >= 75000 && currentAmount < 150000) {
-          activeTier = 'gold';
-        } else if (currentAmount >= 150000) {
-          activeTier = 'plat';
-        }
-
-        tierCards.forEach(function(card) {
-          const btn = card.querySelector('.open-modal-btn');
-          if (!btn) return;
-          
-          let tierKey = btn.dataset.tier;
-
-          const isFeatured = (tierKey === activeTier);
-          
-          if (isFeatured) {
-            card.classList.add('tier-card--featured');
-          } else {
-            card.classList.remove('tier-card--featured');
-          }
-
-          let cardAmount = 25000;
-          if (tierKey === 'gold') cardAmount = 75000;
-          if (tierKey === 'plat') cardAmount = 150000;
-          
-          if (isFeatured) {
-            cardAmount = currentAmount;
-          }
-
-          const rate = parseFloat(btn.dataset.rate) || 0;
-          const zinsbetrag = rate * cardAmount / 100 * (months / 12);
-
-          const termCell = card.querySelector('.val-term');
-          const amountCell = card.querySelector('.val-amount');
-          const yieldCell = card.querySelector('.val-yield');
-
-          if (termCell) termCell.textContent = months + ' Monate';
-          if (amountCell) amountCell.textContent = '\u20AC' + formatNumber(cardAmount, 0);
-          if (yieldCell) yieldCell.textContent = '\u20AC' + formatNumber(zinsbetrag, 2);
-
-          btn.dataset.minAmount = cardAmount;
-          btn.dataset.minTerm = months;
-        });
-      }
-
-      if (compareBtn) {
-        compareBtn.addEventListener('click', function () {
-          amount = Math.max(0, parseInt(amountInput.value) || 25000);
-          if (durationInput) {
-            duration = Math.min(120, Math.max(1, parseInt(durationInput.value) || 12));
-          }
-          updateTierCards();
-          const listSection = document.getElementById('list');
-          if (listSection) listSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      }
-
-      /* Live update as user types */
-      if (amountInput) {
-        amountInput.addEventListener('input', function() {
-          amount = Math.max(0, parseInt(this.value) || 0);
-          updateHeroYield();
-          updateTierCards();
-        });
-      }
-
-      /* Initial render */
-      updateHeroYield();
-      updateTierCards();
-
-
-      const modal           = document.getElementById('applicationModal');
-      const closeModalBtn   = document.getElementById('closeModal');
+      const modal = document.getElementById('applicationModal');
+      const closeModalBtn = document.getElementById('closeModal');
       const applicationForm = document.getElementById('applicationForm');
-      const summaryBankLogo = document.getElementById('summary-bank-logo');
-      const summaryBankName = document.getElementById('summary-bank-name');
-      const summaryBankSub  = document.getElementById('summary-bank-sub');
-      const summaryRate     = document.getElementById('summary-rate');
-      const summaryInterest = document.getElementById('summary-interest');
-      const summaryTerm     = document.getElementById('summary-term');
-      const summaryTotal    = document.getElementById('summary-total');
-      let iti = null;
 
-      document.querySelectorAll('.open-modal-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          const bankName = btn.dataset.bankName || 'Bank';
-          const bankLogo = btn.dataset.bankLogo || '/logo.svg';
-          const rateValue = parseFloat(btn.dataset.rate) || 0;
-          const rateLabel = formatNumber(rateValue, 2) + '% p.a.';
+      // Modal open handlers
+      document.querySelectorAll('.open-modal-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const rate = this.dataset.rate || '3.50';
+          const name = this.dataset.bankName || 'Festgeld';
+          const term = (this.dataset.minTerm || '12') + ' Monate';
           
-          const cardAmount = parseFloat(btn.dataset.minAmount) || amount;
-          const termMonths = parseInt(btn.dataset.minTerm) || duration;
-          const zinsVal = rateValue * cardAmount / 100 * (termMonths / 12);
-
-          const interestAmount = '\u20AC' + formatNumber(zinsVal, 2);
-          const amountLabel = '\u20AC' + formatNumber(cardAmount, 2);
-          const termLabel = termMonths % 12 === 0
-            ? (termMonths / 12) + ' ' + ((termMonths / 12) === 1 ? 'Jahr' : 'Jahre')
-            : termMonths + ' Monate';
-          const totalValue = cardAmount + zinsVal;
-
-          document.getElementById('form-bank-id').value          = btn.dataset.bankId || '';
-          document.getElementById('form-credit-id').value        = btn.dataset.id     || '';
-          document.getElementById('form-requested-amount').value = cardAmount;
-          document.getElementById('form-requested-term').value   = termMonths;
-          document.getElementById('form-additional-notes').value =
-            'Ausgewaehltes Angebot: ' + bankName +
-            ' | Zinssatz: ' + rateLabel +
-            ' | Zinsbetrag: ' + interestAmount +
-            ' | Anlagebetrag: ' + amountLabel +
-            ' | Laufzeit: ' + termLabel;
-
-          summaryBankLogo.src = bankLogo;
-          summaryBankLogo.alt = bankName + ' Logo';
-          summaryBankName.textContent = bankName;
-          if (summaryBankSub) summaryBankSub.textContent = bankName;
-          summaryRate.textContent = rateLabel;
-          summaryInterest.textContent = interestAmount;
-          summaryTerm.textContent = termLabel;
-          summaryTotal.textContent = '\u20AC' + formatNumber(totalValue, 2);
-
+          document.getElementById('summary-rate').textContent = rate + '%';
+          document.getElementById('summary-term').textContent = term;
+          document.getElementById('summary-bank-name').textContent = name;
+          
           modal.classList.remove('hidden');
           modal.classList.add('flex');
-          document.body.style.overflow = 'hidden';
-
-          if (!iti) {
-            iti = window.intlTelInput(document.getElementById('phone-input'), {
-              initialCountry: 'de',
-              countryOrder: ['de', 'ch', 'at', 'it', 'gr', 'fr'],
-              separateDialCode: true,
-              dropdownContainer: document.body,
-              utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js',
-            });
-          }
         });
       });
 
-      function closeModal() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-        document.getElementById('formMessage').classList.add('hidden');
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        });
       }
 
-      closeModalBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
-      });
-
-
-      applicationForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const submitBtn = applicationForm.querySelector('button[type="submit"]');
-        const msgBox    = document.getElementById('formMessage');
-        const fullName  = document.getElementById('form-full-name').value.trim();
-        const nameParts = fullName.split(/\s+/).filter(Boolean);
-        const firstName = nameParts[0] || '';
-        const lastName  = nameParts.slice(1).join(' ') || (nameParts[0] || '');
-
-        submitBtn.disabled    = true;
-        submitBtn.textContent = 'Wird gesendet\u2026';
-        msgBox.classList.add('hidden');
-
-        const fullPhone = iti ? iti.getNumber() : document.getElementById('phone-input').value;
-
-        const payload = {
-          first_name:       firstName,
-          last_name:        lastName,
-          email:            document.getElementById('form-email').value,
-          phone:            fullPhone,
-          bank_id:          document.getElementById('form-bank-id').value,
-          credit_option_id: document.getElementById('form-credit-id').value,
-          requested_amount: amount,
-          requested_term:   duration,
-          additional_notes: document.getElementById('form-additional-notes').value,
-        };
-
-        try {
-          const res    = await fetch('/api/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-          const result = await res.json();
-
-          msgBox.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
-
-          if (res.ok && result.success) {
-            msgBox.classList.add('bg-green-100', 'text-green-800');
-            msgBox.textContent = result.message || 'Erfolgreich gesendet!';
-            setTimeout(function () {
-              closeModal();
-              applicationForm.reset();
-              if (iti) { iti.destroy(); iti = null; }
-            }, 2000);
-          } else {
-            msgBox.classList.add('bg-red-100', 'text-red-800');
-            msgBox.textContent = result.message || 'Fehler!';
-          }
-        } catch (err) {
-          msgBox.classList.remove('hidden');
-          msgBox.classList.add('bg-red-100', 'text-red-800');
-          msgBox.textContent = 'Ein technischer Fehler ist aufgetreten.';
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
         }
-
-        submitBtn.disabled    = false;
-        submitBtn.textContent = 'Anfrage senden';
       });
-
-      updateHeroYield();
-      updateTierCards();
     });
   </script>
 @endpush

@@ -1,44 +1,54 @@
 /* ============================================================
-   HERO SECTION & TIER CARDS - Modern Royal Blue & Cyan Design
+   HERO SECTION & THEME - German Financial Comparison (Amber & Navy)
    ============================================================ */
 
 :root {
-  --primary-blue: #2563eb;
-  --primary-dark-blue: #1d4ed8;
-  --primary-navy: #1e3a8a;
-  --primary-cyan: #0284c7;
-  --bg-light-blue: #eff6ff;
-  --border-light-blue: #bfdbfe;
+  --primary-navy: #18283b;
+  --secondary-navy: #1f3148;
+  --primary-amber: #e99f4c;
+  --primary-amber-dark: #d97706;
+  --amber-light-bg: #fffcf7;
+  --amber-border: #fcd34d;
+  --bg-dark: #121e2d;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+}
+
+/* ---- Dark Header Navbar Overrides ---- */
+.nav-dark-header {
+  background: rgba(24, 40, 59, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ---- Hero Section Wrapper ---- */
 .hero-dark {
-  background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 40%, #e0f2fe 100%);
-  padding-top: 3.5rem;
-  padding-bottom: 5rem;
-  color: #0f172a;
+  background: linear-gradient(135deg, #18283b 0%, #121e2d 100%);
+  padding-top: 4.5rem;
+  padding-bottom: 5.5rem;
+  color: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
 .hero-dark .hero-glow-top-right {
   position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 65%);
+  top: -120px;
+  right: -120px;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(233, 159, 76, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .hero-dark .hero-glow-bottom-left {
   position: absolute;
-  bottom: -80px;
-  left: -80px;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, transparent 65%);
+  bottom: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(31, 49, 72, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -53,7 +63,7 @@
 
 @media (min-width: 1024px) {
   .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 3.5rem;
   }
 }
@@ -73,458 +83,192 @@
   gap: 0.6rem;
   padding: 0.45rem 1.1rem;
   border-radius: 9999px;
-  border: 1px solid #bfdbfe;
-  background: #ffffff;
-  color: #1e40af;
+  border: 1px solid rgba(233, 159, 76, 0.3);
+  background: rgba(233, 159, 76, 0.1);
+  color: #e99f4c;
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
 }
 
 .hero-badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #2563eb;
+  background: #e99f4c;
   animation: hero-pulse 1.8s infinite;
 }
 
 @keyframes hero-pulse {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
     transform: scale(1);
   }
-
   50% {
     opacity: 0.4;
     transform: scale(0.85);
   }
 }
 
-/* Headline */
+/* Main Title */
 .hero-main-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: #0f172a;
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
   margin-bottom: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .hero-main-title {
-    font-size: 3.25rem;
+    font-size: 2.85rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-main-title {
-    font-size: 3.65rem;
+    font-size: 3.15rem;
   }
 }
 
 .hero-main-title .hero-accent {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #0284c7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #e99f4c;
   display: inline-block;
 }
 
 /* Subtext */
 .hero-description {
-  color: #475569;
+  color: #cbd5e1;
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 2rem;
   max-width: 580px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .hero-description strong {
-  color: #0f172a;
-  font-weight: 800;
-}
-
-/* Benefit Cards (3 Items) */
-.hero-benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.85rem;
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 640px) {
-  .hero-benefits-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.hero-benefit-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 1rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-  transition: all 0.25s ease;
-}
-
-.hero-benefit-card:hover {
-  border-color: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
-}
-
-.hero-benefit-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 0.65rem;
-  background: #eff6ff;
-  color: #2563eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.hero-benefit-title {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.25;
-}
-
-.hero-benefit-desc {
-  font-size: 0.72rem;
-  color: #64748b;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-/* Trust Footer Bar */
-.hero-trust-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding-top: 0.5rem;
-}
-
-.hero-trust-avatars {
-  display: flex;
-  margin-right: 0.25rem;
-}
-
-.hero-trust-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
-  background: #2563eb;
   color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: -0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.hero-trust-avatar:first-child {
-  margin-left: 0;
-}
-
-.hero-trust-text {
-  font-size: 0.8rem;
-  color: #475569;
   font-weight: 700;
 }
 
-.hero-trust-text strong {
-  color: #2563eb;
-  font-weight: 900;
-}
-
-
-/* ---- Right Column: Calculator Card ---- */
-.hero-calc-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  order: -1;
-}
-
-@media (min-width: 1024px) {
-  .hero-calc-container {
-    justify-content: flex-end;
-    order: 2;
-  }
-
-  .hero-left-content {
-    order: 1;
-  }
-}
-
-.hero-calc-card {
-  background: #ffffff;
-  border: 2px solid #bfdbfe;
-  padding: 2rem;
-  border-radius: 1.75rem;
-  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.14);
-  width: 100%;
-  max-width: 440px;
-  position: relative;
-}
-
-.hero-calc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 1.25rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.hero-calc-header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.hero-calc-icon-box {
-  width: 42px;
-  height: 42px;
-  border-radius: 0.85rem;
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
-}
-
-.hero-calc-title {
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: #0f172a;
-  line-height: 1.2;
-}
-
-.hero-calc-subtitle {
-  font-size: 0.75rem;
-  color: #64748b;
-  font-weight: 600;
-}
-
-.hero-calc-badge {
-  font-size: 0.65rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  background: #eff6ff;
-  color: #2563eb;
-  border: 1px solid #bfdbfe;
-  padding: 0.25rem 0.65rem;
-  border-radius: 0.5rem;
-}
-
-/* Preset buttons */
-.preset-btn {
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  color: #334155;
+/* Amber Action Button */
+.btn-amber {
+  background: #e99f4c;
+  color: #18283b;
   font-weight: 800;
-  font-size: 0.75rem;
-  padding: 0.35rem 0.65rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.preset-btn:hover,
-.preset-btn.active {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
-}
-
-/* Input box */
-.hero-input-box {
-  position: relative;
-  display: flex;
+  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 0.6rem;
+  display: inline-flex;
   align-items: center;
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.hero-input-field {
-  width: 100%;
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-radius: 0.95rem;
-  padding: 0.85rem 3rem 0.85rem 1rem;
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: #0f172a;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.hero-input-field:focus {
-  border-color: #2563eb;
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-}
-
-.hero-input-unit {
-  position: absolute;
-  right: 1.25rem;
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: #94a3b8;
-  pointer-events: none;
-}
-
-/* Term pills */
-.term-pills-row {
-  display: flex;
+  justify-content: center;
   gap: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.term-pill {
-  flex: 1;
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
-  color: #475569;
-  font-weight: 800;
-  font-size: 0.82rem;
-  padding: 0.65rem 0.35rem;
-  border-radius: 0.75rem;
-  text-align: center;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.term-pill:hover,
-.term-pill.active {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  border-color: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-}
-
-/* Preview Box */
-.hero-preview-card {
-  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
-  border: 1px solid #bfdbfe;
-  border-radius: 1rem;
-  padding: 1.1rem 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-preview-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: #475569;
-  margin-bottom: 0.35rem;
-}
-
-.hero-preview-rate-tag {
-  background: #ffffff;
-  color: #2563eb;
-  font-weight: 900;
-  font-size: 0.7rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 0.35rem;
-  border: 1px solid #bfdbfe;
-}
-
-.hero-preview-bottom {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.hero-preview-yield {
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: #1d4ed8;
-  letter-spacing: -0.02em;
-}
-
-.hero-preview-sub {
-  font-size: 0.72rem;
-  color: #64748b;
-  font-weight: 600;
-}
-
-/* Compare CTA button */
-.hero-calc-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  width: 100%;
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  color: #ffffff;
-  font-weight: 900;
-  font-size: 1.05rem;
-  padding: 1.1rem;
-  border-radius: 1rem;
+  transition: all 0.25s ease;
   border: none;
   cursor: pointer;
+  box-shadow: 0 8px 20px rgba(233, 159, 76, 0.25);
   text-decoration: none;
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
-  transition: all 0.25s ease;
 }
 
-.hero-calc-btn:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.45);
+.btn-amber:hover {
+  background: #d97706;
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(217, 119, 6, 0.35);
   transform: translateY(-2px);
 }
 
-.hero-calc-btn:active {
-  transform: scale(0.98);
+.btn-amber:active {
+  transform: translateY(0);
 }
 
-.hero-calc-footer-note {
-  text-align: center;
-  font-size: 0.72rem;
-  color: #64748b;
-  font-weight: 700;
-  margin-top: 1rem;
+/* Hero Right Image Frame */
+.hero-image-frame {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================================
+   SECTION 2 - Amber Highlight Box & Benefits
+   ============================================================ */
+
+.amber-intro-box {
+  background: #e99f4c;
+  color: #18283b;
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(233, 159, 76, 0.2);
+}
+
+.amber-intro-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: #18283b;
+}
+
+/* ============================================================
+   SECTION 3 - Dark Navy Query Banner
+   ============================================================ */
+
+.navy-query-section {
+  background: #18283b;
+  color: #ffffff;
+  padding: 4.5rem 1.5rem;
+}
+
+.navy-query-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.navy-query-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(233, 159, 76, 0.4);
+  transform: translateY(-4px);
+}
+
+/* ============================================================
+   SECTION 4 - 4 Steps Process
+   ============================================================ */
+
+.step-number {
+  color: #e99f4c;
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  background: #fef3c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  flex-shrink: 0;
 }
 
-
 /* ============================================================
-   AKTUELLE ANGEBOTE - Tier Cards (Bronze / Gold / Platinum)
+   OFFERS GRID - Clean Comparison Cards
    ============================================================ */
 
 .angebote-section {
   padding: 5rem 1.5rem;
-  background: #fcfcfd;
+  background: #f8fafc;
 }
 
 .angebote-header {
@@ -534,7 +278,7 @@
 
 .angebote-title {
   font-size: 2.25rem;
-  font-weight: 900;
+  font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
@@ -544,11 +288,10 @@
   width: 60px;
   height: 4px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #2563eb, #0284c7);
+  background: #e99f4c;
   margin: 0 auto;
 }
 
-/* Grid: 3 columns on desktop */
 .angebote-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -563,180 +306,52 @@
   }
 }
 
-/* Card base */
-.tier-card {
+.offer-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 1.75rem;
-  padding: 2.25rem 1.75rem;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
-}
-
-.tier-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: var(--tier-color, #2563eb);
-}
-
-.tier-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(37, 99, 235, 0.14), 0 0 0 1px var(--tier-border, rgba(37, 99, 235, 0.3));
-}
-
-/* Featured card */
-.tier-card--featured {
-  border: 2px solid #2563eb !important;
-  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.2) !important;
-  transform: translateY(-6px);
-}
-
-.tier-card--featured::before {
-  height: 6px;
-  background: linear-gradient(90deg, #2563eb, #0284c7);
-}
-
-/* Range text */
-.tier-range {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
-}
-
-/* Rate */
-.tier-rate {
-  font-size: 3.75rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  margin-bottom: 0.1rem;
-}
-
-.tier-rate-prefix {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-right: 0.25rem;
-}
-
-.tier-rate-pct {
-  font-size: 2.2rem;
-  font-weight: 800;
-}
-
-.tier-rate-label {
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  color: #94a3b8;
-  margin-bottom: 1.75rem;
-}
-
-/* Detail rows */
-.tier-details {
-  width: 100%;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 1.25rem;
-  margin-bottom: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.tier-detail-row {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 0.88rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.tier-detail-key {
-  color: #64748b;
-  font-weight: 600;
+.offer-card:hover {
+  border-color: #e99f4c;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(233, 159, 76, 0.15);
 }
 
-.tier-detail-val {
-  color: #0f172a;
-  font-weight: 800;
-}
-
-/* CTA button */
-.tier-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  color: #fff;
-  font-size: 0.92rem;
-  font-weight: 800;
-  padding: 0.95rem 1.25rem;
-  border-radius: 0.85rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: auto;
-  text-decoration: none;
-}
-
-.tier-btn:hover {
-  opacity: 0.92;
-  transform: translateY(-2px);
-}
-
-.tier-btn:active {
-  transform: scale(0.97);
-}
-
-/* Feature Badges below Angebot Grid */
-.angebote-features {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.85rem;
-  margin-top: 2.25rem;
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.angebote-feature-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.1rem;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
+.offer-rate-badge {
+  background: #fffcf7;
+  border: 1px solid #fcd34d;
+  color: #d97706;
+  font-size: 2.25rem;
+  font-weight: 900;
+  padding: 0.5rem 1rem;
   border-radius: 0.75rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #0f172a;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
+  text-align: center;
+  line-height: 1;
 }
 
-.angebote-feature-badge:hover {
-  background: #ffffff;
-  border-color: #94a3b8;
-  transform: translateY(-1px);
+.offer-btn {
+  background: #e99f4c;
+  color: #18283b;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 0.6rem;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
 }
 
-.angebote-feature-badge svg {
-  width: 16px;
-  height: 16px;
-  color: #0f172a;
-  stroke-width: 3;
-  flex-shrink: 0;
+.offer-btn:hover {
+  background: #d97706;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.3);
 }

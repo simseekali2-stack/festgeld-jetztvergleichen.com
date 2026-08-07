@@ -150,40 +150,39 @@ function gtag_report_conversion(url) {
     @endunless
 
     @unless(request()->is('admin*'))
-        <!-- Main Navigation -->
-        <header class="sticky top-4 z-50 w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl transition-all">
-            <div class="bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl rounded-2xl px-4 sm:px-6 py-2 border-t-2 border-t-blue-600">
-                <div class="flex h-[60px] sm:h-[68px] items-center justify-between gap-4 w-full">
+        <!-- Main Navigation (Dark Navy & Amber theme) -->
+        <header class="sticky top-0 z-50 w-full bg-[#18283b]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex h-[72px] items-center justify-between gap-4 w-full">
                     
-                    <!-- Left: Logo (Positioned on the Left) -->
+                    <!-- Left: Brand / Logo -->
                     <div class="flex items-center shrink-0">
-                        <a class="flex items-center gap-2 group" href="/">
-                            <img src="/logo.svg" alt="festgeld-jetztvergleichen.com"
-                                class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]">
+                        <a class="flex items-center gap-3 group" href="/">
+                            <img src="/logo.svg" alt="festgeld-jetztvergleichen.com" class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105">
                         </a>
                     </div>
 
                     <!-- Center: Navigation Links -->
-                    <nav class="hidden lg:flex items-center gap-1.5 mx-auto">
-                        <a href="/" class="relative group py-2 px-3.5 rounded-full {{ request()->is('/') ? 'bg-blue-50 text-blue-600 font-extrabold' : 'text-slate-700 font-bold hover:text-blue-600 hover:bg-blue-50/50' }} transition-all">
-                            <span>Festgeld</span>
+                    <nav class="hidden lg:flex items-center gap-2 mx-auto">
+                        <a href="/" class="py-2 px-4 rounded-lg font-bold text-sm transition-all {{ request()->is('/') ? 'bg-white/10 text-[#e99f4c]' : 'text-slate-200 hover:text-white hover:bg-white/5' }}">
+                            Festgeld
                         </a>
-                        <a href="/tagesgeld" class="relative group py-2 px-3.5 rounded-full {{ request()->is('tagesgeld*') ? 'bg-blue-50 text-blue-600 font-extrabold' : 'text-slate-700 font-bold hover:text-blue-600 hover:bg-blue-50/50' }} transition-all">
-                            <span>Tagesgeld</span>
+                        <a href="/tagesgeld" class="py-2 px-4 rounded-lg font-bold text-sm transition-all {{ request()->is('tagesgeld*') ? 'bg-white/10 text-[#e99f4c]' : 'text-slate-200 hover:text-white hover:bg-white/5' }}">
+                            Tagesgeld
                         </a>
-                        <a href="/kontakt" class="relative group py-2 px-3.5 rounded-full {{ request()->is('kontakt*') ? 'bg-blue-50 text-blue-600 font-extrabold' : 'text-slate-700 font-bold hover:text-blue-600 hover:bg-blue-50/50' }} transition-all">
-                            <span>Kontakt</span>
+                        <a href="/banken" class="py-2 px-4 rounded-lg font-bold text-sm transition-all {{ request()->is('banken*') ? 'bg-white/10 text-[#e99f4c]' : 'text-slate-200 hover:text-white hover:bg-white/5' }}">
+                            Partnerbanken
                         </a>
-                        <a href="/impressum" class="relative group py-2 px-3.5 rounded-full {{ request()->is('impressum*') ? 'bg-blue-50 text-blue-600 font-extrabold' : 'text-slate-700 font-bold hover:text-blue-600 hover:bg-blue-50/50' }} transition-all">
-                            <span>Impressum</span>
+                        <a href="/kontakt" class="py-2 px-4 rounded-lg font-bold text-sm transition-all {{ request()->is('kontakt*') ? 'bg-white/10 text-[#e99f4c]' : 'text-slate-200 hover:text-white hover:bg-white/5' }}">
+                            Kontakt
                         </a>
                     </nav>
 
-                    <!-- Right: Contact & CTA -->
+                    <!-- Right: Amber CTA -->
                     <div class="flex items-center justify-end gap-3 shrink-0">
-                        <a href="/#list"
-                            class="hidden sm:inline-flex items-center justify-center px-5 h-[40px] rounded-full text-white bg-blue-600 hover:bg-blue-700 font-extrabold text-[13px] transition-all shadow-md shadow-blue-600/20 active:scale-95">
-                            Zins-Vergleich
+                        <a href="#hero"
+                            class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-[#18283b] bg-[#e99f4c] hover:bg-[#d97706] hover:text-white font-black text-sm transition-all shadow-md shadow-[#e99f4c]/20 active:scale-95">
+                            Kostenlos anfragen
                         </a>
                         <x-mobile-menu-drawer />
                     </div>
