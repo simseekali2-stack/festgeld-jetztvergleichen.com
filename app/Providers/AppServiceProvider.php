@@ -40,25 +40,33 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('components.live-ticker', function ($view) {
             $api = app(\App\Services\API::class);
-            $key = 'credits_list_payload_v3';
+            $key = 'credits_list_raw_v1';
             $payload = \Illuminate\Support\Facades\Cache::get($key);
 
             if (!is_array($payload)) {
                 $payload = $api->get('api/credits/list');
                 if ($payload !== []) {
-                    // ID'si 1 olanı çıkar
-                    $payload['data'] = array_filter($payload['data'], function ($item) {
-                        return $item['bank_id'] !== '9b998fb1-00a2-4481-9c40-03a5ccbf7c85';
-                    });
                     \Illuminate\Support\Facades\Cache::put($key, $payload, 60);
                 }
             }
 
             $data = is_array($payload) && isset($payload['data']) ? $payload['data'] : [];
 
-            // Filter and sort for ticker
+            // Filter out excluded banks & mock banks
             $data = array_filter($data, function ($b) {
-                return ($b['id'] ?? '') !== "5fcc7312-7754-4a1e-96fd-53e70f3b1514";
+                $bankId = $b['bank_id'] ?? '';
+                $bankName = strtolower($b['banks']['name'] ?? '');
+                if (($b['id'] ?? '') === "5fcc7312-7754-4a1e-96fd-53e70f3b1514" || $bankId === '9b998fb1-00a2-4481-9c40-03a5ccbf7c85') {
+                    return false;
+                }
+                if (empty($bankName) || 
+                    str_contains($bankName, 'tier') || 
+                    str_contains($bankName, 'festgeld-') || 
+                    str_contains($bankName, 'tagesgeld-') || 
+                    str_contains($bankName, 'mock')) {
+                    return false;
+                }
+                return true;
             });
 
             usort($data, function ($a, $b) {

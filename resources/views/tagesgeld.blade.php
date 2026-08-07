@@ -279,13 +279,13 @@
 
       <!-- Headline -->
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
-        Entdecken Sie Europas höchste<br>
-        <span class="text-orange-500">Tagesgeldzinsen</span> — jetzt vergleichen
+        Tagesgeldangebote vergleichen<br>
+        <span class="text-orange-500">Tagesgeldzinsen</span> im Überblick
       </h1>
 
       <!-- Subtext -->
       <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-        Schützen Sie Ihr Kapital mit den attraktivsten Tagesgeld-Konditionen Europas – täglich verfügbar, kostenlos und flexibel.
+        Vergleichen Sie geprüfte Tagesgeld-Konditionen renommierter europäischer Banken – täglich verfügbar, transparent und flexibel.
       </p>
 
       <!-- Horizontal Calculator (Modular Bar) -->
@@ -329,22 +329,22 @@
       <div class="mt-4 text-xs font-semibold text-slate-500 flex items-center justify-center gap-4 flex-wrap">
         <span>✓ Kostenlos & unverbindlich</span>
         <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-        <span>✓ Keine Registrierung erforderlich</span>
+        <span>✓ Transparente Konditionen</span>
         <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-        <span>✓ <a href="{{ url('/') }}" class="text-orange-600 hover:underline">Lieber Festgeld vergleichen?</a></span>
+        <span>✓ <a href="{{ url('/') }}" class="text-orange-600 hover:underline">Festgeld vergleichen</a></span>
       </div>
 
     </div>
   </section>
 
   {{-- AKTUELLE TAGESGELD-ANGEBOTE - Tier Cards --}}
-  <section id="list" class="angebote-section">
-    <div class="angebote-header">
-      <h2 class="angebote-title">Aktuelle Tagesgeld-Angebote</h2>
-      <div class="angebote-underline"></div>
+  <section id="list" class="angebote-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="angebote-header text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">Aktuelle Tagesgeld-Angebote</h2>
+      <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mt-3"></div>
     </div>
 
-    <div class="angebote-grid">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
 
       @foreach($tiers as $key => $tier)
         @php
@@ -352,91 +352,101 @@
           $rateStr    = number_format($tier['rate'], 2, ',', '.');
           $bankName   = $tier['bank_name'] ?? ($tier['label'] ?? 'Partnerbank EU');
           $country    = $tier['country'] ?? '🇪🇺 EU-Mitgliedstaat';
-          $isFirst    = $loop->first;
+          $rating     = $tier['rating'] ?? 'AAA';
+          $score      = $tier['score'] ?? '5.0';
         @endphp
-        <div class="tier-card {{ $isFirst ? 'tier-card--featured' : '' }}"
-             style="--tier-color:{{ $tier['color'] ?? '#f97316' }}; --tier-glow:{{ $tier['glow'] ?? 'rgba(249,115,22,0.25)' }}; --tier-border:{{ $tier['border'] ?? 'rgba(249,115,22,0.6)' }};">
 
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow relative">
           <div>
-            <!-- Bank logo / name & protection badge -->
-            <div class="flex items-center justify-between mb-4 gap-2">
-              <div class="flex items-center gap-2.5">
+            <!-- Top Row: Logo, Name & Rating Badge -->
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="space-y-1">
                 @if(!empty($tier['bank_logo']))
-                  <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
-                    <img src="{{ $tier['bank_logo'] }}" alt="{{ $bankName }}" class="max-w-full max-h-full object-contain">
+                  <div class="h-10 max-w-[150px] flex items-center justify-start mb-2">
+                    <img src="{{ $tier['bank_logo'] }}" alt="{{ $bankName }}" class="max-h-full max-w-full object-contain">
                   </div>
-                @else
-                  <span class="w-9 h-9 rounded-lg bg-slate-100 text-[#18283b] font-black text-base flex items-center justify-center border border-slate-200 shrink-0">
-                    🏦
-                  </span>
                 @endif
-                <div>
-                  <div class="text-xs font-black text-slate-900 leading-tight">{{ $bankName }}</div>
-                  <div class="text-[10px] font-bold text-slate-400 mt-0.5">{{ $country }}</div>
+                
+                <div class="flex items-center gap-1.5 text-sm font-bold text-slate-900">
+                  <span class="text-orange-500">🏦</span>
+                  <span>{{ $bankName }}</span>
+                </div>
+
+                <div class="text-xs text-slate-500 font-semibold flex items-center gap-1">
+                  <span>{{ $country }}</span>
+                </div>
+
+                <div class="flex items-center gap-1 text-amber-400 text-xs pt-1">
+                  <span>★★★★★</span>
+                  <span class="text-slate-600 font-bold text-xs ml-0.5">({{ $score }})</span>
                 </div>
               </div>
-              <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded shrink-0">
-                100.000€ Schutz
-              </span>
-            </div>
 
-            {{-- Rate --}}
-            <div class="tier-rate" style="color:var(--tier-color);">
-              @if(!empty($tier['rate_prefix']))<span class="tier-rate-prefix">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="tier-rate-pct">%</span>
-            </div>
-            <div class="tier-rate-label">ZINSEN p.a. (Täglich verfügbar)</div>
+              <div class="flex flex-col items-end gap-3">
+                <span class="bg-slate-50 border border-slate-200 text-slate-700 text-[11px] font-bold px-3 py-1 rounded-md shrink-0">
+                  Bewertungen (<span class="text-orange-600 font-extrabold">{{ $rating }}</span>)
+                </span>
 
-            {{-- Details --}}
-            <div class="tier-details">
-              <div class="tier-detail-row">
-                <span class="tier-detail-key">Verfügbarkeit:</span>
-                <span class="tier-detail-val">Täglich verfügbar</span>
-              </div>
-              <div class="tier-detail-row">
-                <span class="tier-detail-key">Anlagebetrag:</span>
-                <span class="tier-detail-val">&euro;{{ number_format($tier['amount'], 2, ',', '.') }}</span>
-              </div>
-              <div class="tier-detail-row">
-                <span class="tier-detail-key">Zinsertrag p.a.:</span>
-                <span class="tier-detail-val" style="color:var(--tier-color);">&euro;{{ $zinsbetrag }}</span>
+                <div class="text-right text-[11px] text-slate-600 space-y-1.5">
+                  <div class="flex items-center justify-end gap-1.5 font-bold text-slate-800">
+                    <span class="text-xs">⏰</span> <span><strong>Begrenzt</strong> verfügbares Angebot</span>
+                  </div>
+                  <div class="flex items-center justify-end gap-1.5 text-emerald-600 font-semibold">
+                    <span class="font-bold">✓</span> <span class="text-slate-700">Keine Quellensteuer</span>
+                  </div>
+                  <div class="flex items-center justify-end gap-1.5 text-emerald-600 font-semibold">
+                    <span class="font-bold">✓</span> <span class="text-slate-700">Finanztest Bestenliste</span>
+                  </div>
+                  <div class="flex items-center justify-end gap-1.5 text-emerald-600 font-semibold">
+                    <span class="font-bold">✓</span> <span class="text-slate-700">Exklusives Angebot</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {{-- CTA --}}
-          <button type="button" class="tier-btn open-modal-btn mt-4"
-            data-id="{{ $tier['id'] ?? '' }}"
-            data-bank-id="{{ $tier['bank_id'] ?? '' }}"
-            data-bank-name="{{ $bankName }}"
-            data-bank-logo="{{ $tier['bank_logo'] ?? '' }}"
-            data-rate="{{ $tier['rate'] }}"
-            data-min-amount="{{ $tier['amount'] }}"
-            data-max-amount=""
-            data-min-term="0"
-            data-max-term="0"
-            data-tier="{{ $key }}"
-            style="background:var(--tier-color); box-shadow: 0 4px 20px var(--tier-glow);">
-            <span>Jetzt Kontakt aufnehmen</span>
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
+          <!-- Bottom Row: Rate + Protection & Action Button -->
+          <div class="border-t border-slate-100 pt-4 mt-2 flex items-end justify-between gap-4">
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span class="text-orange-600 font-black text-3xl sm:text-4xl tracking-tight">{{ $rateStr }} <span class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase">% P.A.</span></span>
+                <span class="bg-orange-50 text-orange-600 border border-orange-200 text-xs font-extrabold px-2.5 py-0.5 rounded-md">{{ $zinsbetrag }} €</span>
+              </div>
+              <div class="text-xs text-slate-500 font-semibold flex items-center gap-1 mt-1">
+                <span class="text-orange-600">🛡️</span> <span>Einlagensicherung</span>
+              </div>
+            </div>
+
+            <button type="button" class="open-modal-btn bg-[#f3bc7a] hover:bg-[#e99f4c] text-slate-900 font-bold px-5 py-3 rounded-xl text-sm flex items-center gap-2 transition-all shadow-xs shrink-0"
+              data-id="{{ $tier['id'] ?? '' }}"
+              data-bank-id="{{ $tier['bank_id'] ?? '' }}"
+              data-bank-name="{{ $bankName }}"
+              data-bank-logo="{{ $tier['bank_logo'] ?? '' }}"
+              data-rate="{{ $tier['rate'] }}"
+              data-min-amount="{{ $tier['amount'] }}"
+              data-max-amount=""
+              data-min-term="0"
+              data-max-term="0"
+              data-tier="{{ $key }}">
+              <span>Jetzt vergleichen</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
         </div>
       @endforeach
 
     </div>
 
     {{-- Feature Badges under interest rate boxes --}}
-    <div class="angebote-features">
-      <div class="angebote-feature-badge">
-        <svg class="w-5 h-5 text-orange-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        <span>Einlagensicherung bis 1.000.000€</span>
+    <div class="angebote-features flex flex-wrap items-center justify-center gap-4 mt-8">
+      <div class="angebote-feature-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-xs font-bold">
+        <svg class="w-4 h-4 text-orange-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <span>Gesetzliche Einlagensicherung bis 100.000€</span>
       </div>
-      <div class="angebote-feature-badge">
-        <svg class="w-5 h-5 text-orange-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        <span>Kapitalertragssteuerfrei</span>
+      <div class="angebote-feature-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-xs font-bold">
+        <svg class="w-4 h-4 text-orange-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <span>Europäische Einlagensicherung</span>
       </div>
-      
     </div>
   </section>
 

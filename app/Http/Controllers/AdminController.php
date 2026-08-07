@@ -194,6 +194,20 @@ class AdminController extends Controller
         foreach ($offers as $offer) {
             if (isset($offer['banks']) && !empty($offer['banks']['id'])) {
                 $bankId = $offer['banks']['id'];
+                $bankName = strtolower($offer['banks']['name'] ?? '');
+
+                if ($bankId === '9b998fb1-00a2-4481-9c40-03a5ccbf7c85') {
+                    continue;
+                }
+
+                if (empty($bankName) || 
+                    str_contains($bankName, 'tier') || 
+                    str_contains($bankName, 'festgeld-') || 
+                    str_contains($bankName, 'tagesgeld-') || 
+                    str_contains($bankName, 'mock')) {
+                    continue;
+                }
+
                 if (!in_array($bankId, $seenBankIds)) {
                     $seenBankIds[] = $bankId;
                     $banks[] = [
@@ -205,11 +219,6 @@ class AdminController extends Controller
                 }
             }
         }
-
-        // Apply same filters as frontend (remove specific bank ID)
-        $banks = array_filter($banks, function($b) {
-            return $b['id'] !== '9b998fb1-00a2-4481-9c40-03a5ccbf7c85';
-        });
 
         usort($banks, function ($a, $b) {
             return strcmp($a['name'], $b['name']);

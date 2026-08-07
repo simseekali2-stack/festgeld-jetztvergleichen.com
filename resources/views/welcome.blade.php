@@ -464,76 +464,90 @@
   <section id="angebote" class="angebote-section py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="angebote-header">
-        <h2 class="angebote-title">Riesige Auswahl an den besten Festgeldkonten für Ihre Finanzen</h2>
+      <div class="angebote-header text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+          Geprüfte Festgeldkonten im direkten Vergleich
+        </h2>
         <p class="text-slate-600 font-medium max-w-2xl mx-auto mb-4 text-sm sm:text-base">
-          Vergleichen Sie tagesaktuelle Zinskonditionen europäischer Kreditinstitute und sichern Sie sich Ihre Erträge.
+          Vergleichen Sie tagesaktuelle Zinskonditionen renommierter europäischer Kreditinstitute mit gesetzlicher Einlagensicherung.
         </p>
-        <div class="angebote-underline"></div>
+        <div class="w-16 h-1 bg-[#e99f4c] mx-auto rounded-full mt-4"></div>
       </div>
 
       <!-- Tiers / Bank Offers Grid -->
-      <div class="angebote-grid mb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
         @foreach($tiers as $key => $tier)
           @php
-            $zinsbetrag = number_format($tier['rate'] * $tier['amount'] / 100 * (12 / 12), 2, ',', '.');
+            $zinsbetrag = number_format($tier['rate'] * $tier['amount'] / 100, 2, ',', '.');
             $rateStr    = number_format($tier['rate'], 2, ',', '.');
             $bankName   = $tier['bank_name'] ?? 'Partnerbank EU';
             $country    = $tier['country'] ?? '🇪🇺 EU-Mitgliedstaat';
+            $rating     = $tier['rating'] ?? 'AAA';
+            $score      = $tier['score'] ?? '5.0';
           @endphp
 
-          <div class="offer-card border-t-4 border-t-[#e99f4c]">
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow relative">
             <div>
-              <!-- Header: Bank logo / name & protection badge -->
-              <div class="flex items-center justify-between mb-4 gap-2">
-                <div class="flex items-center gap-2.5">
+              <!-- Top Row: Logo, Name & Rating Badge -->
+              <div class="flex items-start justify-between gap-4 mb-4">
+                <div class="space-y-1">
                   @if(!empty($tier['bank_logo']))
-                    <div class="w-10 h-10 rounded-lg bg-white p-1 border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
-                      <img src="{{ $tier['bank_logo'] }}" alt="{{ $bankName }}" class="max-w-full max-h-full object-contain">
+                    <div class="h-10 max-w-[150px] flex items-center justify-start mb-2">
+                      <img src="{{ $tier['bank_logo'] }}" alt="{{ $bankName }}" class="max-h-full max-w-full object-contain">
                     </div>
-                  @else
-                    <span class="w-9 h-9 rounded-lg bg-slate-100 text-[#18283b] font-black text-base flex items-center justify-center border border-slate-200 shrink-0">
-                      🏦
-                    </span>
                   @endif
-                  <div>
-                    <div class="text-xs font-black text-slate-900 leading-tight">{{ $bankName }}</div>
-                    <div class="text-[10px] font-bold text-slate-400 mt-0.5">{{ $country }}</div>
+                  
+                  <div class="flex items-center gap-1.5 text-sm font-bold text-slate-900">
+                    <span class="text-amber-600">🏦</span>
+                    <span>{{ $bankName }}</span>
+                  </div>
+
+                  <div class="text-xs text-slate-500 font-semibold flex items-center gap-1">
+                    <span>{{ $country }}</span>
+                  </div>
+
+                  <div class="flex items-center gap-1 text-amber-400 text-xs pt-1">
+                    <span>★★★★★</span>
+                    <span class="text-slate-600 font-bold text-xs ml-0.5">({{ $score }})</span>
                   </div>
                 </div>
-                <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded shrink-0">
-                  🇩🇪 100.000€ Schutz
-                </span>
-              </div>
 
-              
-              <!-- Interest Rate Display with ab / bis zu Prefix -->
-              <div class="my-4 offer-rate-badge">
-                <div class="text-[#d97706] font-black text-3xl sm:text-4xl tracking-tight">
-                  @if(!empty($tier['rate_prefix']))<span class="text-lg font-bold opacity-80 mr-0.5">{{ $tier['rate_prefix'] }}</span>@endif{{ $rateStr }}<span class="text-2xl font-extrabold">%</span>
-                </div>
-                <div class="text-[10px] uppercase font-black tracking-widest text-slate-500 mt-1">ZINSEN p.a. (Festzins)</div>
-              </div>
+                <div class="flex flex-col items-end gap-3">
+                  <span class="bg-slate-50 border border-slate-200 text-slate-700 text-[11px] font-bold px-3 py-1 rounded-md shrink-0">
+                    Bewertungen (<span class="text-amber-600 font-extrabold">{{ $rating }}</span>)
+                  </span>
 
-              <!-- Key Features -->
-              <div class="space-y-2.5 border-t border-slate-100 pt-3 text-xs text-slate-600">
-                <div class="flex justify-between items-center">
-                  <span>Laufzeit:</span>
-                  <strong class="text-slate-900 font-bold">12 Monate</strong>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span>Mindestanlage:</span>
-                  <strong class="text-slate-900 font-bold">&euro;{{ number_format($tier['amount'], 0, ',', '.') }}</strong>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span>Geschätzter Zinsertrag:</span>
-                  <strong class="text-[#d97706] font-black text-sm">&euro;{{ $zinsbetrag }}</strong>
+                  <div class="text-right text-[11px] text-slate-600 space-y-1.5">
+                    <div class="flex items-center justify-end gap-1.5 font-bold text-slate-800">
+                      <span class="text-xs">⏰</span> <span><strong>Begrenzt</strong> verfügbares Angebot</span>
+                    </div>
+                    <div class="flex items-center justify-end gap-1.5 text-emerald-600 font-semibold">
+                      <span class="font-bold">✓</span> <span class="text-slate-700">Keine Quellensteuer</span>
+                    </div>
+                    <div class="flex items-center justify-end gap-1.5 text-emerald-600 font-semibold">
+                      <span class="font-bold">✓</span> <span class="text-slate-700">Finanztest Bestenliste</span>
+                    </div>
+                    <div class="flex items-center justify-end gap-1.5 text-emerald-600 font-semibold">
+                      <span class="font-bold">✓</span> <span class="text-slate-700">Exklusives Angebot</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-6">
-              <button type="button" class="offer-btn open-modal-btn"
+            <!-- Bottom Row: Rate + Protection & Action Button -->
+            <div class="border-t border-slate-100 pt-4 mt-2 flex items-end justify-between gap-4">
+              <div>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-[#d97706] font-black text-3xl sm:text-4xl tracking-tight">{{ $rateStr }} <span class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase">% P.A.</span></span>
+                  <span class="bg-amber-50 text-[#d97706] border border-amber-200 text-xs font-extrabold px-2.5 py-0.5 rounded-md">{{ $zinsbetrag }} €</span>
+                </div>
+                <div class="text-xs text-slate-500 font-semibold flex items-center gap-1 mt-1">
+                  <span class="text-amber-600">🛡️</span> <span>Einlagensicherung</span>
+                </div>
+              </div>
+
+              <button type="button" class="open-modal-btn bg-[#f3bc7a] hover:bg-[#e99f4c] text-slate-900 font-bold px-5 py-3 rounded-xl text-sm flex items-center gap-2 transition-all shadow-xs shrink-0"
                 data-id="{{ $tier['id'] }}"
                 data-bank-id="{{ $tier['bank_id'] }}"
                 data-bank-name="{{ $bankName }}"
@@ -544,7 +558,8 @@
                 data-min-term="12"
                 data-max-term="12"
                 data-tier="{{ $key }}">
-                Konto jetzt vergleichen & anfragen
+                <span>Jetzt vergleichen</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </button>
             </div>
           </div>

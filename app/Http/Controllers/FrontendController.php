@@ -17,57 +17,95 @@ class FrontendController extends Controller
     {
     }
 
+    private function getRatingsMap(): array
+    {
+        $banksPayload = Cache::remember('banks_list_ratings_v1', 300, function () {
+            return $this->api->get('api/banks/list');
+        });
+
+        $ratingsMap = [];
+        $items = is_array($banksPayload) ? (isset($banksPayload['data']) ? $banksPayload['data'] : $banksPayload) : [];
+        if (is_array($items)) {
+            foreach ($items as $b) {
+                if (!empty($b['id'])) {
+                    $r = $b['rating'] ?? 'AAA';
+                    $ratingsMap[$b['id']] = [
+                        'rating' => $r,
+                        'score'  => match ($r) {
+                            'AAA' => '5.0',
+                            'AA+' => '4.9',
+                            'AA'  => '4.8',
+                            'A+'  => '4.7',
+                            'BBB+','BBB' => '4.5',
+                            default => '4.8'
+                        }
+                    ];
+                }
+            }
+        }
+        return $ratingsMap;
+    }
+
     public function welcome()
     {
-        $key = 'credits_list_payload_v3';
+        $key = 'credits_list_raw_v1';
         $payload = Cache::get($key);
 
         if (!is_array($payload)) {
             $payload = $this->api->get('api/credits/list');
             if ($payload !== []) {
-                // Remove specified bank ID
-                $payload['data'] = array_filter($payload['data'], function ($item) {
-                    return ($item['credit_type'] ?? 'Festgeld') === 'Festgeld' && ($item['bank_id'] ?? '') !== '9b998fb1-00a2-4481-9c40-03a5ccbf7c85';
-                });
-
                 Cache::put($key, $payload, 60);
             }
         }
 
-        $offers = is_array($payload) && isset($payload['data']) ? array_values($payload['data']) : [];
+        $allOffers = is_array($payload) && isset($payload['data']) ? array_values($payload['data']) : [];
 
-        $realBankList = [
-            ['name' => 'Renault Bank direkt', 'country' => '🇫🇷 Frankreich'],
-            ['name' => 'CA Auto Bank', 'country' => '🇮🇹 Italien'],
-            ['name' => 'Crédit Agricole', 'country' => '🇫🇷 Frankreich'],
-            ['name' => 'Klarna Bank', 'country' => '🇸🇪 Schweden'],
-            ['name' => 'Barclays Bank', 'country' => '🇩🇪 Deutschland'],
-            ['name' => 'Santander Consumer Bank', 'country' => '🇪🇸 Spanien'],
-        ];
+        // Filter for Festgeld and remove mock/tier banks
+        $offers = array_values(array_filter($allOffers, function ($item) {
+            $creditType = $item['credit_type'] ?? 'Festgeld';
+            $bankId = $item['bank_id'] ?? '';
+            $bankName = strtolower($item['banks']['name'] ?? '');
 
+            if ($creditType !== 'Festgeld') {
+                return false;
+            }
+
+            if ($bankId === '9b998fb1-00a2-4481-9c40-03a5ccbf7c85') {
+                return false;
+            }
+
+            if (empty($bankName) || 
+                str_contains($bankName, 'tier') || 
+                str_contains($bankName, 'festgeld-') || 
+                str_contains($bankName, 'tagesgeld-') || 
+                str_contains($bankName, 'mock')) {
+                return false;
+            }
+
+            return true;
+        }));
+
+        usort($offers, function ($a, $b) {
+            return (float) ($b['interest_rate'] ?? 0) <=> (float) ($a['interest_rate'] ?? 0);
+        });
+
+        $ratingsMap = $this->getRatingsMap();
         $bankOffers = [];
 
         if (!empty($offers)) {
             foreach ($offers as $idx => $offer) {
-                $rawBName = $offer['banks']['name'] ?? '';
-                $fallbackBank = $realBankList[$idx % count($realBankList)];
-
-                // Replace placeholder tier names with real bank names
-                if (empty($rawBName) || str_contains(strtolower($rawBName), 'tier')) {
-                    $bName = $fallbackBank['name'];
-                    $bCountry = $fallbackBank['country'];
-                } else {
-                    $bName = $rawBName;
-                    $bCountry = $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? $fallbackBank['country']);
-                }
-
+                $bName = $offer['banks']['name'] ?? 'Partnerbank EU';
+                $bCountry = $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? '🇪🇺 EU-Mitgliedstaat');
                 $bLogo = $offer['banks']['logo_url'] ?? '';
                 $rawRate = (float) ($offer['interest_rate'] ?? 0);
                 $rate = $rawRate > 0 ? round($rawRate, 2) : 3.25;
 
                 $minAmount = (float) ($offer['min_amount'] ?? 0);
-                $amount = $minAmount > 0 ? (int) $minAmount : (25000 + (($idx % 3) * 50000));
+                $amount = $minAmount > 0 ? (int) $minAmount : 25000;
                 $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
+
+                $bankId = $offer['bank_id'] ?? '';
+                $ratingInfo = $ratingsMap[$bankId] ?? ['rating' => 'AAA', 'score' => '5.0'];
 
                 $bankOffers[] = [
                     'key' => 'bank_' . ($offer['id'] ?? $idx),
@@ -79,28 +117,10 @@ class FrontendController extends Controller
                     'bank_name' => $bName,
                     'country' => $bCountry,
                     'id' => $offer['id'] ?? '',
-                    'bank_id' => $offer['bank_id'] ?? '',
+                    'bank_id' => $bankId,
                     'bank_logo' => $bLogo,
-                ];
-            }
-        }
-
-        // Fallback list of ALL major partner banks if API returns empty
-        if (empty($bankOffers)) {
-            foreach ($realBankList as $idx => $rb) {
-                $amount = 25000 + (($idx % 3) * 50000);
-                $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
-
-                $bankOffers[] = [
-                    'key' => 'bank_fb_' . $idx,
-                    'label' => 'Festgeld',
-                    'range' => $rangeLabel,
-                    'rate' => 3.25 + ($idx * 0.12),
-                    'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
-                    'amount' => $amount,
-                    'bank_name' => $rb['name'],
-                    'country' => $rb['country'],
-                    'id' => '', 'bank_id' => '', 'bank_logo' => '',
+                    'rating' => $ratingInfo['rating'],
+                    'score' => $ratingInfo['score'],
                 ];
             }
         }
@@ -134,52 +154,54 @@ class FrontendController extends Controller
             }
         }
 
-        $offers = is_array($payload) && isset($payload['data']) ? $payload['data'] : [];
+        $allOffers = is_array($payload) && isset($payload['data']) ? array_values($payload['data']) : [];
 
-        if (!is_array($offers)) {
-            $offers = [];
-        }
+        // Filter for Tagesgeld and remove mock/tier banks
+        $offers = array_values(array_filter($allOffers, function ($item) {
+            $creditType = $item['credit_type'] ?? '';
+            $bankId = $item['bank_id'] ?? '';
+            $bankName = strtolower($item['banks']['name'] ?? '');
 
-        // Filter for Tagesgeld type
-        $offers = array_values(array_filter($offers, function ($item) {
-            return ($item['credit_type'] ?? '') === 'Tagesgeld';
+            if ($creditType !== 'Tagesgeld') {
+                return false;
+            }
+
+            if ($bankId === '9b998fb1-00a2-4481-9c40-03a5ccbf7c85') {
+                return false;
+            }
+
+            if (empty($bankName) || 
+                str_contains($bankName, 'tier') || 
+                str_contains($bankName, 'festgeld-') || 
+                str_contains($bankName, 'tagesgeld-') || 
+                str_contains($bankName, 'mock')) {
+                return false;
+            }
+
+            return true;
         }));
 
         usort($offers, function ($a, $b) {
             return (float) ($b['interest_rate'] ?? 0) <=> (float) ($a['interest_rate'] ?? 0);
         });
 
-        $realBankList = [
-            ['name' => 'Renault Bank direkt', 'country' => '🇫🇷 Frankreich'],
-            ['name' => 'CA Auto Bank', 'country' => '🇮🇹 Italien'],
-            ['name' => 'Crédit Agricole', 'country' => '🇫🇷 Frankreich'],
-            ['name' => 'Klarna Bank', 'country' => '🇸🇪 Schweden'],
-            ['name' => 'Barclays Bank', 'country' => '🇩🇪 Deutschland'],
-            ['name' => 'Santander Consumer Bank', 'country' => '🇪🇸 Spanien'],
-        ];
-
+        $ratingsMap = $this->getRatingsMap();
         $bankOffers = [];
 
         if (!empty($offers)) {
             foreach ($offers as $idx => $offer) {
-                $rawBName = $offer['banks']['name'] ?? '';
-                $fallbackBank = $realBankList[$idx % count($realBankList)];
-
-                if (empty($rawBName) || str_contains(strtolower($rawBName), 'tier') || str_contains(strtolower($rawBName), 'tagesgeld-')) {
-                    $bName = $fallbackBank['name'];
-                    $bCountry = $fallbackBank['country'];
-                } else {
-                    $bName = $rawBName;
-                    $bCountry = $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? $fallbackBank['country']);
-                }
-
+                $bName = $offer['banks']['name'] ?? 'Partnerbank EU';
+                $bCountry = $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? '🇪🇺 EU-Mitgliedstaat');
                 $bLogo = $offer['banks']['logo_url'] ?? '';
                 $rawRate = (float) ($offer['interest_rate'] ?? 0);
                 $rate = $rawRate > 0 ? round($rawRate, 2) : 3.10;
 
                 $minAmount = (float) ($offer['min_amount'] ?? 0);
-                $amount = $minAmount > 0 ? (int) $minAmount : (25000 + (($idx % 3) * 50000));
+                $amount = $minAmount > 0 ? (int) $minAmount : 25000;
                 $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
+
+                $bankId = $offer['bank_id'] ?? '';
+                $ratingInfo = $ratingsMap[$bankId] ?? ['rating' => 'AAA', 'score' => '5.0'];
 
                 $bankOffers[] = [
                     'key' => 'bank_' . ($offer['id'] ?? $idx),
@@ -191,30 +213,10 @@ class FrontendController extends Controller
                     'bank_name' => $bName,
                     'country' => $bCountry,
                     'id' => $offer['id'] ?? '',
-                    'bank_id' => $offer['bank_id'] ?? '',
+                    'bank_id' => $bankId,
                     'bank_logo' => $bLogo,
-                    'color' => '#f97316',
-                    'glow' => 'rgba(249,115,22,0.25)',
-                    'border' => 'rgba(249,115,22,0.6)',
-                ];
-            }
-        }
-
-        if (empty($bankOffers)) {
-            foreach ($realBankList as $idx => $rb) {
-                $amount = 25000 + (($idx % 3) * 50000);
-                $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
-
-                $bankOffers[] = [
-                    'key' => 'bank_fb_' . $idx,
-                    'label' => 'Tagesgeld',
-                    'range' => $rangeLabel,
-                    'rate' => 3.10 + ($idx * 0.10),
-                    'rate_prefix' => ($idx % 2 == 0) ? 'ab ' : 'bis zu ',
-                    'amount' => $amount,
-                    'bank_name' => $rb['name'],
-                    'country' => $rb['country'],
-                    'id' => '', 'bank_id' => '', 'bank_logo' => '',
+                    'rating' => $ratingInfo['rating'],
+                    'score' => $ratingInfo['score'],
                     'color' => '#f97316',
                     'glow' => 'rgba(249,115,22,0.25)',
                     'border' => 'rgba(249,115,22,0.6)',
@@ -232,16 +234,12 @@ class FrontendController extends Controller
 
     public function bankIndex()
     {
-        $key = 'credits_list_payload_v3';
+        $key = 'credits_list_raw_v1';
         $payload = Cache::get($key);
 
         if (!is_array($payload)) {
             $payload = $this->api->get('api/credits/list');
             if ($payload !== []) {
-                // Remove specified bank ID
-                $payload['data'] = array_filter($payload['data'], function ($item) {
-                    return $item['bank_id'] !== '9b998fb1-00a2-4481-9c40-03a5ccbf7c85';
-                });
                 Cache::put($key, $payload, 60);
             }
         }
@@ -249,33 +247,43 @@ class FrontendController extends Controller
         $offers = is_array($payload) && isset($payload['data']) ? $payload['data'] : [];
 
         $banks = [];
-        $bankIdsFromApi = [];
-
-        foreach ($offers as $offer) {
-            if (isset($offer['banks']) && !empty($offer['banks']['id'])) {
-                $bankIdsFromApi[] = $offer['banks']['id'];
-            }
-        }
-        $bankIdsFromApi = array_unique($bankIdsFromApi);
-
-        // Get local descriptions
-        $localDescriptions = Bank::whereIn('bank_id', $bankIdsFromApi)->get()->pluck('description', 'bank_id')->toArray();
-
         $seenBankIds = [];
+
         foreach ($offers as $offer) {
             if (isset($offer['banks']) && !empty($offer['banks']['id'])) {
                 $bankId = $offer['banks']['id'];
+                $bankName = strtolower($offer['banks']['name'] ?? '');
+
+                if ($bankId === '9b998fb1-00a2-4481-9c40-03a5ccbf7c85') {
+                    continue;
+                }
+
+                if (empty($bankName) || 
+                    str_contains($bankName, 'tier') || 
+                    str_contains($bankName, 'festgeld-') || 
+                    str_contains($bankName, 'tagesgeld-') || 
+                    str_contains($bankName, 'mock')) {
+                    continue;
+                }
+
                 if (!in_array($bankId, $seenBankIds)) {
                     $seenBankIds[] = $bankId;
                     $banks[] = [
                         'id' => $bankId,
                         'name' => $offer['banks']['name'] ?? 'N/A',
                         'logo' => $offer['banks']['logo_url'] ?? '',
-                        'description' => $localDescriptions[$bankId] ?? ($offer['banks']['description'] ?? 'Ein renommiertes europäisches Finanzinstitut, das für Stabilität, erstklassigen Service und attraktive Anlagekonditionen steht. Durch die Einbindung in das europäische Einlagensicherungssystem bietet es Anlegern ein Höchstmaß an Sicherheit.'),
+                        'description' => '',
                         'country' => $offer['banks']['country_name'] ?? ($offer['banks']['country'] ?? ''),
                     ];
                 }
             }
+        }
+
+        $bankIdsFromApi = array_column($banks, 'id');
+        $localDescriptions = Bank::whereIn('bank_id', $bankIdsFromApi)->get()->pluck('description', 'bank_id')->toArray();
+
+        foreach ($banks as &$b) {
+            $b['description'] = $localDescriptions[$b['id']] ?? ($offer['banks']['description'] ?? 'Ein renommiertes europäisches Finanzinstitut, das für Stabilität, erstklassigen Service und attraktive Anlagekonditionen steht. Durch die Einbindung in das europäische Einlagensicherungssystem bietet es Anlegern ein Höchstmaß an Sicherheit.');
         }
 
         // Sort banks by name
