@@ -126,6 +126,139 @@
     .premium-submit-btn:active {
       transform: translateY(1px);
     }
+
+    /* Tier Offer Cards Styling */
+    .tier-card {
+      background: #ffffff;
+      border: 1px solid var(--tier-border, #e2e8f0);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    .tier-card:hover {
+      border-color: var(--tier-color, #ea580c);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px var(--tier-glow, rgba(249, 115, 22, 0.15));
+    }
+
+    .tier-card--featured {
+      border-width: 2px;
+      border-color: var(--tier-color, #ea580c);
+      box-shadow: 0 10px 30px var(--tier-glow, rgba(249, 115, 22, 0.2));
+    }
+
+    .tier-rate {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .tier-rate-prefix {
+      font-size: 1.25rem;
+      font-weight: 700;
+      opacity: 0.8;
+      margin-right: 0.25rem;
+    }
+
+    .tier-rate-pct {
+      font-size: 1.75rem;
+      font-weight: 800;
+    }
+
+    .tier-rate-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .tier-details {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .tier-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+
+    .tier-detail-key {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .tier-detail-val {
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .tier-btn {
+      width: 100%;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.2rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .tier-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.95);
+    }
+
+    .angebote-features {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .angebote-feature-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      background: #fff7ed;
+      border: 1px solid #ffedd5;
+      color: #c2410c;
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .angebote-feature-badge svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+      color: #ea580c;
+    }
   </style>
 @endpush
 
@@ -271,11 +404,11 @@
     {{-- Feature Badges under interest rate boxes --}}
     <div class="angebote-features">
       <div class="angebote-feature-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <svg class="w-5 h-5 text-orange-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         <span>Einlagensicherung bis 1.000.000€</span>
       </div>
       <div class="angebote-feature-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <svg class="w-5 h-5 text-orange-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         <span>Kapitalertragssteuerfrei</span>
       </div>
       
