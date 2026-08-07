@@ -68,10 +68,7 @@ class FrontendController extends Controller
                 $cappedRate = round(min(3.85, max(3.10, $rawRate)), 2);
 
                 $amount = 25000 + (($idx % 3) * 50000);
-                $rangeLabel = number_format($amount, 0, ',', '.') . ' - ' . number_format($amount + 49999, 0, ',', '.') . ' €';
-                if ($idx % 3 == 2) {
-                    $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' € +';
-                }
+                $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
 
                 $bankOffers[] = [
                     'key' => 'bank_' . ($offer['id'] ?? $idx),
@@ -93,10 +90,7 @@ class FrontendController extends Controller
         if (empty($bankOffers)) {
             foreach ($realBankList as $idx => $rb) {
                 $amount = 25000 + (($idx % 3) * 50000);
-                $rangeLabel = number_format($amount, 0, ',', '.') . ' - ' . number_format($amount + 49999, 0, ',', '.') . ' €';
-                if ($idx % 3 == 2) {
-                    $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' € +';
-                }
+                $rangeLabel = 'ab ' . number_format($amount, 0, ',', '.') . ' €';
 
                 $bankOffers[] = [
                     'key' => 'bank_fb_' . $idx,
@@ -163,7 +157,7 @@ class FrontendController extends Controller
             'bronze' => [
                 'key' => 'bronze',
                 'label' => 'Tagesgeld',
-                'range' => '25.000 - 74.999 €',
+                'range' => 'ab 25.000 €',
                 'rate' => 2.80,
                 'amount' => 25000,
                 'color' => $bronzeColor,
@@ -176,7 +170,7 @@ class FrontendController extends Controller
             'gold' => [
                 'key' => 'gold',
                 'label' => 'Tagesgeld',
-                'range' => '75.000 - 149.999 €',
+                'range' => 'ab 75.000 €',
                 'rate' => 3.10,
                 'amount' => 75000,
                 'color' => '#d4a017',
@@ -189,7 +183,7 @@ class FrontendController extends Controller
             'plat' => [
                 'key' => 'plat',
                 'label' => 'Tagesgeld',
-                'range' => 'ab 150.000 € +',
+                'range' => 'ab 150.000 €',
                 'rate' => 3.30,
                 'amount' => 150000,
                 'rate_prefix' => 'ab ',

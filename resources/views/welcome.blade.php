@@ -506,10 +506,6 @@
                 </span>
               </div>
 
-              <!-- Investment Range -->
-              <div class="text-slate-900 font-extrabold text-sm mb-2 text-center bg-slate-50 py-1.5 px-3 rounded-lg border border-slate-100">
-                Anlage: {{ $tier['range'] }}
-              </div>
               
               <!-- Interest Rate Display with ab / bis zu Prefix -->
               <div class="my-4 offer-rate-badge">

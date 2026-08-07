@@ -222,8 +222,6 @@
         <div class="tier-card {{ $isFirst ? 'tier-card--featured' : '' }}"
              style="--tier-color:{{ $tier['color'] }}; --tier-glow:{{ $tier['glow'] }}; --tier-border:{{ $tier['border'] }};">
 
-          {{-- Range --}}
-          <div class="tier-range">{{ $tier['range'] }}</div>
 
           {{-- Rate --}}
           <div class="tier-rate" style="color:var(--tier-color);">
